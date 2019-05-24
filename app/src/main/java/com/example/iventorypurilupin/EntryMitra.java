@@ -1,15 +1,18 @@
 package com.example.iventorypurilupin;
 
+import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.iventorypurilupin.Network.ApiServicesMitra;
+import com.example.iventorypurilupin.Network.ApiServiceMitra;
 import com.example.iventorypurilupin.Network.InitRetrofit;
 import com.example.iventorypurilupin.response.Value;
 
@@ -25,6 +28,8 @@ public class EntryMitra extends AppCompatActivity {
     private TextInputEditText etNoTelp;
     private TextInputEditText etAlamat;
     private TextInputEditText etidDaerah;
+    public ProgressBar pbMitra;
+    private ProgressDialog progress;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,19 +41,22 @@ public class EntryMitra extends AppCompatActivity {
         etPic = findViewById(R.id.et_pic);
         etNoTelp = findViewById(R.id.et_noTelp);
         etAlamat = findViewById(R.id.et_alamat);
+        pbMitra = findViewById(R.id.pb_mitra);
         Button btnSimpan = (Button) findViewById(R.id.btn_simpan_mitra);
 
 
         btnSimpan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                progress = new ProgressDialog(EntryMitra.this);
+                progress.setCancelable(false);
+                progress.setMessage("Loading ...");
+                progress.show();
                 Tambah_mitra();
             }
         });
 
-
         judul = (TextView) findViewById(R.id.tv_judul_event);
-
 
         judul.setText("Entri Mitra");
 
@@ -56,6 +64,8 @@ public class EntryMitra extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle(String.valueOf(judul));
         getSupportActionBar().setIcon(R.drawable.back);
+
+
     }
 
     public void Tambah_mitra() {
@@ -65,16 +75,19 @@ public class EntryMitra extends AppCompatActivity {
         String noTelp = etNoTelp.getText().toString();
         String alamat = etAlamat.getText().toString();
 
-        ApiServicesMitra api = InitRetrofit.getInstanceEntri();
+        ApiServiceMitra api = InitRetrofit.getInstanceEntri();
         Call<Value> EntriCall = api.insert_mitra(id_mitra, daerah_mitra, PIC, noTelp, alamat);
         EntriCall.enqueue(new Callback<Value>() {
             @Override
             public void onResponse(Call<Value> call, Response<Value> response) {
+                assert response.body() != null;
                 String value = response.body().getValue();
                 String message = response.body().getMessage();
 
                 if (value.equals("1")) {
-                    Toast.makeText(EntryMitra.this, message, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(EntryMitra.this, message, Toast.LENGTH_LONG).show();
+                    Intent intent = new Intent(EntryMitra.this, Mitra.class);
+                    startActivity(intent);
                 } else {
                     Toast.makeText(EntryMitra.this, message, Toast.LENGTH_SHORT).show();
                 }

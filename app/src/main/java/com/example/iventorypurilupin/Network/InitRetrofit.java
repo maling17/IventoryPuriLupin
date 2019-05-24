@@ -16,7 +16,7 @@ public class InitRetrofit {
                 public static ApiService getInstance(){
         return setInit().create(ApiService.class);
     }
-    public static ApiServicesMitra getInstanceEntri(){
-        return setInit().create(ApiServicesMitra.class);
+    public static ApiServiceMitra getInstanceEntri(){
+        return setInit().create(ApiServiceMitra.class);
     }
 }

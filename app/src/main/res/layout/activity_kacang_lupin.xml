@@ -3,98 +3,103 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-   android:orientation="vertical"
+    android:orientation="vertical"
     tools:context=".KacangLupin"
+    android:background="#f4f4f4"
     tools:targetApi="o">
-    <include layout="@layout/actionbar"/>
 
+    <include layout="@layout/actionbar" />
 
-    <LinearLayout
-        android:layout_marginHorizontal="@dimen/activity_horizontal_margin"
-        android:layout_marginVertical="@dimen/activity_vertical_margin"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:orientation="vertical">
+        android:layout_height="wrap_content">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:orientation="horizontal">
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginEnd="50dp"
-                android:layout_marginStart="50dp">
-
-                <ImageButton
-                    android:id="@+id/iv_whole"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="#fff"
-                    android:padding="10dp"
-                    android:src="@drawable/whole" />
-
-                <TextView
-                    android:textColor="#000"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:fontFamily="@font/javatext"
-                    android:text="Kacang Whole" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <ImageButton
-                    android:id="@+id/iv_split"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="#fff"
-                    android:padding="10dp"
-                    android:src="@drawable/split" />
-
-                <TextView
-                    android:textColor="#000"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:fontFamily="@font/javatext"
-                    android:text="Kacang Split" />
-            </LinearLayout>
-
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
+            android:layout_marginHorizontal="@dimen/activity_horizontal_margin"
+            android:layout_marginVertical="@dimen/activity_vertical_margin"
             android:orientation="vertical">
 
-            <ImageButton
-                android:id="@+id/iv_flake"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#fff"
-                android:padding="10dp"
-                android:src="@drawable/flake" />
+                android:layout_gravity="center"
+                android:orientation="horizontal">
 
-            <TextView
-                android:textColor="#000"
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="50dp"
+                    android:orientation="vertical">
+
+                    <ImageButton
+                        android:id="@+id/iv_whole"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="#fff"
+                        android:padding="10dp"
+                        android:src="@drawable/whole" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/javatext"
+                        android:text="Kacang Whole"
+                        android:textColor="#000" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <ImageButton
+                        android:id="@+id/iv_split"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="#fff"
+                        android:padding="10dp"
+                        android:src="@drawable/split" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/javatext"
+                        android:text="Kacang Split"
+                        android:textColor="#000" />
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:fontFamily="@font/javatext"
-                android:text="Kacang flake" />
+                android:orientation="vertical">
+
+                <ImageButton
+                    android:id="@+id/iv_flake"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#fff"
+                    android:padding="10dp"
+                    android:src="@drawable/flake" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/javatext"
+                    android:text="Kacang flake"
+                    android:textColor="#000" />
+            </LinearLayout>
         </LinearLayout>
-    </LinearLayout>
 
-
+    </ScrollView>
 </LinearLayout>

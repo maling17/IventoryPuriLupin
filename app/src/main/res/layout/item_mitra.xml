@@ -10,20 +10,44 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/activity_horizontal_margin"
         android:layout_marginVertical="@dimen/activity_vertical_margin"
+        android:background="@drawable/borderline"
         android:orientation="vertical"
         tools:targetApi="o">
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
             android:orientation="horizontal">
 
             <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/javatext"
+                android:text="@string/id_mitra"
                 android:textColor="#000"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/tv_idmitra"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/javatext"
+                android:text="@string/id_daerah"
+                android:textColor="#000"
+                android:textSize="15sp" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:orientation="horizontal">
+
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/javatext"
                 android:text="@string/daerah"
+                android:textColor="#000"
                 android:textSize="15sp" />
 
             <TextView
@@ -39,70 +63,72 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
             android:orientation="horizontal">
 
             <TextView
-                android:textColor="#000"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/javatext"
                 android:text="@string/pic"
+                android:textColor="#000"
                 android:textSize="15sp" />
 
             <TextView
-                android:textColor="#000"
                 android:id="@+id/tv_pic"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/javatext"
                 android:text="@string/person_in_charge"
+                android:textColor="#000"
                 android:textSize="15sp" />
         </LinearLayout>
 
         <LinearLayout
-
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
             android:orientation="horizontal">
 
             <TextView
-                android:textColor="#000"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/javatext"
                 android:text="@string/no_telp"
+                android:textColor="#000"
                 android:textSize="15sp" />
 
             <TextView
-                android:textColor="#000"
                 android:id="@+id/tv_telp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/javatext"
                 android:text="@string/no_telp1"
+                android:textColor="#000"
                 android:textSize="15sp" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
             android:orientation="horizontal">
 
             <TextView
-                android:textColor="#000"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/javatext"
                 android:text="@string/alamat"
+                android:textColor="#000"
                 android:textSize="15sp" />
 
             <TextView
-                android:textColor="#000"
                 android:id="@+id/tv_alamat"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/javatext"
                 android:text="alamat"
+                android:textColor="#000"
                 android:textSize="15sp" />
         </LinearLayout>
 

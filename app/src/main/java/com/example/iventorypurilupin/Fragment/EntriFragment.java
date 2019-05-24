@@ -8,10 +8,12 @@ import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
+import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.iventorypurilupin.KacangLupin;
 import com.example.iventorypurilupin.Mitra;
@@ -77,11 +79,18 @@ public class EntriFragment extends Fragment implements View.OnClickListener {
 
 
         View v = inflater.inflate(R.layout.fragment_entri, container, false);
+
         Toolbar toolbar = getActivity().findViewById(R.id.toolbar);
         ImageButton ibMitra=v.findViewById(R.id.ib_mitra);
         ImageButton ibKacang=v.findViewById(R.id.ib_kacang_lupin);
 
         ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getContext(), "Notifikasi", Toast.LENGTH_SHORT).show();
+            }
+        });
         ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(String.valueOf(judul));
         ((AppCompatActivity) getActivity()).getSupportActionBar().setIcon(R.drawable.notif);
 
@@ -124,6 +133,8 @@ public class EntriFragment extends Fragment implements View.OnClickListener {
         Intent intent =new Intent(getActivity(), Mitra.class);
         startActivity(intent);
     }
+
+
 
 
     /**

@@ -2,7 +2,9 @@ package com.example.iventorypurilupin;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -32,19 +34,35 @@ public class Mitra extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mitra);
 
+        final SwipeRefreshLayout srlMitra = findViewById(R.id.srl_mitra);
         judul = (TextView) findViewById(R.id.tv_judul_event);
         rv_mitra = findViewById(R.id.rv_mitra);
         rv_mitra.setHasFixedSize(true);
         rv_mitra.setLayoutManager(new LinearLayoutManager(this));
-        FloatingActionButton fabMitra=findViewById(R.id.fab_entri_mitra);
+        FloatingActionButton fabMitra = findViewById(R.id.fab_entri_mitra);
         fabMitra.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(Mitra.this,EntryMitra.class);
+                Intent intent = new Intent(Mitra.this, EntryMitra.class);
                 startActivity(intent);
             }
         });
 
+        srlMitra.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+
+                // Handler untuk menjalankan jeda selama 5 detik
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        tampilmitra();
+                        // Berhenti berputar/refreshing
+                        srlMitra.setRefreshing(false);
+                    }
+                }, 5000);
+            }
+        });
 
         judul.setText("Mitra");
 

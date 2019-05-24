@@ -60,4 +60,6 @@
     <string name="nomorTelepon">Nomor Telepon</string>
     <string name="simpan">Simpan</string>
     <string name="id_daerah">Id mitra</string>
+    <string name="ubah">Ubah</string>
+    <string name="id_mitra">Id Mitra:</string>
 </resources>

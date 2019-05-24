@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".EntryMitra">
+    tools:context=".EntryMitra"
+    >
 
     <include layout="@layout/actionbar" />
 
@@ -56,7 +57,17 @@
                 android:inputType="textPersonName" />
 
         </android.support.design.widget.TextInputLayout>
-
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:gravity="center"
+    android:layout_height="wrap_content">
+    <ProgressBar
+        android:id="@+id/pb_mitra"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+</RelativeLayout>
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
