@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimary"
+        android:outlineAmbientShadowColor="#000"
+        app:titleTextAppearance="@style/TitleBarTextAppearance"
+        tools:ignore="MissingConstraints"
+        tools:targetApi="p">
+
+        <TextView
+            android:id="@+id/tv_judul_event"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/judul_event"
+            android:textAlignment="center"
+            android:textColor="#fff"
+            android:textSize="25sp"
+            android:paddingRight="40dp"/>
+
+
+    </android.support.v7.widget.Toolbar>
+
+</RelativeLayout>

@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/home_fragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Fragment.HomeFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:id="@+id/relative"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:context=".MainActivity">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginVertical="16dp"
+                android:orientation="vertical"
+                tools:targetApi="o">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="200dp"
+                        android:layout_height="200dp"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="30dp"
+                        android:src="@drawable/logo"
+                        tools:ignore="ContentDescription" />
+
+
+                </LinearLayout>
+
+                <TableLayout
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_gravity="center">
+
+                    <TableRow
+                        android:layout_width="250dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/borderline"
+                            android:fontFamily="@font/javatext"
+                            android:padding="5dp"
+                            android:text="@string/Produk"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/borderline"
+                            android:fontFamily="@font/javatext"
+                            android:padding="5dp"
+                            android:text="@string/jumlah_stok"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+                    </TableRow>
+
+                    <TableRow>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/borderline"
+                            android:textAlignment="center"
+                            android:text="@string/whole"
+                            android:textSize="18sp"
+                            android:fontFamily="@font/javatext"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/angka_whole"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/borderline"
+
+                            android:text="0"
+                            android:textAlignment="center"
+                            android:fontFamily="@font/javatext"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+
+                    </TableRow>
+
+                    <TableRow>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/borderline"
+                            android:textAlignment="center"
+                            android:text="@string/splt"
+                            android:textSize="18sp"
+                            android:fontFamily="@font/javatext"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/angka_split"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/borderline"
+
+                            android:text="0"
+                            android:textAlignment="center"
+                            android:textSize="18sp"
+                            android:fontFamily="@font/javatext"
+                            android:textStyle="bold" />
+
+
+                    </TableRow>
+
+                    <TableRow>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/borderline"
+                            android:textAlignment="center"
+                            android:text="@string/flake"
+                            android:textSize="18sp"
+                            android:fontFamily="@font/javatext"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/angka_flake"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/borderline"
+                            android:text="0"
+                            android:textAlignment="center"
+                            android:textSize="18sp"
+                            android:fontFamily="@font/javatext"
+                            android:textStyle="bold" />
+
+
+                    </TableRow>
+                </TableLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btn_simpan"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/buttonshape"
+                        android:padding="5dp"
+                        android:text="@string/pesan"
+                        android:textColor="#fff"
+                        android:textSize="13sp" />
+
+                    <Button
+                        android:id="@+id/btn_kartu_stok"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:background="@drawable/buttonshape"
+                        android:padding="10dp"
+                        android:text="@string/kartu_stok"
+                        android:textColor="#fff"
+                        android:textSize="13sp"
+                        tools:ignore="ButtonStyle" />
+
+                    <Button
+                        android:id="@+id/btn_antrian_barang"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:background="@drawable/buttonshape"
+                        android:padding="11dp"
+                        android:text="@string/antrian_barang"
+                        android:textColor="#fff"
+                        android:textSize="13sp"
+                        tools:ignore="ButtonStyle" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+</FrameLayout>

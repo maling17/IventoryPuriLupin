@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".KartuStok"
+    tools:targetApi="o">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <include layout="@layout/actionbar" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="@dimen/activity_horizontal_margin"
+            android:layout_marginVertical="@dimen/activity_vertical_margin">
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TableLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TableRow>
+
+                            <TextView
+                                android:background="@drawable/borderline"
+                                android:fontFamily="@font/javatext"
+                                android:padding="5dp"
+                                android:text="Tanggal" />
+
+                            <TextView
+                                android:background="@drawable/borderline"
+                                android:fontFamily="@font/javatext"
+                                android:padding="5dp"
+                                android:text="W.Awal" />
+
+                            <TextView
+                                android:background="@drawable/borderline"
+                                android:fontFamily="@font/javatext"
+                                android:padding="5dp"
+                                android:text="W.Ambil" />
+
+                            <TextView
+                                android:background="@drawable/borderline"
+                                android:fontFamily="@font/javatext"
+                                android:padding="5dp"
+                                android:text="W.Akhir" />
+
+                            <TextView
+                                android:background="@drawable/borderline"
+                                android:fontFamily="@font/javatext"
+                                android:padding="5dp"
+                                android:text="S.Awal" />
+
+                            <TextView
+                                android:background="@drawable/borderline"
+                                android:fontFamily="@font/javatext"
+                                android:padding="5dp"
+                                android:text="S.Masuk" />
+
+                            <TextView
+                                android:background="@drawable/borderline"
+                                android:fontFamily="@font/javatext"
+                                android:padding="5dp"
+                                android:text="S.Akhir" />
+
+                        </TableRow>
+
+                        <TableRow>
+
+                            <TextView
+                                android:background="@drawable/borderline"
+                                android:fontFamily="@font/javatext"
+                                android:padding="5dp" />
+
+                            <TextView
+                                android:background="@drawable/borderline"
+                                android:fontFamily="@font/javatext"
+                                android:padding="5dp" />
+
+                            <TextView
+                                android:background="@drawable/borderline"
+                                android:fontFamily="@font/javatext"
+                                android:padding="5dp" />
+
+                            <TextView
+                                android:background="@drawable/borderline"
+                                android:fontFamily="@font/javatext"
+                                android:padding="5dp" />
+
+                            <TextView
+                                android:background="@drawable/borderline"
+                                android:fontFamily="@font/javatext"
+                                android:padding="5dp" />
+
+                            <TextView
+                                android:background="@drawable/borderline"
+                                android:fontFamily="@font/javatext"
+                                android:padding="5dp" />
+
+                            <TextView
+                                android:background="@drawable/borderline"
+                                android:fontFamily="@font/javatext"
+                                android:padding="5dp" />
+
+                        </TableRow>
+                    </TableLayout>
+
+                </HorizontalScrollView>
+            </ScrollView>
+
+        </LinearLayout>
+    </LinearLayout>
+
+</android.support.v4.widget.SwipeRefreshLayout>

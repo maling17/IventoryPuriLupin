@@ -1,0 +1,85 @@
+package com.example.iventorypurilupin;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
+import android.util.Log;
+import android.view.View;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.example.iventorypurilupin.Network.ApiService;
+import com.example.iventorypurilupin.Network.InitRetrofit;
+import com.example.iventorypurilupin.response.MitraItem;
+import com.example.iventorypurilupin.response.Response;
+
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+
+public class Mitra extends AppCompatActivity {
+
+    private TextView judul;
+    private RecyclerView rv_mitra;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_mitra);
+
+        judul = (TextView) findViewById(R.id.tv_judul_event);
+        rv_mitra = findViewById(R.id.rv_mitra);
+        rv_mitra.setHasFixedSize(true);
+        rv_mitra.setLayoutManager(new LinearLayoutManager(this));
+        FloatingActionButton fabMitra=findViewById(R.id.fab_entri_mitra);
+        fabMitra.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(Mitra.this,EntryMitra.class);
+                startActivity(intent);
+            }
+        });
+
+
+        judul.setText("Mitra");
+
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle(String.valueOf(judul));
+        getSupportActionBar().setIcon(R.drawable.back);
+        tampilmitra();
+    }
+
+    private void tampilmitra() {
+
+        ApiService api = InitRetrofit.getInstance();
+        Call<Response> mitraCall =
+                api.requset_all_mitra();
+        mitraCall.enqueue(new Callback<Response>() {
+            @Override
+            public void onResponse(Call<Response> call, retrofit2.Response<Response> response) {
+                if (response.isSuccessful()) {
+                    Log.d("response api", response.body().toString());
+                    List<MitraItem> data_mitra = response.body().getMitra();
+                    boolean status = response.body().isStatus();
+                    if (status) {
+                        AdapterMitra adapter = new AdapterMitra(Mitra.this, data_mitra);
+                        rv_mitra.setAdapter(adapter);
+                    } else {
+                        Toast.makeText(Mitra.this, "Mitra tidak ada", Toast.LENGTH_LONG).show();
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Response> call, Throwable t) {
+                t.printStackTrace();
+            }
+        });
+    }
+}
