@@ -24,10 +24,10 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 class AdapterMitra extends RecyclerView.Adapter<AdapterMitra.MyViewHolder> {
-    Context context;
-    List<MitraItem> mitra;
+    private Context context;
+    private List<MitraItem> mitra;
 
-    public AdapterMitra(Context context, List<MitraItem> mitra) {
+    AdapterMitra(Context context, List<MitraItem> mitra) {
         this.context = context;
         this.mitra = mitra;
 
@@ -38,8 +38,7 @@ class AdapterMitra extends RecyclerView.Adapter<AdapterMitra.MyViewHolder> {
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View view = LayoutInflater.from(context).inflate(R.layout.item_mitra, viewGroup, false);
 
-        MyViewHolder holder = new MyViewHolder(view);
-        return holder;
+        return new MyViewHolder(view);
     }
 
     @Override
@@ -60,7 +59,7 @@ class AdapterMitra extends RecyclerView.Adapter<AdapterMitra.MyViewHolder> {
 
     }
 
-    public void showDialog(final AdapterMitra.MyViewHolder holder) {
+    private void showDialog(final AdapterMitra.MyViewHolder holder) {
 
         final AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
                 context);
@@ -91,21 +90,21 @@ class AdapterMitra extends RecyclerView.Adapter<AdapterMitra.MyViewHolder> {
                 .setNegativeButton("Delete", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
 
-                       alertDialogBuilder.setMessage("apakah anda yakin ingin menghapus?")
-                               .setPositiveButton("YA", new DialogInterface.OnClickListener() {
-                                   @Override
-                                   public void onClick(DialogInterface dialog, int which) {
-                                       hapus_mitra(holder);
-                                       showDialog(holder);
-                                       dialog.cancel();
-                                   }
-                               })
-                       .setNegativeButton("TIDAK", new DialogInterface.OnClickListener() {
-                           @Override
-                           public void onClick(DialogInterface dialog, int which) {
-                               dialog.cancel();
-                           }
-                       });
+                        alertDialogBuilder.setMessage("apakah anda yakin ingin menghapus?")
+                                .setPositiveButton("YA", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        hapus_mitra(holder);
+                                        showDialog(holder);
+                                        dialog.cancel();
+                                    }
+                                })
+                                .setNegativeButton("TIDAK", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        dialog.cancel();
+                                    }
+                                });
                         // membuat alert dialog dari builder
                         AlertDialog alertDialog = alertDialogBuilder.create();
 
@@ -127,7 +126,41 @@ class AdapterMitra extends RecyclerView.Adapter<AdapterMitra.MyViewHolder> {
         return mitra.size();
     }
 
-    public class MyViewHolder extends RecyclerView.ViewHolder {
+    private void hapus_mitra(MyViewHolder holder) {
+        String id_mitra = holder.tvIdDaerah.getText().toString();
+
+        ApiServiceMitra api = InitRetrofit.getInstanceEntri();
+        Call<Value> hapusCall = api.hapus(id_mitra);
+        hapusCall.enqueue(new Callback<Value>() {
+            @Override
+            public void onResponse(@NonNull Call<Value> call, @NonNull Response<Value> response) {
+
+                String value = null;
+                if (response.body() != null) {
+                    value = response.body().getValue();
+                }
+                String message = null;
+                if (response.body() != null) {
+                    message = response.body().getMessage();
+                }
+                if (value != null) {
+                    if (value.equals("1")) {
+                        Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<Value> call, @NonNull Throwable t) {
+                t.printStackTrace();
+                Toast.makeText(context, "Jaringan Error!", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    class MyViewHolder extends RecyclerView.ViewHolder {
 
         private final TextView tvDaerah;
         private final TextView tvPIC;
@@ -135,7 +168,7 @@ class AdapterMitra extends RecyclerView.Adapter<AdapterMitra.MyViewHolder> {
         private final TextView tvAlamat;
         private final TextView tvIdDaerah;
 
-        public MyViewHolder(View view) {
+        MyViewHolder(View view) {
             super(view);
             tvIdDaerah = view.findViewById(R.id.tv_idmitra);
             tvDaerah = view.findViewById(R.id.tv_daerah);
@@ -145,31 +178,5 @@ class AdapterMitra extends RecyclerView.Adapter<AdapterMitra.MyViewHolder> {
 
 
         }
-    }
-
-    public void hapus_mitra(MyViewHolder holder) {
-        String id_mitra = holder.tvIdDaerah.getText().toString();
-
-        ApiServiceMitra api = InitRetrofit.getInstanceEntri();
-        Call<Value> hapusCall = api.hapus(id_mitra);
-        hapusCall.enqueue(new Callback<Value>() {
-            @Override
-            public void onResponse(Call<Value> call, Response<Value> response) {
-
-                String value = response.body().getValue();
-                String message = response.body().getMessage();
-                if (value.equals("1")) {
-                    Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
-                } else {
-                    Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
-                }
-            }
-
-            @Override
-            public void onFailure(Call<Value> call, Throwable t) {
-                t.printStackTrace();
-                Toast.makeText(context, "Jaringan Error!", Toast.LENGTH_SHORT).show();
-            }
-        });
     }
 }
