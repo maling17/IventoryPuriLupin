@@ -33,14 +33,14 @@
             android:layout_height="wrap_content"
             android:text="Nama : Flake Lupin "
             android:fontFamily="@font/javatext"
-            android:textSize="22sp"
+            android:textSize="20sp"
             android:textColor="#000"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/deskripsi_flake"
             android:fontFamily="@font/javatext"
-            android:textSize="22sp"
+            android:textSize="20sp"
             android:textColor="#000"
             android:textStyle=""/>
     </LinearLayout>
