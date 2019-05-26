@@ -63,4 +63,17 @@
     <string name="ubah">Ubah</string>
     <string name="id_mitra">Id Mitra:</string>
     <string name="nama_whole_lupin">Nama : Whole Lupin</string>
+    <string name="nomor_permintaan">Nomor Permintaan</string>
+    <string name="split">Split</string>
+    <string name="karung">Karung</string>
+    <string name="tanggal_permintaan">Tanggal Permintaan</string>
+    <string name="tujuan">Tujuan</string>
+    <string name="nomor_sj">Nomor Surat Jalan</string>
+    <string name="tanggal_keluar">Tanggal Keluar</string>
+    <string name="tgl_olah">Tanggal Olah</string>
+    <string name="kuantitas">Kuantitas</string>
+    <string name="no_po">Nomor PO</string>
+    <string name="tgl_masuk">Tanggal Masuk</string>
+
+
 </resources>
