@@ -1,9 +1,11 @@
-package com.example.iventorypurilupin;
+package com.example.iventorypurilupin.Kacang;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.widget.TextView;
+
+import com.example.iventorypurilupin.R;
 
 public class KacangWhole extends AppCompatActivity {
 

@@ -1,4 +1,4 @@
-package com.example.iventorypurilupin;
+package com.example.iventorypurilupin.Mitra;
 
 import android.content.Context;
 import android.content.DialogInterface;
@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import com.example.iventorypurilupin.Network.ApiServiceMitra;
 import com.example.iventorypurilupin.Network.InitRetrofit;
+import com.example.iventorypurilupin.R;
 import com.example.iventorypurilupin.response.MitraItem;
 import com.example.iventorypurilupin.response.Value;
 

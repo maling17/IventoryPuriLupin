@@ -1,6 +1,7 @@
 package com.example.iventorypurilupin.Fragment;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -9,8 +10,14 @@ import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.example.iventorypurilupin.Gudang.EntriOlahWhole;
+import com.example.iventorypurilupin.Gudang.EntriWhole;
+import com.example.iventorypurilupin.Gudang.EntrySplitFlake;
+import com.example.iventorypurilupin.Gudang.FormPermintaan;
+import com.example.iventorypurilupin.Gudang.SuratJalan;
 import com.example.iventorypurilupin.R;
 
 
@@ -77,8 +84,52 @@ public class GudangFragment extends Fragment {
         ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
         ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(String.valueOf(judul));
         ((AppCompatActivity) getActivity()).getSupportActionBar().setIcon(R.drawable.notif);
+        ImageButton btnFormPermintaan = v.findViewById(R.id.ib_form_permintaan);
+        ImageButton btnSj = v.findViewById(R.id.ib_sj);
+        ImageButton btnEntri = v.findViewById(R.id.ib_entri_barang_sf);
+        ImageButton btnWholeolah = v.findViewById(R.id.ib_entri_olah);
+        ImageButton btnWholeTambah=v.findViewById(R.id.ib_entri_barang_whole);
+
+        btnFormPermintaan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), FormPermintaan.class);
+                startActivity(intent);
+            }
+        });
+
+        btnSj.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), SuratJalan.class);
+                startActivity(intent);
+            }
+        });
+
+        btnEntri.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), EntrySplitFlake.class);
+                startActivity(intent);
+            }
+        });
 
 
+        btnWholeolah.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), EntriOlahWhole.class);
+                startActivity(intent);
+            }
+        });
+
+        btnWholeTambah.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getActivity(), EntriWhole.class);
+                startActivity(intent);
+            }
+        });
         return v;
     }
 

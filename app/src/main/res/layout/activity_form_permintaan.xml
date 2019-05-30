@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".FormPermintaan">
+    tools:context=".Gudang.FormPermintaan">
 
     <include layout="@layout/actionbar" />
 
@@ -109,7 +109,8 @@
         <Spinner
             android:id="@+id/sp_tujuan"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:entries="@array/tujuanmitra">
 
         </Spinner>
     </LinearLayout>

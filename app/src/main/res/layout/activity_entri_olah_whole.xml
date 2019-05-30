@@ -4,8 +4,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".EntriOlahWhole">
-    <include layout="@layout/actionbar"/>
+    tools:context=".Gudang.EntriOlahWhole">
+
+    <include layout="@layout/actionbar" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -17,7 +19,19 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="vertical">
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/et_id_pengolahan"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/id_pengolahan"
+                    android:inputType="text" />
+            </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
                 android:layout_width="wrap_content"
@@ -25,7 +39,7 @@
                 android:layout_marginBottom="10dp">
 
                 <android.support.design.widget.TextInputEditText
-                    android:id="@+id/tgl_olah"
+                    android:id="@+id/et_tgl_olah"
                     android:layout_width="200dp"
                     android:layout_height="wrap_content"
                     android:hint="@string/tgl_olah"
@@ -45,7 +59,7 @@
                 android:layout_marginBottom="10dp">
 
                 <android.support.design.widget.TextInputEditText
-                    android:id="@+id/et_kuantitas_olah"
+                    android:id="@+id/et_qty_olah"
                     android:layout_width="200dp"
                     android:layout_height="wrap_content"
                     android:hint="@string/kuantitas"
@@ -64,11 +78,11 @@
 
         <Button
             android:id="@+id/btn_simpan_olah"
-            android:background="@drawable/buttonshape"
-            android:textColor="#fff"
-            android:text="@string/simpan"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:background="@drawable/buttonshape"
+            android:text="@string/simpan"
+            android:textColor="#fff" />
     </LinearLayout>
 
 </LinearLayout>

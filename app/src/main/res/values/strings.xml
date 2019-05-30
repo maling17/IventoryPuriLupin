@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Iventory</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
@@ -44,7 +44,6 @@
     <string name="barang_whole">Barang Whole</string>
     <string name="entri_barang_whole">Entri Barang Whole</string>
     <string name="jumlah">jumlah</string>
-    <string name="tujuan">Tujuan</string>
     <string name="kirim">Kirim</string>
     <string name="deskripsi_whole">Dekripsi : Produk hasil petik dari para petani tanpa mengalami proses apapun. Produk ini biasa digunakan sebagai bahan baku pembuatan tahu.</string>
     <string name="deskripsi_split">Deskripsi:Produk ini sudah dikupas dan dibelah. Produk ini biasa digunakan sebagai bahan baku pembuatan tempe, tahu, susu, dll. Cocok sebagai bahan baku produk bernutrisi tinggi</string>
@@ -67,13 +66,19 @@
     <string name="split">Split</string>
     <string name="karung">Karung</string>
     <string name="tanggal_permintaan">Tanggal Permintaan</string>
-    <string name="tujuan">Tujuan</string>
+    <string name="tujuan" tools:ignore="ExtraTranslation">Tujuan</string>
     <string name="nomor_sj">Nomor Surat Jalan</string>
     <string name="tanggal_keluar">Tanggal Keluar</string>
     <string name="tgl_olah">Tanggal Olah</string>
     <string name="kuantitas">Kuantitas</string>
     <string name="no_po">Nomor PO</string>
     <string name="tgl_masuk">Tanggal Masuk</string>
+    <string name="id_pengolahan">Id Pengolahan</string>
+    <string name="id_penerimaan">Id Penerimaan</string>
 
-
+    <string-array name="tujuanmitra">
+    <item>Salatiga</item>
+    <item>Yogyakarta</item>
+    <item>Jakarta</item>
+</string-array>
 </resources>

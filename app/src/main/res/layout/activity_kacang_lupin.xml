@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".KacangLupin"
+    tools:context=".Kacang.KacangLupin"
     android:background="#f4f4f4"
     tools:targetApi="o">
 

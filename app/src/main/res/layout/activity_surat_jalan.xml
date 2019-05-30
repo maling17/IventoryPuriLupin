@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".SuratJalan">
+    tools:context=".Gudang.SuratJalan">
 
     <include layout="@layout/actionbar" />
 
@@ -41,7 +41,7 @@
                 android:layout_marginBottom="10dp">
 
                 <android.support.design.widget.TextInputEditText
-                    android:id="@+id/et_split"
+                    android:id="@+id/et_split_sj"
                     android:layout_width="200dp"
                     android:layout_height="wrap_content"
                     android:hint="@string/split"
@@ -69,7 +69,7 @@
                 android:layout_marginBottom="10dp">
 
                 <android.support.design.widget.TextInputEditText
-                    android:id="@+id/et_flake"
+                    android:id="@+id/et_flake_sj"
                     android:layout_width="200dp"
                     android:layout_height="wrap_content"
                     android:hint="@string/flake"
@@ -109,7 +109,8 @@
         <Spinner
             android:id="@+id/sp_tujuan_sj"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:entries="@array/tujuanmitra">
 
         </Spinner>
     </LinearLayout>

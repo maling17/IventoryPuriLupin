@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".EntrySplitFlake">
+    tools:context=".Gudang.EntrySplitFlake">
 <include layout="@layout/actionbar"/>
     <LinearLayout
         android:layout_width="match_parent"
@@ -25,7 +25,7 @@
                 android:layout_marginBottom="10dp">
 
                 <android.support.design.widget.TextInputEditText
-                    android:id="@+id/et_entri_split"
+                    android:id="@+id/et_split_entri"
                     android:layout_width="200dp"
                     android:layout_height="wrap_content"
                     android:hint="@string/split"
@@ -53,7 +53,7 @@
                 android:layout_marginBottom="10dp">
 
                 <android.support.design.widget.TextInputEditText
-                    android:id="@+id/et_entri_flake"
+                    android:id="@+id/et_flake_entri"
                     android:layout_width="200dp"
                     android:layout_height="wrap_content"
                     android:hint="@string/flake"
