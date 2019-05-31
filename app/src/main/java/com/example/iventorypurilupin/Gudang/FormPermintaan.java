@@ -7,20 +7,27 @@ import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.iventorypurilupin.Network.ApiServiceGudang;
-import com.example.iventorypurilupin.Network.ApiServiceUpdateSj;
+import com.example.iventorypurilupin.Network.ApiServiceTujuan;
 import com.example.iventorypurilupin.Network.InitRetrofit;
 import com.example.iventorypurilupin.R;
 import com.example.iventorypurilupin.response.Value;
+import com.example.iventorypurilupin.response_tujuan.MitraItem;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+
+import static com.example.iventorypurilupin.R.layout.activity_form_permintaan;
 
 public class FormPermintaan extends AppCompatActivity {
 
@@ -37,7 +44,7 @@ public class FormPermintaan extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_form_permintaan);
+        setContentView(activity_form_permintaan);
 
 
         etNmrPermintaan = findViewById(R.id.et_nmr_permintaan);
@@ -65,6 +72,7 @@ public class FormPermintaan extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle(String.valueOf(judul));
         getSupportActionBar().setIcon(R.drawable.back);
+        TampilTujuan();
 
     }
 
@@ -103,5 +111,37 @@ public class FormPermintaan extends AppCompatActivity {
 
     }
 
+    private void TampilTujuan() {
+        final FormPermintaan mContext = this;
 
+        final ApiServiceTujuan apiServiceTujuan = InitRetrofit.getTujuan();
+        Call<com.example.iventorypurilupin.response_tujuan.Response> tampilCall = apiServiceTujuan.getTujuan();
+        tampilCall.enqueue(new Callback<com.example.iventorypurilupin.response_tujuan.Response>() {
+            @Override
+            public void onResponse(Call<com.example.iventorypurilupin.response_tujuan.Response> call, Response<com.example.iventorypurilupin.response_tujuan.Response> response) {
+                if (response.isSuccessful()) {
+                    List<MitraItem> tujuanItems = response.body().getMitra();
+                    List<String> listTujuan = new ArrayList<String>();
+                    for (int i = 0; i < tujuanItems.size(); i++) {
+                        listTujuan.add(tujuanItems.get(i).getDaerahMitra());
+                    }
+                    ArrayAdapter<String> adapter = new ArrayAdapter<String>(mContext, android.R.layout.simple_spinner_dropdown_item, listTujuan);
+                    adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                    spTujuan.setAdapter(adapter);
+                } else {
+                    Toast.makeText(mContext, "Gagal mengambil data dosen", Toast.LENGTH_SHORT).show();
+                }
+
+            }
+
+            @Override
+            public void onFailure(Call<com.example.iventorypurilupin.response_tujuan.Response> call, Throwable t) {
+                t.printStackTrace();
+            }
+
+
+        });
+
+
+    }
 }

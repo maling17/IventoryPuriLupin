@@ -6,16 +6,22 @@ import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.iventorypurilupin.Network.ApiServiceGudang;
+import com.example.iventorypurilupin.Network.ApiServiceTujuan;
 import com.example.iventorypurilupin.Network.ApiServiceUpdateSj;
 import com.example.iventorypurilupin.Network.InitRetrofit;
 import com.example.iventorypurilupin.R;
 import com.example.iventorypurilupin.response.Value;
+import com.example.iventorypurilupin.response_tujuan.MitraItem;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -61,19 +67,19 @@ public class SuratJalan extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle(String.valueOf(judul));
         getSupportActionBar().setIcon(R.drawable.back);
-
+        TampilTujuan();
     }
 
     public void TambahSj() {
         String idSj = etNmrSj.getText().toString();
         String tglKlr = etTglKlr.getText().toString();
         String tujuanSj = spTujuansj.getSelectedItem().toString();
-        String split_sj=etSplitSj.getText().toString();
-        String flake_sj=etFlakeSj.getText().toString();
+        String split_sj = etSplitSj.getText().toString();
+        String flake_sj = etFlakeSj.getText().toString();
 
         ApiServiceGudang api = InitRetrofit.getInstanceGudang();
 
-        Call<Value> SjCall = api.tambah_sj(idSj, tglKlr, tujuanSj,split_sj,flake_sj);
+        Call<Value> SjCall = api.tambah_sj(idSj, tglKlr, tujuanSj, split_sj, flake_sj);
         SjCall.enqueue(new Callback<Value>() {
             @Override
             public void onResponse(Call<Value> call, Response<Value> response) {
@@ -95,8 +101,9 @@ public class SuratJalan extends AppCompatActivity {
             }
         });
     }
+
     private void update_split_barang() {
-        String split_sj=etSplitSj.getText().toString();
+        String split_sj = etSplitSj.getText().toString();
 
         ApiServiceUpdateSj apiSplit = InitRetrofit.getUpdateGudang();
         Call<Value> update_split_permintaan = apiSplit.update_split_sj(split_sj);
@@ -123,7 +130,7 @@ public class SuratJalan extends AppCompatActivity {
     }
 
     private void update_flake_barang() {
-        String flake_sj=etFlakeSj.getText().toString();
+        String flake_sj = etFlakeSj.getText().toString();
 
         ApiServiceUpdateSj api = InitRetrofit.getUpdateGudang();
         Call<Value> update_flake_permintaan = api.update_flake_sj(flake_sj);
@@ -148,9 +155,40 @@ public class SuratJalan extends AppCompatActivity {
             }
         });
     }
-    private void update(){
+
+    private void update() {
         update_flake_barang();
         update_split_barang();
 
+    }
+
+    private void TampilTujuan() {
+        final SuratJalan mContext = this;
+
+        final ApiServiceTujuan apiServiceTujuan = InitRetrofit.getTujuan();
+        Call<com.example.iventorypurilupin.response_tujuan.Response> tampilCall = apiServiceTujuan.getTujuan();
+        tampilCall.enqueue(new Callback<com.example.iventorypurilupin.response_tujuan.Response>() {
+            @Override
+            public void onResponse(Call<com.example.iventorypurilupin.response_tujuan.Response> call, Response<com.example.iventorypurilupin.response_tujuan.Response> response) {
+                if (response.isSuccessful()) {
+                    List<MitraItem> tujuanItems = response.body().getMitra();
+                    List<String> listTujuan = new ArrayList<String>();
+                    for (int i = 0; i < tujuanItems.size(); i++) {
+                        listTujuan.add(tujuanItems.get(i).getDaerahMitra());
+                    }
+                    ArrayAdapter<String> adapter = new ArrayAdapter<String>(mContext, android.R.layout.simple_spinner_dropdown_item, listTujuan);
+                    adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                    spTujuansj.setAdapter(adapter);
+                } else {
+                    Toast.makeText(mContext, "Gagal mengambil data dosen", Toast.LENGTH_SHORT).show();
+                }
+
+            }
+
+            @Override
+            public void onFailure(Call<com.example.iventorypurilupin.response_tujuan.Response> call, Throwable t) {
+                t.printStackTrace();
+            }
+        });
     }
 }

@@ -53,4 +53,7 @@ public class InitRetrofit {
     public static ApiServiceUpdatePenerimaan getUpdatePenerimaan() {
         return setInit().create(ApiServiceUpdatePenerimaan.class);
     }
+    public static ApiServiceTujuan getTujuan(){
+        return setInit().create(ApiServiceTujuan.class);
+    }
 }
