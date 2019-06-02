@@ -4,17 +4,34 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.iventorypurilupin.AdapterBarang;
 import com.example.iventorypurilupin.AntrianBarang;
+import com.example.iventorypurilupin.Network.ApiService;
+import com.example.iventorypurilupin.Network.InitRetrofit;
 import com.example.iventorypurilupin.R;
+import com.example.iventorypurilupin.response_barang.BarangItem;
+import com.example.iventorypurilupin.response_barang.Responsebarang;
+
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 
 /**
@@ -36,6 +53,8 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
+    private RecyclerView rvBarang;
+    private SwipeRefreshLayout srlBarang;
 
 
     public HomeFragment() {
@@ -74,23 +93,43 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                              Bundle savedInstanceState) {
 
         View v = inflater.inflate(R.layout.fragment_home, container, false);
-        Toolbar toolbar=getActivity().findViewById(R.id.toolbar);
-        TextView judul=(TextView)getActivity().findViewById(R.id.tv_judul_event);
-        Button btnAntrian = (Button)v.findViewById(R.id.btn_antrian_barang);
+        Toolbar toolbar = getActivity().findViewById(R.id.toolbar);
+        rvBarang = v.findViewById(R.id.rv_barang);
+        rvBarang.setHasFixedSize(true);
+        rvBarang.setLayoutManager(new LinearLayoutManager(getContext()));
+        srlBarang = v.findViewById(R.id.srl_barang);
+        TextView judul = (TextView) getActivity().findViewById(R.id.tv_judul_event);
+        Button btnAntrian = (Button) v.findViewById(R.id.btn_antrian_barang);
         judul.setText("Home");
 
-        ((AppCompatActivity)getActivity()).setSupportActionBar(toolbar);
+        ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
         ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(String.valueOf(judul));
         ((AppCompatActivity) getActivity()).getSupportActionBar().setIcon(R.drawable.notif);
 
 
-            btnAntrian.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent = new Intent(getActivity(), AntrianBarang.class);
-                    startActivity(intent);
-                }
-            });
+        btnAntrian.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), AntrianBarang.class);
+                startActivity(intent);
+            }
+        });
+
+        srlBarang.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        TampilBarang();
+                        // Berhenti berputar/refreshing
+                        srlBarang.setRefreshing(false);
+                    }
+                }, 5000);
+            }
+        });
+
+        TampilBarang();
 
         return v;
     }
@@ -119,12 +158,39 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View v) {
 
-        switch (getId()){
+        switch (getId()) {
             case R.id.btn_antrian_barang:
                 Intent intent = new Intent(getActivity(), AntrianBarang.class);
                 startActivity(intent);
                 break;
         }
+    }
+
+    private void TampilBarang() {
+        ApiService apiService = InitRetrofit.getInstance();
+        Call<Responsebarang> barangCall = apiService.request_all_barang();
+        barangCall.enqueue(new Callback<Responsebarang>() {
+            @Override
+            public void onResponse(Call<Responsebarang> call, Response<Responsebarang> response) {
+                if (response.isSuccessful()) {
+                    Log.d("response Api", response.body().toString());
+                    List<BarangItem> data_barang = response.body().getBarang();
+                    boolean status = response.body().isStatus();
+                    if (status) {
+                        AdapterBarang adapterBarang = new AdapterBarang(getContext(), data_barang);
+                        rvBarang.setAdapter(adapterBarang);
+
+                    } else {
+                        Toast.makeText(getContext(), "Barang tidak ada", Toast.LENGTH_LONG).show();
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Responsebarang> call, Throwable t) {
+                t.printStackTrace();
+            }
+        });
     }
 
     /**
@@ -141,5 +207,4 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
     }
-
 }

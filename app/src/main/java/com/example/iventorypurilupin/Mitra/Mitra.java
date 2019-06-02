@@ -29,13 +29,14 @@ public class Mitra extends AppCompatActivity {
 
     private TextView judul;
     private RecyclerView rv_mitra;
+    private SwipeRefreshLayout srlMitra;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mitra);
 
-        final SwipeRefreshLayout srlMitra = findViewById(R.id.srl_mitra);
+        srlMitra = findViewById(R.id.srl_mitra);
         judul = (TextView) findViewById(R.id.tv_judul_event);
         rv_mitra = findViewById(R.id.rv_mitra);
         rv_mitra.setHasFixedSize(true);

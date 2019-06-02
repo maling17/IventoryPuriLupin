@@ -64,7 +64,7 @@
     <string name="nama_whole_lupin">Nama : Whole Lupin</string>
     <string name="nomor_permintaan">Nomor Permintaan</string>
     <string name="split">Split</string>
-    <string name="karung">Karung</string>
+    <string name="karung" tools:ignore="ExtraTranslation">Karung</string>
     <string name="tanggal_permintaan">Tanggal Permintaan</string>
     <string name="tujuan" tools:ignore="ExtraTranslation">Tujuan</string>
     <string name="nomor_sj">Nomor Surat Jalan</string>
@@ -75,6 +75,7 @@
     <string name="tgl_masuk">Tanggal Masuk</string>
     <string name="id_pengolahan">Id Pengolahan</string>
     <string name="id_penerimaan">Id Penerimaan</string>
+
 
     <string-array name="tujuanmitra">
     <item>Salatiga</item>

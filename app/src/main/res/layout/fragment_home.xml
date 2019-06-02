@@ -4,199 +4,112 @@
     android:id="@+id/home_fragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#f4f4f4"
     tools:context=".Fragment.HomeFragment">
 
-    <ScrollView
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/srl_barang"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <RelativeLayout
-            android:id="@+id/relative"
+        <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:context=".MainActivity">
+            tools:ignore="UselessParent">
 
-            <LinearLayout
+            <RelativeLayout
+                android:id="@+id/relative"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="16dp"
-                android:layout_marginVertical="16dp"
-                android:orientation="vertical"
-                tools:targetApi="o">
+
+                tools:context=".MainActivity">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginVertical="16dp"
+                    android:orientation="vertical"
+                    tools:ignore="UselessParent"
+                    tools:targetApi="o">
 
-                    <ImageView
-                        android:layout_width="200dp"
-                        android:layout_height="200dp"
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="200dp"
+                            android:layout_height="200dp"
+                            android:layout_gravity="center"
+                            android:layout_marginBottom="30dp"
+                            android:src="@drawable/logo"
+                            tools:ignore="ContentDescription" />
+
+
+                    </LinearLayout>
+
+
+                    <android.support.v7.widget.RecyclerView
+                        android:background="@drawable/background_layout"
+                        android:id="@+id/rv_barang"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:layout_marginBottom="30dp"
-                        android:src="@drawable/logo"
-                        tools:ignore="ContentDescription" />
+                        android:layout_marginVertical="0dp" />
 
+                    <!--button-->
+                    <LinearLayout
+                        android:padding="20dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/background_layout"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="100dp"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/btn_simpan"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/buttonshape"
+                            android:padding="5dp"
+                            android:text="@string/pesan"
+                            android:textColor="#fff"
+                            android:textSize="13sp"
+                            tools:ignore="ButtonStyle" />
+
+                        <Button
+                            android:id="@+id/btn_kartu_stok"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:background="@drawable/buttonshape"
+                            android:padding="10dp"
+                            android:text="@string/kartu_stok"
+                            android:textColor="#fff"
+                            android:textSize="13sp"
+                            tools:ignore="ButtonStyle" />
+
+                        <Button
+                            android:id="@+id/btn_antrian_barang"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:background="@drawable/buttonshape"
+                            android:padding="11dp"
+                            android:text="@string/antrian_barang"
+                            android:textColor="#fff"
+                            android:textSize="13sp"
+                            tools:ignore="ButtonStyle" />
+                    </LinearLayout>
+                    <!--Button-->
 
                 </LinearLayout>
 
-                <TableLayout
-                    android:layout_width="250dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_gravity="center">
+            </RelativeLayout>
 
-                    <TableRow
-                        android:layout_width="250dp">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:background="@drawable/borderline"
-                            android:fontFamily="@font/javatext"
-                            android:padding="5dp"
-                            android:text="@string/Produk"
-                            android:textSize="18sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:background="@drawable/borderline"
-                            android:fontFamily="@font/javatext"
-                            android:padding="5dp"
-                            android:text="@string/jumlah_stok"
-                            android:textSize="18sp"
-                            android:textStyle="bold" />
-                    </TableRow>
-
-                    <TableRow>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:background="@drawable/borderline"
-                            android:textAlignment="center"
-                            android:text="@string/whole"
-                            android:textSize="18sp"
-                            android:fontFamily="@font/javatext"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:id="@+id/angka_whole"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:background="@drawable/borderline"
-
-                            android:text="0"
-                            android:textAlignment="center"
-                            android:fontFamily="@font/javatext"
-                            android:textSize="18sp"
-                            android:textStyle="bold" />
-
-
-                    </TableRow>
-
-                    <TableRow>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:background="@drawable/borderline"
-                            android:textAlignment="center"
-                            android:text="@string/splt"
-                            android:textSize="18sp"
-                            android:fontFamily="@font/javatext"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:id="@+id/angka_split"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:background="@drawable/borderline"
-
-                            android:text="0"
-                            android:textAlignment="center"
-                            android:textSize="18sp"
-                            android:fontFamily="@font/javatext"
-                            android:textStyle="bold" />
-
-
-                    </TableRow>
-
-                    <TableRow>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:background="@drawable/borderline"
-                            android:textAlignment="center"
-                            android:text="@string/flake"
-                            android:textSize="18sp"
-                            android:fontFamily="@font/javatext"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:id="@+id/angka_flake"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:background="@drawable/borderline"
-                            android:text="0"
-                            android:textAlignment="center"
-                            android:textSize="18sp"
-                            android:fontFamily="@font/javatext"
-                            android:textStyle="bold" />
-
-
-                    </TableRow>
-                </TableLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:gravity="center"
-                    android:orientation="horizontal">
-
-                    <Button
-                        android:id="@+id/btn_simpan"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/buttonshape"
-                        android:padding="5dp"
-                        android:text="@string/pesan"
-                        android:textColor="#fff"
-                        android:textSize="13sp" />
-
-                    <Button
-                        android:id="@+id/btn_kartu_stok"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:background="@drawable/buttonshape"
-                        android:padding="10dp"
-                        android:text="@string/kartu_stok"
-                        android:textColor="#fff"
-                        android:textSize="13sp"
-                        tools:ignore="ButtonStyle" />
-
-                    <Button
-                        android:id="@+id/btn_antrian_barang"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:background="@drawable/buttonshape"
-                        android:padding="11dp"
-                        android:text="@string/antrian_barang"
-                        android:textColor="#fff"
-                        android:textSize="13sp"
-                        tools:ignore="ButtonStyle" />
-                </LinearLayout>
-
-            </LinearLayout>
-
-        </RelativeLayout>
-
-    </ScrollView>
-
+        </ScrollView>
+    </android.support.v4.widget.SwipeRefreshLayout>
 </FrameLayout>
