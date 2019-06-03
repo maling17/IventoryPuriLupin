@@ -50,7 +50,7 @@ public class SuratJalan extends AppCompatActivity {
         Button btnSimpanSj = findViewById(R.id.btn_simpan_sj);
         judul = (TextView) findViewById(R.id.tv_judul_event);
         progress = new ProgressDialog(this);
-        judul.setText("Form Permintaan");
+        judul.setText("Surat Jalan");
 
         btnSimpanSj.setOnClickListener(new View.OnClickListener() {
             @Override
