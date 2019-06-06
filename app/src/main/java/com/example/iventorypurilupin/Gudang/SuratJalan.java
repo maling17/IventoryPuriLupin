@@ -17,8 +17,8 @@ import com.example.iventorypurilupin.Network.ApiServiceTujuan;
 import com.example.iventorypurilupin.Network.ApiServiceUpdateSj;
 import com.example.iventorypurilupin.Network.InitRetrofit;
 import com.example.iventorypurilupin.R;
-import com.example.iventorypurilupin.response.Value;
-import com.example.iventorypurilupin.response_tujuan.MitraItem;
+import com.example.iventorypurilupin.response.response_mitra.Value;
+import com.example.iventorypurilupin.response.response_tujuan.MitraItem;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -166,10 +166,10 @@ public class SuratJalan extends AppCompatActivity {
         final SuratJalan mContext = this;
 
         final ApiServiceTujuan apiServiceTujuan = InitRetrofit.getTujuan();
-        Call<com.example.iventorypurilupin.response_tujuan.Response> tampilCall = apiServiceTujuan.getTujuan();
-        tampilCall.enqueue(new Callback<com.example.iventorypurilupin.response_tujuan.Response>() {
+        Call<com.example.iventorypurilupin.response.response_tujuan.Response> tampilCall = apiServiceTujuan.getTujuan();
+        tampilCall.enqueue(new Callback<com.example.iventorypurilupin.response.response_tujuan.Response>() {
             @Override
-            public void onResponse(Call<com.example.iventorypurilupin.response_tujuan.Response> call, Response<com.example.iventorypurilupin.response_tujuan.Response> response) {
+            public void onResponse(Call<com.example.iventorypurilupin.response.response_tujuan.Response> call, Response<com.example.iventorypurilupin.response.response_tujuan.Response> response) {
                 if (response.isSuccessful()) {
                     List<MitraItem> tujuanItems = response.body().getMitra();
                     List<String> listTujuan = new ArrayList<String>();
@@ -186,7 +186,7 @@ public class SuratJalan extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<com.example.iventorypurilupin.response_tujuan.Response> call, Throwable t) {
+            public void onFailure(Call<com.example.iventorypurilupin.response.response_tujuan.Response> call, Throwable t) {
                 t.printStackTrace();
             }
         });

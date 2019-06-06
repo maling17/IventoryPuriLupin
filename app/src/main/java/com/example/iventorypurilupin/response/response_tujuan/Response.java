@@ -1,23 +1,23 @@
-package com.example.iventorypurilupin.response_barang;
+package com.example.iventorypurilupin.response.response_tujuan;
 
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-public class Responsebarang {
+public class Response {
 
-    @SerializedName("barang")
-    private List<BarangItem> barang;
+    @SerializedName("mitra")
+    private List<MitraItem> mitra;
 
     @SerializedName("status")
     private boolean status;
 
-    public List<BarangItem> getBarang() {
-        return barang;
+    public List<MitraItem> getMitra() {
+        return mitra;
     }
 
-    public void setBarang(List<BarangItem> barang) {
-        this.barang = barang;
+    public void setMitra(List<MitraItem> mitra) {
+        this.mitra = mitra;
     }
 
     public boolean isStatus() {
@@ -31,8 +31,8 @@ public class Responsebarang {
     @Override
     public String toString() {
         return
-                "Responsebarang{" +
-                        "barang = '" + barang + '\'' +
+                "ResponsePermintaan{" +
+                        "mitra = '" + mitra + '\'' +
                         ",status = '" + status + '\'' +
                         "}";
     }

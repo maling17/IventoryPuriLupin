@@ -14,7 +14,7 @@ import com.example.iventorypurilupin.Network.ApiServiceOlah;
 import com.example.iventorypurilupin.Network.ApiServiceUpdateOlah;
 import com.example.iventorypurilupin.Network.InitRetrofit;
 import com.example.iventorypurilupin.R;
-import com.example.iventorypurilupin.response.Value;
+import com.example.iventorypurilupin.response.response_mitra.Value;
 
 import retrofit2.Call;
 import retrofit2.Callback;

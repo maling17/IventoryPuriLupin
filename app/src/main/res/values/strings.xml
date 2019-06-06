@@ -44,7 +44,7 @@
     <string name="barang_whole">Barang Whole</string>
     <string name="entri_barang_whole">Entri Barang Whole</string>
     <string name="jumlah">jumlah</string>
-    <string name="kirim">Kirim</string>
+    <string name="kirim" tools:ignore="ExtraTranslation">Kirim</string>
     <string name="deskripsi_whole">Dekripsi : Produk hasil petik dari para petani tanpa mengalami proses apapun. Produk ini biasa digunakan sebagai bahan baku pembuatan tahu.</string>
     <string name="deskripsi_split">Deskripsi:Produk ini sudah dikupas dan dibelah. Produk ini biasa digunakan sebagai bahan baku pembuatan tempe, tahu, susu, dll. Cocok sebagai bahan baku produk bernutrisi tinggi</string>
     <string name="deskripsi_flake">Deskripsi : Produk ini sudah dikupas dan dipecah menjadi serpihan kecil (menyerupai oatmeal). Produk ini memiliki kegunaan yang sangat bervarian sebagai bahan baku makanan, seperti bubur dll.</string>

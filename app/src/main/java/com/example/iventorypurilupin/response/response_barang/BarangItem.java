@@ -1,4 +1,4 @@
-package com.example.iventorypurilupin.response_barang;
+package com.example.iventorypurilupin.response.response_barang;
 
 import com.google.gson.annotations.SerializedName;
 
@@ -30,7 +30,7 @@ public class BarangItem {
     @Override
     public String toString() {
         return
-                "BarangItem{" +
+                "AntrianItem{" +
                         "stok = '" + stok + '\'' +
                         ",jenis_brg = '" + jenisBrg + '\'' +
                         "}";

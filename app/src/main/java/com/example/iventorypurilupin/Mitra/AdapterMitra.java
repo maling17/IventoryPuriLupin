@@ -15,8 +15,8 @@ import android.widget.Toast;
 import com.example.iventorypurilupin.Network.ApiServiceMitra;
 import com.example.iventorypurilupin.Network.InitRetrofit;
 import com.example.iventorypurilupin.R;
-import com.example.iventorypurilupin.response.MitraItem;
-import com.example.iventorypurilupin.response.Value;
+import com.example.iventorypurilupin.response.response_mitra.MitraItem;
+import com.example.iventorypurilupin.response.response_mitra.Value;
 
 import java.util.List;
 

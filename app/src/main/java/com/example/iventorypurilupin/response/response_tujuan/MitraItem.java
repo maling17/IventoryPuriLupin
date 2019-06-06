@@ -1,4 +1,4 @@
-package com.example.iventorypurilupin.response_tujuan;
+package com.example.iventorypurilupin.response.response_tujuan;
 
 import com.google.gson.annotations.SerializedName;
 

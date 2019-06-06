@@ -1,4 +1,4 @@
-package com.example.iventorypurilupin.response;
+package com.example.iventorypurilupin.response.response_mitra;
 
 public class Value {String value;
     String message;

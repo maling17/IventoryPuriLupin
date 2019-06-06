@@ -24,8 +24,8 @@ import com.example.iventorypurilupin.AntrianBarang;
 import com.example.iventorypurilupin.Network.ApiService;
 import com.example.iventorypurilupin.Network.InitRetrofit;
 import com.example.iventorypurilupin.R;
-import com.example.iventorypurilupin.response_barang.BarangItem;
-import com.example.iventorypurilupin.response_barang.Responsebarang;
+import com.example.iventorypurilupin.response.response_barang.BarangItem;
+import com.example.iventorypurilupin.response.response_barang.Responsebarang;
 
 import java.util.List;
 

@@ -5,7 +5,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class InitRetrofit {
 
-    private static String API_URL = "http://192.168.0.107/Gudang/";
+    private static String API_URL = "http://192.168.1.6/Gudang/";
 
     private static Retrofit setInit() {
 
@@ -53,7 +53,12 @@ public class InitRetrofit {
     public static ApiServiceUpdatePenerimaan getUpdatePenerimaan() {
         return setInit().create(ApiServiceUpdatePenerimaan.class);
     }
-    public static ApiServiceTujuan getTujuan(){
+
+    public static ApiServiceTujuan getTujuan() {
         return setInit().create(ApiServiceTujuan.class);
+    }
+
+    public static ApiServicePermintaan getPermintaan() {
+        return setInit().create(ApiServicePermintaan.class);
     }
 }

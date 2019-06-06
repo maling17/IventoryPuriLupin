@@ -1,7 +1,7 @@
 package com.example.iventorypurilupin.Network;
 
-import com.example.iventorypurilupin.response.Response;
-import com.example.iventorypurilupin.response_barang.Responsebarang;
+import com.example.iventorypurilupin.response.response_mitra.Response;
+import com.example.iventorypurilupin.response.response_barang.Responsebarang;
 
 import retrofit2.Call;
 import retrofit2.http.GET;

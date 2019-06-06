@@ -8,9 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.iventorypurilupin.response_barang.BarangItem;
-
-import org.w3c.dom.Text;
+import com.example.iventorypurilupin.response.response_barang.BarangItem;
 
 import java.util.List;
 

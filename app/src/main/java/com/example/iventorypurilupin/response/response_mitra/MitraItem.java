@@ -1,4 +1,4 @@
-package com.example.iventorypurilupin.response;
+package com.example.iventorypurilupin.response.response_mitra;
 
 import com.google.gson.annotations.SerializedName;
 
