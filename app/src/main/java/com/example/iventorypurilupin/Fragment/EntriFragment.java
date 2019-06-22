@@ -8,6 +8,8 @@ import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
@@ -62,6 +64,14 @@ public class EntriFragment extends Fragment implements View.OnClickListener {
     }
 
     @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+
+        MenuInflater menuInflater=getActivity().getMenuInflater();
+        menuInflater.inflate(R.menu.menu_actionbar,menu);
+    }
+
+
+    @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
@@ -91,7 +101,6 @@ public class EntriFragment extends Fragment implements View.OnClickListener {
             }
         });
         ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(String.valueOf(judul));
-        ((AppCompatActivity) getActivity()).getSupportActionBar().setIcon(R.drawable.notif);
 
         ibMitra.setOnClickListener(this);
         ibKacang.setOnClickListener(new View.OnClickListener() {
@@ -105,12 +114,7 @@ public class EntriFragment extends Fragment implements View.OnClickListener {
         return v;
     }
 
-    // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
-        }
-    }
+
 
     @Override
     public void onAttach(Context context) {

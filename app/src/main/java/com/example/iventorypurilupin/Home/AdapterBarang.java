@@ -1,4 +1,4 @@
-package com.example.iventorypurilupin;
+package com.example.iventorypurilupin.Home;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.example.iventorypurilupin.R;
 import com.example.iventorypurilupin.response.response_barang.BarangItem;
 
 import java.util.List;

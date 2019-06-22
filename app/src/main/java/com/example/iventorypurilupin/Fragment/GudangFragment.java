@@ -83,7 +83,7 @@ public class GudangFragment extends Fragment {
         Toolbar toolbar = getActivity().findViewById(R.id.toolbar);
         ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
         ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(String.valueOf(judul));
-        ((AppCompatActivity) getActivity()).getSupportActionBar().setIcon(R.drawable.notif);
+
         ImageButton btnFormPermintaan = v.findViewById(R.id.ib_form_permintaan);
         ImageButton btnSj = v.findViewById(R.id.ib_sj);
         ImageButton btnEntri = v.findViewById(R.id.ib_entri_barang_sf);

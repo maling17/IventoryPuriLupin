@@ -2,9 +2,13 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.iventorypurilupin">
 
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
+        android:name=".App.AppController"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -12,29 +16,125 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Gudang.EntriWhole"></activity>
-        <activity android:name=".Gudang.EntriOlahWhole" />
-        <activity android:name=".Gudang.EntrySplitFlake" />
-        <activity android:name=".Gudang.SuratJalan" />
-        <activity android:name=".Gudang.FormPermintaan" />
-        <activity android:name=".Mitra.UpdateMitra" />
-        <activity android:name=".Mitra.EntryMitra" />
-        <activity android:name=".Mitra.Mitra" />
-        <activity android:name=".Kacang.KacangFlake" />
-        <activity android:name=".Kacang.KacangSplit" />
-        <activity android:name=".Kacang.KacangWhole" />
-        <activity android:name=".Kacang.KacangLupin" />
-        <activity android:name=".KartuStok" />
-        <activity android:name=".AntrianBarang" />
-        <activity
-            android:name=".MainActivity"
-            android:label="@string/app_name">
+        <activity android:name=".Notifikasi"></activity>
+        <activity android:name=".Login" />
+        <activity android:name=".Splash_Screen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".EntryLapPengiriman" />
+        <activity android:name=".LaporanPengiriman" />
+        <activity
+            android:name=".Gudang.EntriWhole"
+            android:label="@string/entri_barang_whole"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity
+            android:name=".Gudang.EntriOlahWhole"
+            android:label="Entri Whole"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity
+            android:name=".Gudang.EntrySplitFlake"
+            android:label="Entri Split"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity
+            android:name=".Gudang.SuratJalan"
+            android:label="Entri SJ"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity
+            android:name=".Gudang.FormPermintaan"
+            android:label="Entri Form Permintaan"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity
+            android:name=".Mitra.UpdateMitra"
+            android:label="Entry Mitra"
+            android:parentActivityName=".Mitra.Mitra">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Mitra.Mitra" />
+        </activity>
+        <activity
+            android:name=".Mitra.EntryMitra"
+            android:label="Entry Mitra"
+            android:parentActivityName=".Mitra.Mitra">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Mitra.Mitra" />
+        </activity>
+        <activity
+            android:name=".Mitra.Mitra"
+            android:label="Mitra"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity
+            android:name=".Kacang.KacangFlake"
+            android:label="Kacang Flake"
+            android:parentActivityName=".Kacang.KacangLupin">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Kacang.KacangLupin" />
+        </activity>
+        <activity
+            android:name=".Kacang.KacangSplit"
+            android:label="Kacang Split"
+            android:parentActivityName=".Kacang.KacangLupin">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Kacang.KacangLupin" />
+        </activity>
+        <activity
+            android:name=".Kacang.KacangWhole"
+            android:label="Kacang Whole"
+            android:parentActivityName=".Kacang.KacangLupin">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Kacang.KacangLupin" />
+        </activity>
+        <activity
+            android:name=".Kacang.KacangLupin"
+            android:label="Kacang Lupin"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity android:name=".Home.KartuStok" />
+        <activity
+            android:name=".Home.AntrianBarang"
+            android:label="Antrian Barang"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name" />
 
         <meta-data
             android:name="preloaded_fonts"

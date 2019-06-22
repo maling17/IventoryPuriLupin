@@ -1,4 +1,4 @@
-package com.example.iventorypurilupin;
+package com.example.iventorypurilupin.Home;
 
 import android.os.Bundle;
 import android.os.Handler;
@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.example.iventorypurilupin.Network.ApiServicePermintaan;
 import com.example.iventorypurilupin.Network.InitRetrofit;
+import com.example.iventorypurilupin.R;
 import com.example.iventorypurilupin.response.response_permintaan.AntrianItem;
 import com.example.iventorypurilupin.response.response_permintaan.ResponsePermintaan;
 
@@ -42,7 +43,7 @@ public class AntrianBarang extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle(String.valueOf(judul));
-        getSupportActionBar().setIcon(R.drawable.back);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         TampilAntrian();
 
         srlAntrian.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
@@ -54,7 +55,7 @@ public class AntrianBarang extends AppCompatActivity {
                         TampilAntrian();
                         srlAntrian.setRefreshing(false);
                     }
-                },5000);
+                }, 5000);
             }
         });
 

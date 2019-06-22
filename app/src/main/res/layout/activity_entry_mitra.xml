@@ -4,8 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Mitra.EntryMitra"
-    >
+    tools:context=".Mitra.EntryMitra">
 
     <include layout="@layout/actionbar" />
 
@@ -20,6 +19,7 @@
 
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
+            android:visibility="gone"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp">
 
@@ -57,17 +57,33 @@
                 android:inputType="textPersonName" />
 
         </android.support.design.widget.TextInputLayout>
-<RelativeLayout
-    android:layout_width="match_parent"
-    android:gravity="center"
-    android:layout_height="wrap_content">
-    <ProgressBar
-        android:id="@+id/pb_mitra"
-        android:visibility="gone"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        />
-</RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+            <ProgressBar
+                android:id="@+id/pb_mitra"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone" />
+        </RelativeLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/et_noTelp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/nomorTelepon"
+                android:inputType="phone" />
+
+        </android.support.design.widget.TextInputLayout>
+
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -85,19 +101,6 @@
 
         </android.support.design.widget.TextInputLayout>
 
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp">
-
-            <android.support.design.widget.TextInputEditText
-                android:id="@+id/et_noTelp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/nomorTelepon"
-                android:inputType="phone" />
-
-        </android.support.design.widget.TextInputLayout>
 
         <Button
             android:id="@+id/btn_simpan_mitra"

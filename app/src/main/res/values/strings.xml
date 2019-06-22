@@ -21,7 +21,7 @@
     <string name="barang_masuk">Barang Masuk</string>
     <string name="barang_keluar">Barang Keluar</string>
     <string name="laporan_waktu">Laporan Waktu</string>
-    <string name="laporan_pengiriman">Laporan Pengiriman</string>
+    <string name="laporan_pengiriman" tools:ignore="ExtraTranslation">Laporan Pengiriman</string>
     <string name="split_lupin">Split Lupin</string>
     <string name="whole_lupin">Whole Lupin</string>
     <string name="flake_lupin">Flake Lupin</string>
@@ -75,11 +75,40 @@
     <string name="tgl_masuk">Tanggal Masuk</string>
     <string name="id_pengolahan">Id Pengolahan</string>
     <string name="id_penerimaan">Id Penerimaan</string>
+    <string name="pt_puri_lupin_indonusa">PT Puri Lupin Indonusa</string>
+    <string name="alamat_lupin">Ruko Taman Borobudur Jalan Rorjonggrang Blok B/5 (Perum Harapan Kita) Bencongan Kelapa Dua Tangerang 15810</string>
+    <string name="periode">Periode :</string>
+    <string name="tgl">xxxx-xx-xx</string>
+    <string name="cari">Cari</string>
+    <string name="cetak">Cetak</string>
+    <string name="tanggal">Tanggal</string>
+    <string name="id">Id</string>
+    <string name="id_laporan_sj">Id Laporan SJ</string>
 
 
     <string-array name="tujuanmitra">
-    <item>Salatiga</item>
-    <item>Yogyakarta</item>
-    <item>Jakarta</item>
-</string-array>
+        <item>Salatiga</item>
+        <item>Yogyakarta</item>
+        <item>Jakarta</item>
+    </string-array>
+
+    <string-array name="bulan">
+        <item>Bulan</item>
+        <item>01</item>
+        <item>02</item>
+        <item>03</item>
+        <item>04</item>
+        <item>05</item>
+        <item>06</item>
+        <item>07</item>
+        <item>08</item>
+        <item>09</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+
+    </string-array>
+    <string-array name="T">
+        <item>Tahun</item>
+    </string-array>
 </resources>

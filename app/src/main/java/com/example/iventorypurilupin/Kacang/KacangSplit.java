@@ -24,6 +24,7 @@ public class KacangSplit extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle(String.valueOf(judul));
-        getSupportActionBar().setIcon(R.drawable.back);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 }

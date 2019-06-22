@@ -4,7 +4,7 @@
     android:id="@+id/srl_antrian"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AntrianBarang">
+    tools:context=".Home.AntrianBarang">
 
     <LinearLayout
         android:layout_width="match_parent"

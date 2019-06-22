@@ -1,6 +1,9 @@
 package com.example.iventorypurilupin.Fragment;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -9,9 +12,14 @@ import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.iventorypurilupin.Login;
 import com.example.iventorypurilupin.R;
+
+import static com.example.iventorypurilupin.Login.TAG_ID;
+import static com.example.iventorypurilupin.Login.TAG_NAMA;
 
 
 /**
@@ -23,6 +31,9 @@ import com.example.iventorypurilupin.R;
  * create an instance of this fragment.
  */
 public class ProfileFragment extends Fragment {
+    public static final String KEY_ACTIVITY = "msg_activity";
+    public static final String KEY_ACTIVITY2 = "msg_activity2";
+    public static final String KEY_ACTIVITY3 = "msg_activity3";
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -33,6 +44,10 @@ public class ProfileFragment extends Fragment {
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
+    private TextView tvNama;
+    private TextView tvJabatan;
+    private TextView tvTlp;
+    private SharedPreferences sharedPreferences;
 
     public ProfileFragment() {
         // Required empty public constructor
@@ -65,18 +80,60 @@ public class ProfileFragment extends Fragment {
         }
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        View v = inflater.inflate(R.layout.fragment_profile, container, false);
         TextView judul = getActivity().findViewById(R.id.tv_judul_event);
         judul.setText("Profile");
 
+//        Mendapatkan nama,jabatan,tlp
+        sharedPreferences = getActivity().getSharedPreferences(Login.my_shared_preferences, Context.MODE_PRIVATE);
 
-        View v = inflater.inflate(R.layout.fragment_profile, container, false);
+        tvNama = v.findViewById(R.id.tv_nama);
+        tvJabatan = v.findViewById(R.id.tv_jabatan);
+        tvTlp = v.findViewById(R.id.tv_tlp);
+        Button btnLogout = v.findViewById(R.id.btnLogout);
+
+//        Toolbar
         Toolbar toolbar = getActivity().findViewById(R.id.toolbar);
         ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
         ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(String.valueOf(judul));
-        ((AppCompatActivity) getActivity()).getSupportActionBar().setIcon(R.drawable.notif);
+
+//        log out
+        btnLogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putBoolean(Login.session_status, false);
+                editor.putString(TAG_ID, null);
+                editor.putString(TAG_NAMA, null);
+                editor.commit();
+
+                Intent intent = new Intent(getContext(), Login.class);
+                startActivity(intent);
+            }
+        });
+
+//        set text nama,jabatan,tlp
+        try {
+            String nama = null;
+            String jabatan = null;
+            String tlp = null;
+            if (getArguments() != null) {
+                nama = getArguments().getString(KEY_ACTIVITY);
+                jabatan = getArguments().getString(KEY_ACTIVITY2);
+                tlp = getArguments().getString(KEY_ACTIVITY3);
+            }
+            tvNama.setText(nama);
+            tvJabatan.setText(jabatan);
+            tvTlp.setText(tlp);
+
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
 
 
         return v;

@@ -57,7 +57,8 @@ public class EntrySplitFlake extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         Objects.requireNonNull(getSupportActionBar()).setTitle(String.valueOf(judul));
-        getSupportActionBar().setIcon(R.drawable.back);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
     }
 
     private void UpdateSplit() {

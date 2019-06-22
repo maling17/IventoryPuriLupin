@@ -39,8 +39,9 @@ public class Mitra extends AppCompatActivity {
         srlMitra = findViewById(R.id.srl_mitra);
         judul = (TextView) findViewById(R.id.tv_judul_event);
         rv_mitra = findViewById(R.id.rv_mitra);
-        rv_mitra.setHasFixedSize(true);
         rv_mitra.setLayoutManager(new LinearLayoutManager(this));
+        rv_mitra.setHasFixedSize(true);
+
         FloatingActionButton fabMitra = findViewById(R.id.fab_entri_mitra);
         fabMitra.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,7 +72,7 @@ public class Mitra extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle(String.valueOf(judul));
-        getSupportActionBar().setIcon(R.drawable.back);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         tampilmitra();
     }
 

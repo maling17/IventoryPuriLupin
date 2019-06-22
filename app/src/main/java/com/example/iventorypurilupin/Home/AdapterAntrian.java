@@ -1,4 +1,4 @@
-package com.example.iventorypurilupin;
+package com.example.iventorypurilupin.Home;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import com.example.iventorypurilupin.Network.ApiServicePermintaan;
 import com.example.iventorypurilupin.Network.InitRetrofit;
+import com.example.iventorypurilupin.R;
 import com.example.iventorypurilupin.response.response_mitra.Value;
 import com.example.iventorypurilupin.response.response_permintaan.AntrianItem;
 

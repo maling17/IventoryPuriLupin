@@ -1,6 +1,8 @@
 package com.example.iventorypurilupin.Fragment;
 
 import android.content.Context;
+import android.content.Intent;
+import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -9,8 +11,10 @@ import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.example.iventorypurilupin.EntryLapPengiriman;
 import com.example.iventorypurilupin.R;
 
 
@@ -33,6 +37,9 @@ public class LaporanFragment extends Fragment {
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
+    private ImageButton ibLapStok;
+    private ImageButton ibLapPengiriman;
+    private ImageButton ibLapRekap;
 
     public LaporanFragment() {
         // Required empty public constructor
@@ -76,7 +83,19 @@ public class LaporanFragment extends Fragment {
         Toolbar toolbar = getActivity().findViewById(R.id.toolbar);
         ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
         ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(String.valueOf(judul));
-        ((AppCompatActivity) getActivity()).getSupportActionBar().setIcon(R.drawable.notif);
+
+
+        ibLapStok = v.findViewById(R.id.ib_lap_stok);
+        ibLapPengiriman = v.findViewById(R.id.ib_lap_pengiriman);
+        ibLapRekap = v.findViewById(R.id.ib_lap_rekap);
+
+        ibLapPengiriman.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getActivity(), EntryLapPengiriman.class);
+                startActivity(intent);
+            }
+        });
 
 
         return v;
