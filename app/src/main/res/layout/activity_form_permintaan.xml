@@ -86,17 +86,49 @@
                 android:textSize="20sp" />
         </LinearLayout>
 
-        <android.support.design.widget.TextInputLayout
+        <TextView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/javatext"
+            android:text="Tanggal"
+            android:textSize="20sp" />
 
-            <android.support.design.widget.TextInputEditText
-                android:id="@+id/et_tgl_permintaan"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/et_tanggal"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:editable="false"
+                />
+
+            <Button
+                android:id="@+id/btn_tanggal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/tanggal_permintaan"
-                android:inputType="date" />
-        </android.support.design.widget.TextInputLayout>
+                android:background="@drawable/buttonshape"
+                android:text="Tanggal"
+                android:textColor="#fff"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"></LinearLayout>
+        <!-- <android.support.design.widget.TextInputLayout
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content">
+
+             <android.support.design.widget.TextInputEditText
+                 android:id="@+id/et_tgl_permintaan"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:hint="@string/tanggal_permintaan"
+                 android:inputType="date" />
+         </android.support.design.widg-->et.TextInputLayout>
 
         <TextView
             android:layout_width="match_parent"
@@ -109,8 +141,7 @@
         <Spinner
             android:id="@+id/sp_tujuan"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            >
+            android:layout_height="wrap_content">
 
         </Spinner>
     </LinearLayout>

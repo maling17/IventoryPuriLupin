@@ -6,5 +6,5 @@ package com.example.iventorypurilupin.Network;
  */
 
 public class Server {
-    public static final String URL = "http://192.168.1.7/Gudang/";
+    public static final String URL = "http://192.168.1.10/Gudang/";
 }

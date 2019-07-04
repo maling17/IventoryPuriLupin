@@ -1,6 +1,7 @@
 package com.example.iventorypurilupin;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -33,13 +34,13 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 
-        MenuInflater menuInflater=getMenuInflater();
-        menuInflater.inflate(R.menu.menu_actionbar,menu);
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.menu_actionbar, menu);
         return true;
     }
 
-    public boolean onOptionsItemSelected(MenuItem item){
-        switch (item.getItemId()){
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
             case R.id.notifikasi:
                 Intent intent = new Intent(this, Notifikasi.class);
 
@@ -50,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
         }
         return false;
     }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,8 +67,16 @@ public class MainActivity extends AppCompatActivity {
         tvJabatan.setText(jabatan);
         tvnama.setText(nama);
         tvTlp.setText(tlp);
+        SharedPreferences sharedPreferences = getSharedPreferences(Login.my_shared_preferences, MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putBoolean(Login.session_status, false);
+        if (Login.session_status == "false"){
+
+            Intent intent=new Intent(this,Login.class);
+            startActivity(intent);
 
 
+        }
         //set Fragmentclass Arguments
         ProfileFragment profileFragment = new ProfileFragment();
 

@@ -16,9 +16,10 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/activity_horizontal_margin"
-            android:layout_marginVertical="@dimen/activity_vertical_margin">
+            android:layout_marginVertical="@dimen/activity_vertical_margin"
+            android:orientation="vertical">
 
             <ScrollView
                 android:layout_width="match_parent"
@@ -30,7 +31,7 @@
 
                     <TableLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                        android:layout_height="wrap_content">
 
                         <TableRow>
 
@@ -76,49 +77,38 @@
                                 android:padding="5dp"
                                 android:text="S.Akhir" />
 
+                            <TextView
+                                android:background="@drawable/borderline"
+                                android:fontFamily="@font/javatext"
+                                android:padding="5dp"
+                                android:text="F.Awal" />
+
+                            <TextView
+                                android:background="@drawable/borderline"
+                                android:fontFamily="@font/javatext"
+                                android:padding="5dp"
+                                android:text="F.Masuk" />
+
+                            <TextView
+                                android:background="@drawable/borderline"
+                                android:fontFamily="@font/javatext"
+                                android:padding="5dp"
+                                android:text="F.Akhir" />
+
                         </TableRow>
 
-                        <TableRow>
 
-                            <TextView
-                                android:background="@drawable/borderline"
-                                android:fontFamily="@font/javatext"
-                                android:padding="5dp" />
-
-                            <TextView
-                                android:background="@drawable/borderline"
-                                android:fontFamily="@font/javatext"
-                                android:padding="5dp" />
-
-                            <TextView
-                                android:background="@drawable/borderline"
-                                android:fontFamily="@font/javatext"
-                                android:padding="5dp" />
-
-                            <TextView
-                                android:background="@drawable/borderline"
-                                android:fontFamily="@font/javatext"
-                                android:padding="5dp" />
-
-                            <TextView
-                                android:background="@drawable/borderline"
-                                android:fontFamily="@font/javatext"
-                                android:padding="5dp" />
-
-                            <TextView
-                                android:background="@drawable/borderline"
-                                android:fontFamily="@font/javatext"
-                                android:padding="5dp" />
-
-                            <TextView
-                                android:background="@drawable/borderline"
-                                android:fontFamily="@font/javatext"
-                                android:padding="5dp" />
-
-                        </TableRow>
                     </TableLayout>
 
                 </HorizontalScrollView>
+
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/rv_whole_ks"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                    </android.support.v7.widget.RecyclerView>
             </ScrollView>
 
         </LinearLayout>

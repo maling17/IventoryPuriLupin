@@ -44,8 +44,6 @@ public class AdapterAntrian extends RecyclerView.Adapter<AdapterAntrian.MyViewHo
     @Override
     public void onBindViewHolder(@NonNull final AdapterAntrian.MyViewHolder Holder, int i) {
         Holder.tvId.setText(permintaan.get(i).getId_permintaan());
-        Holder.tvQtySplit.setText(permintaan.get(i).getSplitPermintaan());
-        Holder.tvQtyFlake.setText(permintaan.get(i).getFlakePermintaan());
         Holder.tvTujuanAntrian.setText(permintaan.get(i).getTujuan());
         Holder.btnKirim.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,6 +57,7 @@ public class AdapterAntrian extends RecyclerView.Adapter<AdapterAntrian.MyViewHo
 
     @Override
     public int getItemCount() {
+
         return permintaan.size();
     }
 

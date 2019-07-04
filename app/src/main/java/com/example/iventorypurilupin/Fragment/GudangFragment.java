@@ -19,6 +19,7 @@ import com.example.iventorypurilupin.Gudang.EntrySplitFlake;
 import com.example.iventorypurilupin.Gudang.FormPermintaan;
 import com.example.iventorypurilupin.Gudang.SuratJalan;
 import com.example.iventorypurilupin.R;
+import com.example.iventorypurilupin.TampilPermintaan;
 
 
 /**
@@ -86,7 +87,7 @@ public class GudangFragment extends Fragment {
 
         ImageButton btnFormPermintaan = v.findViewById(R.id.ib_form_permintaan);
         ImageButton btnSj = v.findViewById(R.id.ib_sj);
-        ImageButton btnEntri = v.findViewById(R.id.ib_entri_barang_sf);
+//        ImageButton btnEntri = v.findViewById(R.id.ib_entri_barang_sf);
         ImageButton btnWholeolah = v.findViewById(R.id.ib_entri_olah);
         ImageButton btnWholeTambah=v.findViewById(R.id.ib_entri_barang_whole);
 
@@ -101,18 +102,18 @@ public class GudangFragment extends Fragment {
         btnSj.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), SuratJalan.class);
+                Intent intent = new Intent(getActivity(), TampilPermintaan.class);
                 startActivity(intent);
             }
         });
 
-        btnEntri.setOnClickListener(new View.OnClickListener() {
+       /* btnEntri.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), EntrySplitFlake.class);
                 startActivity(intent);
             }
-        });
+        });*/
 
 
         btnWholeolah.setOnClickListener(new View.OnClickListener() {

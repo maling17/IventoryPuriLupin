@@ -16,7 +16,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Notifikasi"></activity>
+        <activity android:name=".TampilPermintaan"></activity>
+        <activity android:name=".Notifikasi" />
         <activity android:name=".Login" />
         <activity android:name=".Splash_Screen">
             <intent-filter>
@@ -54,10 +55,10 @@
         <activity
             android:name=".Gudang.SuratJalan"
             android:label="Entri SJ"
-            android:parentActivityName=".MainActivity">
+            android:parentActivityName=".TampilPermintaan">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity" />
+                android:value=".TampilPermintaan" />
         </activity>
         <activity
             android:name=".Gudang.FormPermintaan"

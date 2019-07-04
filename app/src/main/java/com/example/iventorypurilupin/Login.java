@@ -128,7 +128,7 @@ public class Login extends AppCompatActivity {
 
             @Override
             public void onResponse(String response) {
-                Log.e(TAG, "Login Response: " + response);
+                Log.e(TAG, "Login Response_detail_split: " + response);
                 hideDialog();
 
                 try {

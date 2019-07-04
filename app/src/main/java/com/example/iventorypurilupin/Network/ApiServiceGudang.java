@@ -14,16 +14,18 @@ public interface ApiServiceGudang {
     Call<Value> tambah_permintaan(@Field("id_permintaan") String id_permintaan,
                                   @Field("tgl_permintaan") String tgl_permintaan,
                                   @Field("tujuan") String tujuan,
-                                  @Field("split_permintaan") String split_permintaan,
-                                  @Field("flake_permintaan") String flake_permintaan);
+                                  @Field("id_mitra") String id_mitra
+    );
 
     @FormUrlEncoded
     @POST("tambah_sj.php")
-    Call<Value> tambah_sj(@Field("id_sj") String id_sj,
-                          @Field("tgl_sj") String tgl_sj,
-                          @Field("tujuan") String tujuanm,
-                          @Field("split_sj") String split_sj,
-                          @Field("flake_sj") String flake_sj);
+    Call<Value> tambah_sj(
+            @Field("id_sj") String id_sj,
+            @Field("tgl_sj") String tgl_sj,
+            @Field("tujuan") String tujuan,
+            @Field("id_permintaan") String id_permintaan,
+            @Field("split_sj") String split_sj,
+            @Field("flake_sj") String flake_sj);
 
 
 }

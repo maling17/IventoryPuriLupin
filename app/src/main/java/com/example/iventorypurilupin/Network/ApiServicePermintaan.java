@@ -15,6 +15,6 @@ public interface ApiServicePermintaan {
     @POST("hapus_permintaan.php")
     Call<Value> hapus(@Field("id_permintaan") String id_permintaan);
 
-    @GET("tampil_permintaan.php")
+    @GET("tampil_permintaan2.php")
     Call<ResponsePermintaan> request_all_permintaan();
 }

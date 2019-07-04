@@ -19,109 +19,30 @@
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp">
+            android:layout_marginBottom="10dp"
+            android:visibility="gone">
 
             <android.support.design.widget.TextInputEditText
                 android:id="@+id/et_nmr_sj"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/nomor_sj"
-                android:inputType="number" />
+                android:editable="false"
+                android:hint="@string/id_permintaan"
+                android:inputType="number"
+                tools:ignore="Deprecated" />
 
         </android.support.design.widget.TextInputLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <android.support.design.widget.TextInputLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp">
-
-                <android.support.design.widget.TextInputEditText
-                    android:id="@+id/et_split_sj"
-                    android:layout_width="200dp"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/split"
-                    android:inputType="number" />
-
-            </android.support.design.widget.TextInputLayout>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:fontFamily="@font/javatext"
-                android:text="@string/karung"
-                android:textSize="20sp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <android.support.design.widget.TextInputLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp">
-
-                <android.support.design.widget.TextInputEditText
-                    android:id="@+id/et_flake_sj"
-                    android:layout_width="200dp"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/flake"
-                    android:inputType="number" />
-
-            </android.support.design.widget.TextInputLayout>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:fontFamily="@font/javatext"
-                android:text="@string/karung"
-                android:textSize="20sp" />
-        </LinearLayout>
-
-        <android.support.design.widget.TextInputLayout
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_sj"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <android.support.design.widget.TextInputEditText
-                android:id="@+id/et_tgl_keluar"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/tanggal_keluar"
-                android:inputType="date" />
-        </android.support.design.widget.TextInputLayout>
+        </android.support.v7.widget.RecyclerView>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:fontFamily="@font/javatext"
-            android:text="@string/tujuan"
-            android:textSize="20sp" />
 
-        <Spinner
-            android:id="@+id/sp_tujuan_sj"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:entries="@array/tujuanmitra">
-
-        </Spinner>
     </LinearLayout>
 
-    <Button
-        android:id="@+id/btn_simpan_sj"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
-        android:background="@drawable/buttonshape"
-        android:text="@string/simpan"
-        android:textColor="#fff" />
+
 
 </LinearLayout>

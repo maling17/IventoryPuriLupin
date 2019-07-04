@@ -10,7 +10,15 @@ import retrofit2.http.POST;
 public interface ApiServiceUpdateOlah {
 
     @FormUrlEncoded
-    @POST ("update_whole_olah.php")
-    Call<Value> update_whole_olah (@Field("qty_olah") String qty_olah);
+    @POST("update_whole.php")
+    Call<Value> update_whole(@Field("whole") String whole);
+
+    @FormUrlEncoded
+    @POST("update_split.php")
+    Call<Value> update_split(@Field("split") String split);
+
+    @FormUrlEncoded
+    @POST("update_flake.php")
+    Call<Value> update_flake(@Field("flake") String flake);
 
 }

@@ -14,5 +14,7 @@ public interface ApiServiceOlah {
     Call<Value> tambah_pengolahan(
             @Field("id_pengolahan") String id_pengolahan,
             @Field("tgl_pengolahan") String tgl_pengolahan,
-            @Field("qty_olah") String qty_olah);
+            @Field("w_awal")String w_awal,
+            @Field("s_awal")String s_awal,
+            @Field("f_awal")String f_awal);
 }

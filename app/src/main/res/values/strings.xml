@@ -84,6 +84,10 @@
     <string name="tanggal">Tanggal</string>
     <string name="id">Id</string>
     <string name="id_laporan_sj">Id Laporan SJ</string>
+    <string name="id_permintaan">Id Permintaan</string>
+    <string name="whole_awal">Whole Awal</string>
+    <string name="split_awal">Split Awal</string>
+    <string name="flake_awal">Flake Awal</string>
 
 
     <string-array name="tujuanmitra">

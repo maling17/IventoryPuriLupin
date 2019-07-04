@@ -5,7 +5,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class InitRetrofit {
 
-    private static String API_URL = "http://192.168.1.7/Gudang/";
+    private static String API_URL = "http://192.168.1.10/Gudang/";
 
     private static Retrofit setInit() {
 
@@ -73,5 +73,37 @@ public class InitRetrofit {
     public static ApiServiceDetailPengiriman getDetail() {
 
         return setInit().create(ApiServiceDetailPengiriman.class);
+    }
+
+    public static ApiServiceDetailPermintaan getDetailPermintaan() {
+        return setInit().create(ApiServiceDetailPermintaan.class);
+    }
+
+    public static ApiServiceDetailPermintaanFlake getDetailFlake() {
+        return setInit().create(ApiServiceDetailPermintaanFlake.class);
+    }
+
+    public static ApiServicesTampilSj getTampilSj() {
+        return setInit().create(ApiServicesTampilSj.class);
+    }
+
+    public static ApiServiceDetailPengolahanWhole getDetailPengolahanWhole() {
+        return setInit().create(ApiServiceDetailPengolahanWhole.class);
+    }
+
+    public static ApiServiceDetailPengolahanSplit getDetailPengolahanSplit() {
+        return setInit().create(ApiServiceDetailPengolahanSplit.class);
+    }
+
+    public static ApiServiceDetailPengolahanFlake getDetailPengolahanFlake() {
+        return setInit().create(ApiServiceDetailPengolahanFlake.class);
+    }
+
+    public static ApiServiceFormSj getFormSj() {
+        return setInit().create(ApiServiceFormSj.class);
+    }
+
+    public static ApiServiceStokAwal getStokAwal() {
+        return setInit().create(ApiServiceStokAwal.class);
     }
 }

@@ -25,6 +25,7 @@ import android.widget.Toast;
 
 import com.example.iventorypurilupin.Home.AdapterBarang;
 import com.example.iventorypurilupin.Home.AntrianBarang;
+import com.example.iventorypurilupin.Home.KartuStok;
 import com.example.iventorypurilupin.Login;
 import com.example.iventorypurilupin.Network.ApiService;
 import com.example.iventorypurilupin.Network.InitRetrofit;
@@ -119,8 +120,9 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         TextView judul = getActivity().findViewById(R.id.tv_judul_event);
         Button btnAntrian = v.findViewById(R.id.btn_antrian_barang);
         Button btnPesan = v.findViewById(R.id.btn_pesan);
-        Button btnLogut = v.findViewById(R.id.btnLogout);
+        Button btnKartuStok=v.findViewById(R.id.btn_kartu_stok);
         sharedPreferences = getActivity().getSharedPreferences(Login.my_shared_preferences, Context.MODE_PRIVATE);
+
 
 
         Toolbar toolbar = getActivity().findViewById(R.id.toolbar);
@@ -153,6 +155,14 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
             }
         });
 
+        /*Button Kartu Stok*/
+        btnKartuStok.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getActivity(), KartuStok.class);
+                startActivity(intent);
+            }
+        });
 
         /*Refresh*/
         srlBarang.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
