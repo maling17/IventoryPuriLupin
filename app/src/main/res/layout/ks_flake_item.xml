@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+
+    tools:targetApi="o">
+
+
+
+    <TextView
+        android:id="@+id/tv_flake_awal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/borderline"
+        android:paddingVertical="10dp"
+        android:paddingStart="15dp"
+        android:paddingEnd="11.5dp"
+        android:text="F.Awal"
+        android:textAlignment="center"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/tv_flake_olah"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/borderline"
+        android:paddingVertical="10dp"
+        android:paddingStart="25dp"
+        android:paddingEnd="28.8dp"
+        android:text="F.olah"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/tv_flake_akhir"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/borderline"
+        android:paddingVertical="10dp"
+        android:paddingStart="14.5dp"
+        android:paddingEnd="16dp"
+        android:text="F.akhir"
+        android:textSize="15sp" />
+
+
+</LinearLayout>

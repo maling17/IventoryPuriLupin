@@ -97,21 +97,50 @@
 
                         </TableRow>
 
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
 
+
+                            <android.support.v7.widget.RecyclerView
+                                android:id="@+id/rv_whole_ks"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content">
+
+                            </android.support.v7.widget.RecyclerView>
+
+                            <android.support.v7.widget.RecyclerView
+                                android:id="@+id/rv_split_ks"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content">
+
+                            </android.support.v7.widget.RecyclerView>
+                            <android.support.v7.widget.RecyclerView
+                                android:id="@+id/rv_flake_ks"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content">
+
+                            </android.support.v7.widget.RecyclerView>
+
+                        </LinearLayout>
                     </TableLayout>
 
                 </HorizontalScrollView>
 
 
-                    <android.support.v7.widget.RecyclerView
-                        android:id="@+id/rv_whole_ks"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
-
-                    </android.support.v7.widget.RecyclerView>
             </ScrollView>
 
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+            </HorizontalScrollView>
+
         </LinearLayout>
+
+
     </LinearLayout>
 
 </android.support.v4.widget.SwipeRefreshLayout>

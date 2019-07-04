@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+
+    tools:targetApi="o">
+
+    <TextView
+        android:id="@+id/tv_tgl_ks"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/borderline"
+        android:paddingHorizontal="3dp"
+        android:paddingTop="15dp"
+        android:paddingBottom="10.9dp"
+        android:text="@string/tanggal"
+        android:textSize="10sp" />
+
+    <TextView
+        android:id="@+id/tv_whole_awal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/borderline"
+        android:paddingVertical="10dp"
+        android:paddingStart="15dp"
+        android:paddingEnd="18dp"
+        android:text="W.Awal"
+        android:textAlignment="center"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/tv_whole_olah"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/borderline"
+        android:paddingVertical="10dp"
+        android:paddingStart="22dp"
+        android:paddingEnd="25dp"
+        android:text="W.olah"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/tv_whole_akhir"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/borderline"
+        android:paddingVertical="10dp"
+        android:paddingStart="17dp"
+        android:paddingEnd="18.8dp"
+        android:text="W.akhir"
+        android:textSize="15sp" />
+
+
+</LinearLayout>

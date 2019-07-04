@@ -106,4 +106,13 @@ public class InitRetrofit {
     public static ApiServiceStokAwal getStokAwal() {
         return setInit().create(ApiServiceStokAwal.class);
     }
+    public static ApiServiceKSWhole getKSWhole(){
+        return setInit().create(ApiServiceKSWhole.class);
+    }
+    public static ApiServiceKSSplit getKSSplit(){
+        return setInit().create(ApiServiceKSSplit.class);
+    }
+    public static ApiServiceKSFlake getKsFlake(){
+        return setInit().create(ApiServiceKSFlake.class);
+    }
 }
