@@ -1,23 +1,19 @@
-
-
-
 <?php
 
 if($_SERVER['REQUEST_METHOD']=='POST') {
 
    $response = array();
    //mendapatkan data
-   $id_brg=$_POST['id_brg'];
-   $stok=$_POST['stok'];
-   $flake_sj=$_POST['flake_sj'];
+   
+   $whole=$_POST['whole'];
+   
 	
 
    require_once('koneksi.php');
 
-   $sql3 = "update barang set stok=stok-'$flake_sj',stok_awal=stok+'$flake_sj' where id_brg='3'";
-  
-	
-if(mysqli_query($con,$sql3)) {
+   $sql= "update barang set stok= stok - $whole,stok_awal=stok+$whole where id_brg='1';";
+
+	if(mysqli_query($con,$sql)) {
     $response["value"] = 1;
     $response["message"] = "Berhasil diperbarui";
     echo json_encode($response);

@@ -2,15 +2,15 @@
 
 require 'koneksi.php';
 
-$sql="SELECT id_mitra,daerah_mitra FROM mitra order by id_mitra";
+$sql="SELECT year(tgl_permintaan)as tahun FROM permintaan group BY year(tgl_permintaan)";
 $query= $con->query ($sql);
-$response_data=null;
-while ($data = $query->fetch_assoc()) {
- // tambahkan data yg di seleksi ke dalam array
- $response_data[] = $data;
+$tahun=null;
+while($data = $query->fetch_assoc()){
+   
+    $tahun[] = $data;
 }
 // Cek apakah datanya null ?
-if (is_null($response_data)) {
+if (is_null($tahun)) {
  // jika ya, buat status untuk response jadi false
  $status = false;
 } else {
@@ -20,7 +20,7 @@ if (is_null($response_data)) {
 // Set type header response ke Json
 header('Content-Type: application/json');
 // Bungkus data dalam array
-$response = ['status'=> $status, 'mitra' => $response_data];
+$response = ['status'=> $status, 'tahun' => $tahun];
 // tampilkan dan convert ke format json
 echo json_encode($response);
 ?>

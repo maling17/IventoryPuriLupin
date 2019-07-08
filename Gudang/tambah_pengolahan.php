@@ -1,6 +1,7 @@
 
 
 
+
 <?php
 
 if($_SERVER['REQUEST_METHOD']=='POST') {
@@ -9,8 +10,9 @@ if($_SERVER['REQUEST_METHOD']=='POST') {
    //mendapatkan data
    $id_pengolahan=$_POST['id_pengolahan'];
 	$tgl_pengolahan = $_POST['tgl_pengolahan'];
-	$qty_olah= $_POST['qty_olah'];
-	
+	$w_awal=$_POST['w_awal'];
+	$s_awal=$_POST['s_awal'];
+	$f_awal=$_POST['f_awal'];
 
    require_once('koneksi.php');
    
@@ -23,7 +25,7 @@ if($_SERVER['REQUEST_METHOD']=='POST') {
      echo json_encode($response);
    } else {
 	   
-    $sql= "INSERT INTO pengolahan(id_pengolahan,tgl_pengolahan,qty_olah) VALUES ('$id_pengolahan', '$tgl_pengolahan', '$qty_olah');";
+    $sql= "INSERT INTO pengolahan(id_pengolahan,tgl_pengolahan,w_awal,s_awal,f_awal) VALUES ('$id_pengolahan', '$tgl_pengolahan','$w_awal','$s_awal','$f_awal');";
 	
 	if(mysqli_query($con,$sql)) {
        $response["value"] = 1;

@@ -7,28 +7,21 @@ if($_SERVER['REQUEST_METHOD']=='POST') {
 
    $response = array();
    //mendapatkan data
-   $id_penerimaan=$_POST['id_penerimaan'];
-   $no_po=$_POST['no_po'];
-	$tgl_penerimaan = $_POST['tgl_penerimaan'];
-	$qty_penerimaan= $_POST['qty_penerimaan'];
-	
+   $id_permintaan=$_POST['id_permintaan'];
+	$split=$_POST['split'];
 
    require_once('koneksi.php');
-   
-   $sql = "SELECT * FROM penerimaan WHERE id_penerimaan='$id_penerimaan'";
+   //Cek npm sudah terdaftar apa belum
+   $sql = "SELECT * FROM detil_permintaan WHERE id_permintaan ='$id_permintaan'";
    $check = mysqli_fetch_array(mysqli_query($con,$sql));
    
-   if(isset($check)){
-     $response["value"] = 0;
-     $response["message"] = "oops! sudah ada!";
-     echo json_encode($response);
-   } else {
+  
 	   
-    $sql= "INSERT INTO penerimaan (id_penerimaan,tgl_penerimaan,no_po,qty_penerimaan,id_brg) VALUES ('$id_penerimaan', '$tgl_penerimaan','$no_po', '$qty_penerimaan','1');";
+    $sql= "INSERT INTO detil_permintaan (id_permintaan,id_brg,jumlah_minta) VALUES ('$id_permintaan','2', '$split');";
 	
 	if(mysqli_query($con,$sql)) {
        $response["value"] = 1;
-       $response["message"] = "Sukses Menambahkan data";
+       $response["message"] = "Sukses Menambahkan";
 		echo json_encode($response);
      } else {
        $response["value"] = 0;
@@ -36,7 +29,6 @@ if($_SERVER['REQUEST_METHOD']=='POST') {
        echo json_encode($response);
 	   
      }
-   }
    // tutup database
    mysqli_close($con);
    
@@ -45,4 +37,4 @@ if($_SERVER['REQUEST_METHOD']=='POST') {
   $response["message"] = "oops! Data gagal dimasukan!";
   echo json_encode($response);
 }
-?>	
+?>

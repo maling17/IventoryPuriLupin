@@ -7,19 +7,12 @@ if($_SERVER['REQUEST_METHOD']=='POST') {
 
    $response = array();
    //mendapatkan data
-
-$id_sj=$_GET['id_sj'];
-	
-   $tgl_sj = $_POST['tgl_sj'];
-	$tujuan= $_POST['tujuan'];
-	$split_sj= $_POST['split_sj'];
-	$flake_sj=$_POST['flake_sj'];
-	$id_permintaan=$_POST['id_permintaan'];
-	
+   $id_permintaan=$_POST['id_permintaan'];
+	$jumlah_minta=$_POST['jumlah_minta'];
 
    require_once('koneksi.php');
-   
-   $sql = "SELECT * FROM surat_jalan WHERE id_sj ='$id_sj'";
+   //Cek npm sudah terdaftar apa belum
+   $sql = "SELECT * FROM detil_permintaan WHERE id_permintaan ='$id_permintaan'";
    $check = mysqli_fetch_array(mysqli_query($con,$sql));
    
    if(isset($check)){
@@ -28,11 +21,11 @@ $id_sj=$_GET['id_sj'];
      echo json_encode($response);
    } else {
 	   
-    $sql= "INSERT INTO surat_jalan(id_sj,tgl_sj,tujuan,id_permintaan,split_sj,flake_sj) VALUES ('$id_sj','$tgl_sj', '$tujuan','$id_permintaan','$split_sj','$flake_sj');";
+    $sql= "INSERT INTO detil_permintaan (id_permintaan,id_barang,jumlah) VALUES ('$id_permintaan', '2', '$tujuan');";
 	
 	if(mysqli_query($con,$sql)) {
        $response["value"] = 1;
-       $response["message"] = "Sukses Menambahkan Surat Jalan";
+       $response["message"] = "Sukses Menambahkan";
 		echo json_encode($response);
      } else {
        $response["value"] = 0;
@@ -49,5 +42,4 @@ $id_sj=$_GET['id_sj'];
   $response["message"] = "oops! Data gagal dimasukan!";
   echo json_encode($response);
 }
-
 ?>

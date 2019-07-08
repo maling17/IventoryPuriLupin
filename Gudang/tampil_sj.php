@@ -2,8 +2,10 @@
 
 require 'koneksi.php';
 
-$sql="SELECT id_mitra,daerah_mitra FROM mitra order by id_mitra";
-$query= $con->query ($sql);
+$tgl_sj=isset($_POST['tgl_sj']);
+
+$sql="SELECT id_sj,tgl_sj,tujuan,split_sj,flake_sj FROM surat_jalan order by year(tgl_sj)";
+$query= $con->query ($sql)or die($con->error);
 $response_data=null;
 while ($data = $query->fetch_assoc()) {
  // tambahkan data yg di seleksi ke dalam array
@@ -20,7 +22,7 @@ if (is_null($response_data)) {
 // Set type header response ke Json
 header('Content-Type: application/json');
 // Bungkus data dalam array
-$response = ['status'=> $status, 'mitra' => $response_data];
+$response = ['status'=> $status, 'laporan' => $response_data];
 // tampilkan dan convert ke format json
 echo json_encode($response);
 ?>
