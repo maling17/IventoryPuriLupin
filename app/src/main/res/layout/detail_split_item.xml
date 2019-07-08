@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+
+    tools:targetApi="o">
+
+   
+
+    <TextView
+        android:id="@+id/tv_split_awal_stok"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/borderline"
+        android:paddingVertical="10dp"
+        android:paddingStart="15dp"
+        android:paddingEnd="12.5dp"
+        android:text="S.Awal"
+        android:textAlignment="center"
+        android:textSize="10sp" />
+
+    <TextView
+        android:id="@+id/tv_split_akhir_stok"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/borderline"
+        android:paddingVertical="10dp"
+        android:paddingStart="15dp"
+        android:paddingEnd="17.2dp"
+        android:text="S.akhir"
+        android:textSize="10sp" />
+
+
+</LinearLayout>

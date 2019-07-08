@@ -13,5 +13,6 @@ public interface ApiServiceDetailPengolahanSplit {
     @POST("tambah_detail_pengolahan_split.php")
     Call<Value> getSplit(@Field("id_brg") int id_brg,
                          @Field("id_pengolahan") String id_pengolahan,
-                         @Field("split") String split);
+                         @Field("split") String split,
+                         @Field("tgl_pengolahan")String tgl_pengolahan);
 }

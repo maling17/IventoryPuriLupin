@@ -16,8 +16,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.iventorypurilupin.AdapterFormSj;
-import com.example.iventorypurilupin.AdapterStokAwal;
 import com.example.iventorypurilupin.Network.ApiServiceDetailPengolahanFlake;
 import com.example.iventorypurilupin.Network.ApiServiceDetailPengolahanSplit;
 import com.example.iventorypurilupin.Network.ApiServiceDetailPengolahanWhole;
@@ -26,7 +24,6 @@ import com.example.iventorypurilupin.Network.ApiServiceStokAwal;
 import com.example.iventorypurilupin.Network.ApiServiceUpdateOlah;
 import com.example.iventorypurilupin.Network.InitRetrofit;
 import com.example.iventorypurilupin.R;
-import com.example.iventorypurilupin.response.response_form_sj.BarangItem;
 import com.example.iventorypurilupin.response.response_mitra.Value;
 import com.example.iventorypurilupin.response.response_stok_awal.Response_stok_awal;
 import com.example.iventorypurilupin.response.response_stok_awal.Stok_awal_Item;
@@ -230,9 +227,10 @@ public class EntriOlahWhole extends AppCompatActivity {
         String id_pengolahan = etIdPengolahan.getText().toString();
         int id_brg = 1;
         String whole = etWhole.getText().toString();
+        String tgl_pengolahan=etTglPengolahan.getText().toString();
 
         ApiServiceDetailPengolahanWhole api = InitRetrofit.getDetailPengolahanWhole();
-        Call<Value> WholeDetail = api.getWhole(id_brg, id_pengolahan, whole);
+        Call<Value> WholeDetail = api.getWhole(id_brg, id_pengolahan, whole,tgl_pengolahan);
         WholeDetail.enqueue(new Callback<Value>() {
             @Override
             public void onResponse(Call<Value> call, Response<Value> response) {
@@ -259,9 +257,10 @@ public class EntriOlahWhole extends AppCompatActivity {
         String id_pengolahan = etIdPengolahan.getText().toString();
         int id_brg = 2;
         String split = etSplit.getText().toString();
+        String tgl_pengolahan=etTglPengolahan.getText().toString();
 
         ApiServiceDetailPengolahanSplit api = InitRetrofit.getDetailPengolahanSplit();
-        Call<Value> SplitDetail = api.getSplit(id_brg,id_pengolahan,split);
+        Call<Value> SplitDetail = api.getSplit(id_brg,id_pengolahan,split,tgl_pengolahan);
         SplitDetail.enqueue(new Callback<Value>() {
             @Override
             public void onResponse(Call<Value> call, Response<Value> response) {
@@ -288,9 +287,9 @@ public class EntriOlahWhole extends AppCompatActivity {
         String id_pengolahan = etIdPengolahan.getText().toString();
         int id_brg = 3;
         String flake = etFlake.getText().toString();
-
+        String tgl_pengolahan=etTglPengolahan.getText().toString();
         ApiServiceDetailPengolahanFlake api = InitRetrofit.getDetailPengolahanFlake();
-        Call<Value> FlakeDetail = api.getFlake(id_brg, id_pengolahan, flake);
+        Call<Value> FlakeDetail = api.getFlake(id_brg, id_pengolahan, flake,tgl_pengolahan);
         FlakeDetail.enqueue(new Callback<Value>() {
             @Override
             public void onResponse(Call<Value> call, Response<Value> response) {

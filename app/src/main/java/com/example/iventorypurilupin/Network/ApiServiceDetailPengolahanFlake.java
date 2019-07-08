@@ -13,5 +13,6 @@ public interface ApiServiceDetailPengolahanFlake {
     @POST("tambah_detail_pengolahan_flake.php")
     Call<Value> getFlake(@Field("id_brg") int id_brg,
                          @Field("id_pengolahan") String id_pengolahan,
-                         @Field("flake") String flake);
+                         @Field("flake") String flake,
+                         @Field("tgl_pengolahan")String tgl_pengolahan);
 }

@@ -13,5 +13,6 @@ public interface ApiServiceDetailPengolahanWhole {
     @POST("tambah_detail_pengolahan_whole.php")
     Call<Value> getWhole(@Field("id_brg") int id_brg,
                          @Field("id_pengolahan") String id_pengolahan,
-                         @Field("whole") String whole);
+                         @Field("whole") String whole,
+                         @Field("tgl_pengolahan")String tgl_pengolahan);
 }

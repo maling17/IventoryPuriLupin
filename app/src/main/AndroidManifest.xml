@@ -16,7 +16,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".TampilPermintaan"></activity>
+        <activity android:name=".Laporan.DetailLapRekap"></activity>
+        <activity android:name=".Laporan.LaporanRekap" />
+        <activity android:name=".Laporan.DetailLapStok" />
+        <activity android:name=".Laporan.Laporan_Stok" />
+        <activity android:name=".Gudang.TampilPermintaan" />
         <activity android:name=".Notifikasi" />
         <activity android:name=".Login" />
         <activity android:name=".Splash_Screen">
@@ -26,8 +30,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".EntryLapPengiriman" />
-        <activity android:name=".LaporanPengiriman" />
+        <activity android:name=".Laporan.EntryLapPengiriman" />
+        <activity android:name=".Laporan.LaporanPengiriman" />
         <activity
             android:name=".Gudang.EntriWhole"
             android:label="@string/entri_barang_whole"
@@ -55,10 +59,10 @@
         <activity
             android:name=".Gudang.SuratJalan"
             android:label="Entri SJ"
-            android:parentActivityName=".TampilPermintaan">
+            android:parentActivityName=".Gudang.TampilPermintaan">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".TampilPermintaan" />
+                android:value=".Gudang.TampilPermintaan" />
         </activity>
         <activity
             android:name=".Gudang.FormPermintaan"

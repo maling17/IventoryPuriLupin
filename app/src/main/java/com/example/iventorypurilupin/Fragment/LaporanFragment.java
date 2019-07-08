@@ -2,7 +2,6 @@ package com.example.iventorypurilupin.Fragment;
 
 import android.content.Context;
 import android.content.Intent;
-import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -14,7 +13,9 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-import com.example.iventorypurilupin.EntryLapPengiriman;
+import com.example.iventorypurilupin.Laporan.EntryLapPengiriman;
+import com.example.iventorypurilupin.Laporan.LaporanRekap;
+import com.example.iventorypurilupin.Laporan.Laporan_Stok;
 import com.example.iventorypurilupin.R;
 
 
@@ -92,11 +93,24 @@ public class LaporanFragment extends Fragment {
         ibLapPengiriman.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(getActivity(), EntryLapPengiriman.class);
+                Intent intent = new Intent(getActivity(), EntryLapPengiriman.class);
                 startActivity(intent);
             }
         });
-
+        ibLapStok.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getActivity(), Laporan_Stok.class);
+                startActivity(i);
+            }
+        });
+        ibLapRekap.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent2=new Intent(getActivity(), LaporanRekap.class);
+                startActivity(intent2);
+            }
+        });
 
         return v;
     }

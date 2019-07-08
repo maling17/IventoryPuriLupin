@@ -14,14 +14,11 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.iventorypurilupin.AdapterFormSj;
 import com.example.iventorypurilupin.Network.ApiServiceFormSj;
-import com.example.iventorypurilupin.Network.ApiServiceUpdateSj;
 import com.example.iventorypurilupin.Network.InitRetrofit;
 import com.example.iventorypurilupin.R;
 import com.example.iventorypurilupin.response.response_form_sj.BarangItem;
 import com.example.iventorypurilupin.response.response_form_sj.Response_form_sj;
-import com.example.iventorypurilupin.response.response_mitra.Value;
 
 import java.util.List;
 

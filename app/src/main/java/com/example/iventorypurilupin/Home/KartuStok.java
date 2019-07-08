@@ -9,9 +9,6 @@ import android.util.Log;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.iventorypurilupin.AdapterFlakeKs;
-import com.example.iventorypurilupin.AdapterKsWhole;
-import com.example.iventorypurilupin.AdapterSplitKs;
 import com.example.iventorypurilupin.Network.ApiServiceKSFlake;
 import com.example.iventorypurilupin.Network.ApiServiceKSSplit;
 import com.example.iventorypurilupin.Network.ApiServiceKSWhole;
