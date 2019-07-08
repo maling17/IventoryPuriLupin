@@ -2,8 +2,8 @@
 
 require 'koneksi.php';
 
-$sql="SELECT id_mitra,daerah_mitra FROM mitra order by id_mitra";
-$query= $con->query ($sql);
+$sql="SELECT * FROM permintaan order by id_permintaan";
+$query= $con->query ($sql)or die($con->error);
 $response_data=null;
 while ($data = $query->fetch_assoc()) {
  // tambahkan data yg di seleksi ke dalam array
@@ -20,7 +20,7 @@ if (is_null($response_data)) {
 // Set type header response ke Json
 header('Content-Type: application/json');
 // Bungkus data dalam array
-$response = ['status'=> $status, 'mitra' => $response_data];
+$response = ['status'=> $status, 'barang' => $response_data];
 // tampilkan dan convert ke format json
 echo json_encode($response);
 ?>

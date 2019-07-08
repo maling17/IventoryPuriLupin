@@ -2,8 +2,11 @@
 
 require 'koneksi.php';
 
-$sql="SELECT id_mitra,daerah_mitra FROM mitra order by id_mitra";
-$query= $con->query ($sql);
+
+$tgl_permintaan=$_GET['tgl_permintaan'];
+
+$sql="SELECT m.daerah_mitra, p.tgl_permintaan, SUM(dp.jumlah_minta) as split  FROM mitra m, permintaan p, detil_permintaan dp, barang b WHERE m.id_mitra=p.id_mitra AND p.id_permintaan=dp.id_permintaan AND dp.id_brg=b.id_brg AND date_format(p.tgl_permintaan,'%Y-%m')='$tgl_permintaan' AND b.id_brg=2";
+$query= $con->query ($sql)or die($con->error);
 $response_data=null;
 while ($data = $query->fetch_assoc()) {
  // tambahkan data yg di seleksi ke dalam array
@@ -20,7 +23,8 @@ if (is_null($response_data)) {
 // Set type header response ke Json
 header('Content-Type: application/json');
 // Bungkus data dalam array
-$response = ['status'=> $status, 'mitra' => $response_data];
+$response = ['status'=> $status,'laporan' => $response_data];
 // tampilkan dan convert ke format json
 echo json_encode($response);
+
 ?>

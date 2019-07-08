@@ -2,8 +2,12 @@
 
 require 'koneksi.php';
 
-$sql="SELECT id_mitra,daerah_mitra FROM mitra order by id_mitra";
-$query= $con->query ($sql);
+
+$bulan=$_GET['bulan'];
+$tahun=$_GET['tahun'];
+
+$sql="SELECT date_format(tgl_pengolahan,'%Y-%m')as tgl_pengolahan FROM pengolahan where month(tgl_pengolahan)='$bulan' and year(tgl_pengolahan)='$tahun' group by month(tgl_pengolahan)";
+$query= $con->query ($sql)or die($con->error);
 $response_data=null;
 while ($data = $query->fetch_assoc()) {
  // tambahkan data yg di seleksi ke dalam array
@@ -20,7 +24,8 @@ if (is_null($response_data)) {
 // Set type header response ke Json
 header('Content-Type: application/json');
 // Bungkus data dalam array
-$response = ['status'=> $status, 'mitra' => $response_data];
+$response = ['status'=> $status,'laporan' => $response_data];
 // tampilkan dan convert ke format json
 echo json_encode($response);
+
 ?>
