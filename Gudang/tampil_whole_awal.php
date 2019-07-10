@@ -2,7 +2,7 @@
 
 require 'koneksi.php';
 
-$sql_tampil_mitra="SELECT jenis_brg,stok_awal FROM barang order by id_brg";
+$sql_tampil_mitra="SELECT jenis_brg,stok FROM barang order by id_brg";
 $query= $con->query ($sql_tampil_mitra);
 $response_data=null;
 while ($data = $query->fetch_assoc()) {

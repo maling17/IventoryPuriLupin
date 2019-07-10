@@ -8,7 +8,7 @@ if($_SERVER['REQUEST_METHOD']=='POST') {
    $response = array();
    //mendapatkan data
 
-$id_sj=$_GET['id_sj'];
+$id_sj=$_POST['id_sj'];
 	
    $tgl_sj = $_POST['tgl_sj'];
 	$tujuan= $_POST['tujuan'];
