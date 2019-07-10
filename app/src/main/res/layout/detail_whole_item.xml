@@ -11,12 +11,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/borderline"
-        android:paddingVertical="10dp"
-        android:paddingStart="15dp"
-        android:paddingEnd="11.5dp"
+        android:paddingVertical="11.5dp"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
         android:text="Bulan"
         android:textAlignment="center"
-        android:textSize="10sp" />
+        android:textSize="8sp" />
 
     <TextView
         android:id="@+id/tv_whole_awal_stok"
@@ -24,8 +24,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/borderline"
         android:paddingVertical="10dp"
-        android:paddingStart="15dp"
-        android:paddingEnd="11.5dp"
+        android:paddingHorizontal="15dp"
         android:text="W.Awal"
         android:textAlignment="center"
         android:textSize="10sp" />
@@ -38,7 +37,7 @@
         android:background="@drawable/borderline"
         android:paddingVertical="10dp"
         android:paddingStart="15dp"
-        android:paddingEnd="11.5dp"
+        android:paddingEnd="15dp"
         android:text="W.Akhir"
         android:textAlignment="center"
         android:textSize="10sp" />

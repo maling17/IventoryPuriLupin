@@ -5,8 +5,12 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".Gudang.FormPermintaan">
-
-    <include layout="@layout/actionbar" />
+<include layout="@layout/actionbar"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_permintaan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></androidx.recyclerview.widget.RecyclerView>
+    <!--<include layout="@layout/actionbar" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -16,38 +20,38 @@
         android:orientation="vertical"
         tools:targetApi="o">
 
-        <android.support.design.widget.TextInputLayout
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp">
 
-            <android.support.design.widget.TextInputEditText
+            <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/et_nmr_permintaan"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/nomor_permintaan"
                 android:inputType="number" />
 
-        </android.support.design.widget.TextInputLayout>
+        </com.google.android.material.textfield.TextInputLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <android.support.design.widget.TextInputLayout
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp">
 
-                <android.support.design.widget.TextInputEditText
+                <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/et_split"
                     android:layout_width="200dp"
                     android:layout_height="wrap_content"
                     android:hint="@string/split"
                     android:inputType="number" />
 
-            </android.support.design.widget.TextInputLayout>
+            </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -63,19 +67,19 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <android.support.design.widget.TextInputLayout
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp">
 
-                <android.support.design.widget.TextInputEditText
+                <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/et_flake"
                     android:layout_width="200dp"
                     android:layout_height="wrap_content"
                     android:hint="@string/flake"
                     android:inputType="number" />
 
-            </android.support.design.widget.TextInputLayout>
+            </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -118,7 +122,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"></LinearLayout>
-        <!-- <android.support.design.widget.TextInputLayout
+        &lt;!&ndash; <android.support.design.widget.TextInputLayout
              android:layout_width="match_parent"
              android:layout_height="wrap_content">
 
@@ -128,7 +132,7 @@
                  android:layout_height="wrap_content"
                  android:hint="@string/tanggal_permintaan"
                  android:inputType="date" />
-         </android.support.design.widg-->et.TextInputLayout>
+         </android.support.design.widg&ndash;&gt;et.TextInputLayout>
 
         <TextView
             android:layout_width="match_parent"
@@ -150,9 +154,9 @@
         android:id="@+id/btn_simpan_permintaan"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="50dp"
         android:background="@drawable/buttonshape"
         android:text="@string/simpan"
-        android:textColor="#fff" />
+        android:textColor="#fff" />-->
 
 </LinearLayout>

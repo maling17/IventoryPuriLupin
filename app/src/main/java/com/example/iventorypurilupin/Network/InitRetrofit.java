@@ -5,7 +5,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class InitRetrofit {
 
-    private static String API_URL = "http://192.168.1.6/Gudang/";
+    private static String API_URL = "http://192.168.1.3/Gudang/";
 
     private static Retrofit setInit() {
 
@@ -16,6 +16,11 @@ public class InitRetrofit {
 
     public static ApiService getInstance() {
         return setInit().create(ApiService.class);
+    }
+
+    public static ApiServiceBarang getKacangBarang() {
+        return setInit().create(ApiServiceBarang.class);
+
     }
 
     public static ApiServiceMitra getInstanceEntri() {
@@ -106,25 +111,40 @@ public class InitRetrofit {
     public static ApiServiceStokAwal getStokAwal() {
         return setInit().create(ApiServiceStokAwal.class);
     }
-    public static ApiServiceKSWhole getKSWhole(){
+
+    public static ApiServiceKSWhole getKSWhole() {
         return setInit().create(ApiServiceKSWhole.class);
     }
-    public static ApiServiceKSSplit getKSSplit(){
+
+    public static ApiServiceKSSplit getKSSplit() {
         return setInit().create(ApiServiceKSSplit.class);
     }
-    public static ApiServiceKSFlake getKsFlake(){
+
+    public static ApiServiceKSFlake getKsFlake() {
         return setInit().create(ApiServiceKSFlake.class);
     }
-    public static ApiServiceTahun getTahun(){
+
+    public static ApiServiceTahun getTahun() {
         return setInit().create(ApiServiceTahun.class);
     }
-    public static ApiServiceLaporan getLaporan(){
+
+    public static ApiServiceLaporan getLaporan() {
         return setInit().create(ApiServiceLaporan.class);
     }
-    public static ApiServiceDetailLaporanStok getDetailStok(){
+
+    public static ApiServiceDetailLaporanStok getDetailStok() {
         return setInit().create(ApiServiceDetailLaporanStok.class);
     }
-    public static ApiServiceLapRekap getRekap(){
+
+    public static ApiServiceLapRekap getRekap() {
         return setInit().create(ApiServiceLapRekap.class);
+    }
+
+    public static ApiServiceId getId2() {
+        return setInit().create(ApiServiceId.class);
+    }
+
+    public static ApiServiceAntrian getAntrian() {
+        return setInit().create(ApiServiceAntrian.class);
     }
 }

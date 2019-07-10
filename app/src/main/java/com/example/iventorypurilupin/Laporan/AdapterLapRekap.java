@@ -2,25 +2,26 @@ package com.example.iventorypurilupin.Laporan;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.iventorypurilupin.R;
-import com.example.iventorypurilupin.response.response_laporan_pengiriman.LaporanItem;
+import com.example.iventorypurilupin.response.response_lap_rekap2.LaporanRekap2Item;
 
 import java.util.List;
 
 public class AdapterLapRekap extends RecyclerView.Adapter<AdapterLapRekap.MyViewHolder> {
    private Context context;
-   private List<LaporanItem> laporanItems;
+   private List<LaporanRekap2Item> laporanItems;
 
-    public AdapterLapRekap(Context context, List<LaporanItem> laporanItems) {
+    public AdapterLapRekap(Context context,List<LaporanRekap2Item> laporanItems1) {
         this.context = context;
-        this.laporanItems = laporanItems;
+
+        this.laporanItems = laporanItems1;
     }
 
     @NonNull
@@ -35,7 +36,7 @@ public class AdapterLapRekap extends RecyclerView.Adapter<AdapterLapRekap.MyView
     @Override
     public void onBindViewHolder(@NonNull final MyViewHolder myViewHolder, final int i) {
 
-        myViewHolder.tvTgl.setText(laporanItems.get(i).getTglSj());
+        myViewHolder.tvTgl.setText(laporanItems.get(i).getTglPermintaan());
 
 
         final String tgl=myViewHolder.tvTgl.getText().toString();

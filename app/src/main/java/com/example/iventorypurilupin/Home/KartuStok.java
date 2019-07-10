@@ -1,10 +1,10 @@
 package com.example.iventorypurilupin.Home;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.appcompat.widget.Toolbar;
 import android.util.Log;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -57,6 +57,7 @@ public class KartuStok extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle(String.valueOf(judul));
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         tampilKsWhole();
         tampilKsSplit();
         tampilKsFlake();
@@ -76,7 +77,7 @@ public class KartuStok extends AppCompatActivity {
                         AdapterKsWhole adapter = new AdapterKsWhole(KartuStok.this, data_split);
                         rvKsWhole.setAdapter(adapter);
                     } else {
-                        Toast.makeText(KartuStok.this, "Permintaan tidak ada", Toast.LENGTH_LONG).show();
+                        Toast.makeText(KartuStok.this, "Stok tidak ada", Toast.LENGTH_LONG).show();
                     }
                 }
 
@@ -105,7 +106,7 @@ public class KartuStok extends AppCompatActivity {
                         AdapterSplitKs adapter = new AdapterSplitKs(KartuStok.this, data_split);
                         rvKsSplit.setAdapter(adapter);
                     } else {
-                        Toast.makeText(KartuStok.this, "Permintaan tidak ada", Toast.LENGTH_LONG).show();
+                        Toast.makeText(KartuStok.this, "Stok tidak ada", Toast.LENGTH_LONG).show();
                     }
                 }
 
@@ -132,7 +133,7 @@ public class KartuStok extends AppCompatActivity {
                         AdapterFlakeKs adapter = new AdapterFlakeKs(KartuStok.this, data_split);
                         rvKsFlake.setAdapter(adapter);
                     } else {
-                        Toast.makeText(KartuStok.this, "Permintaan tidak ada", Toast.LENGTH_LONG).show();
+                        Toast.makeText(KartuStok.this, "Stok tidak ada", Toast.LENGTH_LONG).show();
                     }
                 }
 

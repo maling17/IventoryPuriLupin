@@ -1,7 +1,7 @@
 package com.example.iventorypurilupin.Network;
 
 import com.example.iventorypurilupin.response.response_mitra.Value;
-import com.example.iventorypurilupin.response.response_permintaan.ResponsePermintaan;
+import com.example.iventorypurilupin.response.response_permintaan.response_permintaan_barang.Response_permintaan;
 
 import retrofit2.Call;
 import retrofit2.http.Field;
@@ -16,5 +16,5 @@ public interface ApiServicePermintaan {
     Call<Value> hapus(@Field("id_permintaan") String id_permintaan);
 
     @GET("tampil_permintaan2.php")
-    Call<ResponsePermintaan> request_all_permintaan();
+    Call<Response_permintaan> request_all_permintaan();
 }

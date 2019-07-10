@@ -41,7 +41,7 @@ public class LaporanRekapItem {
     @Override
     public String toString() {
         return
-                "LaporanRekapItem{" +
+                "LaporanRekap2Item{" +
                         "tgl_permintaan = '" + tglPermintaan + '\'' +
                         ",split = '" + split + '\'' +
                         ",daerah_mitra = '" + daerahMitra + '\'' +

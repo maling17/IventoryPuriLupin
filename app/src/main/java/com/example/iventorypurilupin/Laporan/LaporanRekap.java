@@ -1,10 +1,10 @@
 package com.example.iventorypurilupin.Laporan;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.appcompat.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -18,8 +18,8 @@ import com.example.iventorypurilupin.Network.ApiServiceLaporan;
 import com.example.iventorypurilupin.Network.ApiServiceTahun;
 import com.example.iventorypurilupin.Network.InitRetrofit;
 import com.example.iventorypurilupin.R;
-import com.example.iventorypurilupin.response.response_laporan_pengiriman.LaporanItem;
-import com.example.iventorypurilupin.response.response_laporan_pengiriman.Response_lap_pengiriman;
+import com.example.iventorypurilupin.response.response_lap_rekap2.LaporanRekap2Item;
+import com.example.iventorypurilupin.response.response_lap_rekap2.Response_rekap;
 import com.example.iventorypurilupin.response.response_tahun.Response_tahun;
 import com.example.iventorypurilupin.response.response_tahun.TahunItem;
 
@@ -114,19 +114,19 @@ public class LaporanRekap extends AppCompatActivity {
             String bulan = spBulan.getSelectedItem().toString();
             String tahun = spTahun.getSelectedItem().toString();
             ApiServiceLaporan api = InitRetrofit.getLaporan();
-            Call<Response_lap_pengiriman> lapCall = api.getLaporan(bulan, tahun);
-            lapCall.enqueue(new Callback<Response_lap_pengiriman>() {
+            final Call<Response_rekap> lapCall = api.getLaporanRekap(bulan, tahun);
+            lapCall.enqueue(new Callback<Response_rekap>() {
                 @Override
-                public void onResponse(Call<Response_lap_pengiriman> call, Response<Response_lap_pengiriman> response) {
+                public void onResponse(Call<Response_rekap> call, Response<Response_rekap> response) {
                     if (response.isSuccessful()) {
                         Log.d("response api", response.body().toString());
-                        List<LaporanItem> data_split = response.body().getLaporan();
+                        List<LaporanRekap2Item> data_split = response.body().getLaporan();
                         boolean status = response.body().isStatus();
                         if (status) {
                             AdapterLapRekap adapter = new AdapterLapRekap(LaporanRekap.this, data_split);
                             rvRekap.setAdapter(adapter);
                         } else {
-                            Toast.makeText(LaporanRekap.this, "Permintaan tidak ada", Toast.LENGTH_LONG).show();
+                            Toast.makeText(LaporanRekap.this, "Laporan tidak ada", Toast.LENGTH_LONG).show();
                         }
                     }
 
@@ -134,7 +134,7 @@ public class LaporanRekap extends AppCompatActivity {
                 }
 
                 @Override
-                public void onFailure(Call<Response_lap_pengiriman> call, Throwable t) {
+                public void onFailure(Call<Response_rekap> call, Throwable t) {
                     t.printStackTrace();
                 }
 

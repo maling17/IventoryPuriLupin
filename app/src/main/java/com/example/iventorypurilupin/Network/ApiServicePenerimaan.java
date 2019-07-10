@@ -11,7 +11,6 @@ public interface ApiServicePenerimaan {
     @FormUrlEncoded
     @POST("tambah_penerimaan.php")
     Call<Value> tambah_penerimaan(
-            @Field("id_penerimaan") String id_penerimaan,
             @Field("tgl_penerimaan") String tgl_penerimaan,
             @Field("no_po") String no_po,
             @Field("qty_penerimaan") String qty_penerimaan);

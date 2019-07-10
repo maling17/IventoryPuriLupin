@@ -1,8 +1,8 @@
 package com.example.iventorypurilupin.Home;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,8 +13,8 @@ import android.widget.Toast;
 import com.example.iventorypurilupin.Network.ApiServicePermintaan;
 import com.example.iventorypurilupin.Network.InitRetrofit;
 import com.example.iventorypurilupin.R;
+import com.example.iventorypurilupin.response.response_antrian.AntrianItem;
 import com.example.iventorypurilupin.response.response_mitra.Value;
-import com.example.iventorypurilupin.response.response_permintaan.AntrianItem;
 
 import java.util.List;
 
@@ -43,13 +43,14 @@ public class AdapterAntrian extends RecyclerView.Adapter<AdapterAntrian.MyViewHo
 
     @Override
     public void onBindViewHolder(@NonNull final AdapterAntrian.MyViewHolder Holder, int i) {
-        Holder.tvId.setText(permintaan.get(i).getId_permintaan());
+       Holder.tvId.setText(permintaan.get(i).getIdSj());
         Holder.tvTujuanAntrian.setText(permintaan.get(i).getTujuan());
+        Holder.tvQtySplit.setText(permintaan.get(i).getSplitSj());
+        Holder.tvQtyFlake.setText(permintaan.get(i).getFlakeSj());
         Holder.btnKirim.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(context, "Barang dikirim : " + Holder.tvId.getText().toString(), Toast.LENGTH_LONG).show();
-                hapus_permintaan(Holder);
+                Toast.makeText(context, "Barang dikirim  " + Holder.tvId.getText().toString(), Toast.LENGTH_LONG).show();
             }
         });
 

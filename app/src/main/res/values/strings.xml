@@ -1,5 +1,5 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <string name="app_name">Iventory</string>
+    <string name="app_name">Inventory Lupin</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
@@ -76,7 +76,7 @@
     <string name="id_pengolahan">Id Pengolahan</string>
     <string name="id_penerimaan">Id Penerimaan</string>
     <string name="pt_puri_lupin_indonusa">PT Puri Lupin Indonusa</string>
-    <string name="alamat_lupin">Ruko Taman Borobudur Jalan Rorjonggrang Blok B/5 (Perum Harapan Kita) Bencongan Kelapa Dua Tangerang 15810</string>
+    <string name="alamat_lupin">Ruko Taman Borobudur Jalan Rorojongrang Blok B No. 5 <br>Bencongan Kelapa Dua, Tangerang</br></string>
     <string name="periode">Periode :</string>
     <string name="tgl">xxxx-xx-xx</string>
     <string name="cari">Cari</string>
@@ -88,6 +88,8 @@
     <string name="whole_awal">Whole Awal</string>
     <string name="split_awal">Split Awal</string>
     <string name="flake_awal">Flake Awal</string>
+    <string name="tampil_permintaan">Tampil Permintaan</string>
+    <string name="notifikasi">notifikasi</string>
 
 
     <string-array name="tujuanmitra">

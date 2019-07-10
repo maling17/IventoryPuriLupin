@@ -1,10 +1,8 @@
 package com.example.iventorypurilupin.Network;
 
 
-/**
- * Created by KUNCORO on 24/03/2017.
- */
+
 
 public class Server {
-    public static final String URL = "http://192.168.1.6/Gudang/";
+    public static final String URL = "http://192.168.1.3/Gudang/";
 }

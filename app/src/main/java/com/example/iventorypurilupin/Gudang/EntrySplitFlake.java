@@ -3,10 +3,10 @@ package com.example.iventorypurilupin.Gudang;
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.design.widget.TextInputEditText;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+import androidx.annotation.NonNull;
+import com.google.android.material.textfield.TextInputEditText;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -39,7 +39,6 @@ public class EntrySplitFlake extends AppCompatActivity {
         splitEntri = findViewById(R.id.et_split_entri);
         flakeEntri = findViewById(R.id.et_flake_entri);
         Button btnSimpanEntri = findViewById(R.id.btn_simpan_entri);
-
         TextView judul = findViewById(R.id.tv_judul_event);
         btnSimpanEntri.setOnClickListener(new View.OnClickListener() {
             @Override

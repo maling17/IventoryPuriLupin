@@ -2,8 +2,8 @@ package com.example.iventorypurilupin.Laporan;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -36,7 +36,7 @@ public class AdapterLapPengiriman extends RecyclerView.Adapter<AdapterLapPengiri
     public void onBindViewHolder(@NonNull final MyViewHolder myViewHolder, final int i) {
 
         myViewHolder.tvTgl.setText(laporanItems.get(i).getTglSj());
-        myViewHolder.tvTujuan.setText(laporanItems.get(i).getTujuan());
+
 
         final String tgl=myViewHolder.tvTgl.getText().toString();
         myViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -57,12 +57,12 @@ public class AdapterLapPengiriman extends RecyclerView.Adapter<AdapterLapPengiri
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
         private final TextView tvTgl;
-        private final TextView tvTujuan;
+
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             tvTgl = itemView.findViewById(R.id.tv_tanggal_lp);
-            tvTujuan = itemView.findViewById(R.id.tv_tujuan_lp);
+
         }
     }
 }

@@ -1,20 +1,27 @@
 package com.example.iventorypurilupin.Gudang;
 
+import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
 import android.os.Bundle;
-import android.support.design.widget.TextInputEditText;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import com.example.iventorypurilupin.Network.ApiServicePenerimaan;
 import com.example.iventorypurilupin.Network.ApiServiceUpdatePenerimaan;
 import com.example.iventorypurilupin.Network.InitRetrofit;
 import com.example.iventorypurilupin.R;
 import com.example.iventorypurilupin.response.response_mitra.Value;
+import com.google.android.material.textfield.TextInputEditText;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Locale;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -34,12 +41,13 @@ public class EntriWhole extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_entri_whole);
 
-        etIdPenerimaan = findViewById(R.id.et_id_penerimaan);
+
         etNoPo = findViewById(R.id.et_no_po);
         etTglMsk = findViewById(R.id.et_tgl_masuk);
         etQtyPenerimaan = findViewById(R.id.et_qty_penerimaan);
         progress = new ProgressDialog(this);
         Button btnSimpanPenerimaan = findViewById(R.id.btn_simpan_whole);
+        Button btnTanggal = findViewById(R.id.btn_tgl_whole);
 
         judul = (TextView) findViewById(R.id.tv_judul_event);
         judul.setText("Entri Whole");
@@ -54,16 +62,32 @@ public class EntriWhole extends AppCompatActivity {
                 UpdatePenerimaan();
             }
         });
+        btnTanggal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Calendar calendar = Calendar.getInstance();
+                DatePickerDialog datePickerDialog = new DatePickerDialog(EntriWhole.this, new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                        Calendar date = Calendar.getInstance();
+                        date.set(year, month, dayOfMonth);
+                        SimpleDateFormat dateFormater = new SimpleDateFormat("yyyy-MM-dd", Locale.US);
+                        etTglMsk.setText(dateFormater.format(date.getTime()));
+                    }
+                }, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
+                datePickerDialog.show();
+
+            }
+        });
     }
 
     private void tambah_penerimaan() {
-        String id_pengolahan = etIdPenerimaan.getText().toString();
         String no_po = etNoPo.getText().toString();
         String qty_penerimaan = etQtyPenerimaan.getText().toString();
         String tgl_penerimaan = etTglMsk.getText().toString();
 
         ApiServicePenerimaan apiServicePenerimaan = InitRetrofit.getTambahPenerimaan();
-        Call<Value> tambahCall = apiServicePenerimaan.tambah_penerimaan(id_pengolahan, tgl_penerimaan, no_po, qty_penerimaan);
+        Call<Value> tambahCall = apiServicePenerimaan.tambah_penerimaan(tgl_penerimaan, no_po, qty_penerimaan);
         tambahCall.enqueue(new Callback<Value>() {
             @Override
             public void onResponse(Call<Value> call, Response<Value> response) {
@@ -85,6 +109,7 @@ public class EntriWhole extends AppCompatActivity {
             }
         });
     }
+
     private void UpdatePenerimaan() {
         String qty_penerimaan = etQtyPenerimaan.getText().toString();
 

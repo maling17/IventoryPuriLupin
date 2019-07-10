@@ -16,7 +16,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="10dp"
+            android:layout_marginHorizontal="5dp"
             android:layout_marginVertical="10dp"
             android:orientation="vertical"
             tools:ignore="UselessParent"
@@ -131,117 +131,142 @@
                 <!--</android.support.v7.widget.RecyclerView>-->
             </LinearLayout>
 
-            <TableLayout
+            <HorizontalScrollView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <TableRow android:gravity="center">
+                <TableLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TableRow android:gravity="center">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/borderline"
+                            android:fontFamily="@font/javatext"
+                            android:paddingHorizontal="19.5dp"
+                            android:paddingVertical="10dp"
+                            android:text="Bulan"
+                            android:textSize="8sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/borderline"
+                            android:fontFamily="@font/javatext"
+                            android:paddingHorizontal="10dp"
+                            android:paddingVertical="10dp"
+                            android:text="W.Awal"
+                            android:textSize="8sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/borderline"
+                            android:fontFamily="@font/javatext"
+                            android:paddingHorizontal="10dp"
+                            android:paddingVertical="10dp"
+                            android:text="W.Akhir"
+                            android:textSize="8sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/borderline"
+                            android:fontFamily="@font/javatext"
+                            android:paddingHorizontal="10dp"
+                            android:paddingVertical="10dp"
+                            android:text="S.Awal"
+                            android:textSize="8sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/borderline"
+                            android:fontFamily="@font/javatext"
+                            android:paddingHorizontal="10dp"
+                            android:paddingVertical="10dp"
+                            android:text="S.Akhir"
+                            android:textSize="8sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/borderline"
+                            android:fontFamily="@font/javatext"
+                            android:paddingHorizontal="10dp"
+                            android:paddingVertical="10dp"
+                            android:text="F.Awal"
+                            android:textSize="8sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/borderline"
+                            android:fontFamily="@font/javatext"
+                            android:paddingHorizontal="10dp"
+                            android:paddingVertical="10dp"
+                            android:text="F.Akhir"
+                            android:textSize="8sp"
+                            android:textStyle="bold" />
 
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/borderline"
-                        android:fontFamily="@font/javatext"
-                        android:paddingHorizontal="10dp"
-                        android:paddingVertical="10dp"
-                        android:text="Bulan"
-                        android:textSize="10sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/borderline"
-                        android:fontFamily="@font/javatext"
-                        android:paddingHorizontal="10dp"
-                        android:paddingVertical="10dp"
-                        android:text="W.Awal"
-                        android:textSize="10sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/borderline"
-                        android:fontFamily="@font/javatext"
-                        android:paddingHorizontal="10dp"
-                        android:paddingVertical="10dp"
-                        android:text="W.Akhir"
-                        android:textSize="10sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:background="@drawable/borderline"
-                        android:fontFamily="@font/javatext"
-                        android:paddingHorizontal="10dp"
-                        android:paddingVertical="10dp"
-                        android:text="S.Awal"
-                        android:textSize="10sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/borderline"
-                        android:fontFamily="@font/javatext"
-                        android:paddingHorizontal="10dp"
-                        android:paddingVertical="10dp"
-                        android:text="S.Akhir"
-                        android:textSize="10sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/borderline"
-                        android:fontFamily="@font/javatext"
-                        android:paddingHorizontal="10dp"
-                        android:paddingVertical="10dp"
-                        android:text="F.Awal"
-                        android:textSize="10sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/borderline"
-                        android:fontFamily="@font/javatext"
-                        android:paddingHorizontal="10dp"
-                        android:paddingVertical="10dp"
-                        android:text="F.Akhir"
-                        android:textSize="10sp"
-                        android:textStyle="bold" />
-
-                </TableRow>
+                    </TableRow>
 
 
-            </TableLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rv_detail_whole"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"></androidx.recyclerview.widget.RecyclerView>
 
-                <android.support.v7.widget.RecyclerView
-                    android:id="@+id/rv_detail_whole"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rv_detail_split"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"></androidx.recyclerview.widget.RecyclerView>
 
-                <android.support.v7.widget.RecyclerView
-                    android:id="@+id/rv_detail_split"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rv_detail_flake"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"></androidx.recyclerview.widget.RecyclerView>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_marginTop="20dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="W = Whole"
+                            android:layout_marginEnd="10dp"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="S = Split"
+                            android:layout_marginEnd="10dp"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="F = Flake"/>
+                    </LinearLayout>
 
-                <android.support.v7.widget.RecyclerView
-                    android:id="@+id/rv_detail_flake"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>
-            </LinearLayout>
+                </TableLayout>
+            </HorizontalScrollView>
+
 
             <Button
                 android:id="@+id/btn_cetak_stok"

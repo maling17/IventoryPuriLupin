@@ -63,7 +63,7 @@ public class BarangItem {
     @Override
     public String toString() {
         return
-                "SplitItem{" +
+                "BarangSplitItem{" +
                         "id_permintaan = '" + idPermintaan + '\'' +
                         ",tgl_permintaan = '" + tglPermintaan + '\'' +
                         ",split = '" + split + '\'' +

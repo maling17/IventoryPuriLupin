@@ -5,18 +5,18 @@ import com.google.gson.annotations.SerializedName;
 
 public class Stok_awal_Item {
 
-    @SerializedName("stok_awal")
-    private String stokAwal;
+    @SerializedName("stok")
+    private String stok;
 
     @SerializedName("jenis_brg")
     private String jenisBrg;
 
-    public String getStokAwal() {
-        return stokAwal;
+    public String getStok() {
+        return stok;
     }
 
-    public void setStokAwal(String stokAwal) {
-        this.stokAwal = stokAwal;
+    public void setStok(String stok) {
+        this.stok = stok;
     }
 
     public String getJenisBrg() {
@@ -31,7 +31,7 @@ public class Stok_awal_Item {
     public String toString() {
         return
                 "Stok_awal_Item{" +
-                        "stok_awal = '" + stokAwal + '\'' +
+                        "stok= '" + stok + '\'' +
                         ",jenis_brg = '" + jenisBrg + '\'' +
                         "}";
     }

@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1063371821243",
+    "firebase_url": "https://inventory-lupin.firebaseio.com",
+    "project_id": "inventory-lupin",
+    "storage_bucket": "inventory-lupin.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1063371821243:android:4f11617d78e8c68e",
+        "android_client_info": {
+          "package_name": "com.example.iventorypurilupin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1063371821243-36g8t9onnti5l5uqdhqb4gdfpl93ong3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.iventorypurilupin",
+            "certificate_hash": "0d17643cbd546493ad4fa6dfdc454085e52b0dd4"
+          }
+        },
+        {
+          "client_id": "1063371821243-amlbmha3jgdrcor24dhvm2prtu9970bn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDoI3huXMhVaLq-MgtM2UUK_sA2cFLgmJ8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1063371821243-amlbmha3jgdrcor24dhvm2prtu9970bn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

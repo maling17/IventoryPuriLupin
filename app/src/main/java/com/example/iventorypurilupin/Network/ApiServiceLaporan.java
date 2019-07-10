@@ -1,5 +1,6 @@
 package com.example.iventorypurilupin.Network;
 
+import com.example.iventorypurilupin.response.response_lap_rekap2.Response_rekap;
 import com.example.iventorypurilupin.response.response_lap_stok.Response_lap_stok;
 import com.example.iventorypurilupin.response.response_laporan_pengiriman.Response_lap_pengiriman;
 
@@ -18,5 +19,9 @@ public interface ApiServiceLaporan {
                                            @Query("tahun") String tahun);
 
 
+
+    @GET("tampil_rekap.php")
+    Call<Response_rekap> getLaporanRekap(@Query("bulan") String bulan,
+                                         @Query("tahun") String tahun);
 
 }

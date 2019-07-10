@@ -6,17 +6,16 @@ import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v4.app.Fragment;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
+import androidx.fragment.app.Fragment;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.appcompat.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -29,7 +28,6 @@ import com.example.iventorypurilupin.Home.KartuStok;
 import com.example.iventorypurilupin.Login;
 import com.example.iventorypurilupin.Network.ApiService;
 import com.example.iventorypurilupin.Network.InitRetrofit;
-import com.example.iventorypurilupin.Notifikasi;
 import com.example.iventorypurilupin.R;
 import com.example.iventorypurilupin.response.response_barang.BarangItem;
 import com.example.iventorypurilupin.response.response_barang.Responsebarang;
@@ -39,9 +37,6 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-
-import static com.example.iventorypurilupin.Login.TAG_ID;
-import static com.example.iventorypurilupin.Login.TAG_NAMA;
 
 
 /**
@@ -88,13 +83,6 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
         return fragment;
-    }
-
-    @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-
-        MenuInflater menuInflater = getActivity().getMenuInflater();
-        menuInflater.inflate(R.menu.menu_actionbar, menu);
     }
 
 

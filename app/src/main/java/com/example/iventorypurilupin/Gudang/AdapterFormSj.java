@@ -4,9 +4,9 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Handler;
-import android.support.annotation.NonNull;
-import android.support.design.widget.TextInputEditText;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.NonNull;
+import com.google.android.material.textfield.TextInputEditText;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -99,10 +99,14 @@ public class AdapterFormSj extends RecyclerView.Adapter<AdapterFormSj.MyViewHold
             super(itemView);
             progress = new ProgressDialog(context);
             etNrmSj = itemView.findViewById(R.id.et_nmr_sj);
+            etNrmSj.setEnabled(false);
             etSplitSj = itemView.findViewById(R.id.et_split_sj);
+            etSplitSj.setEnabled(false);
             etFlakeSj = itemView.findViewById(R.id.et_flake_sj);
+            etFlakeSj.setEnabled(false);
             etTglSj = itemView.findViewById(R.id.et_tgl_keluar);
             etTujuan = itemView.findViewById(R.id.et_tujuan);
+            etTujuan.setEnabled(false);
             btnSimpan = itemView.findViewById(R.id.btn_simpan_sj);
         }
     }
@@ -161,7 +165,7 @@ public class AdapterFormSj extends RecyclerView.Adapter<AdapterFormSj.MyViewHold
 
     public void TambahSj(final MyViewHolder myViewHolder) {
 
-        String id_sj="";
+
         String id_permintaan = myViewHolder.etNrmSj.getText().toString();
         String tglsj = myViewHolder.etTglSj.getText().toString();
 //        String tujuanSj = spTujuansj.getSelectedItem().toString();
@@ -170,7 +174,7 @@ public class AdapterFormSj extends RecyclerView.Adapter<AdapterFormSj.MyViewHold
         String tujuanSj = myViewHolder.etTujuan.getText().toString();
         ApiServiceGudang api = InitRetrofit.getInstanceGudang();
 
-        Call<Value> SjCall = api.tambah_sj(id_sj,tglsj, tujuanSj, id_permintaan, split_sj, flake_sj);
+        Call<Value> SjCall = api.tambah_sj(id_permintaan,tglsj, tujuanSj, id_permintaan, split_sj, flake_sj);
         SjCall.enqueue(new Callback<Value>() {
             @Override
             public void onResponse(Call<Value> call, Response<Value> response) {

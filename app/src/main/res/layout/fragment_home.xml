@@ -7,7 +7,7 @@
     android:background="#f4f4f4"
     tools:context=".Fragment.HomeFragment">
 
-    <android.support.v4.widget.SwipeRefreshLayout
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/srl_barang"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -50,7 +50,7 @@
                     </LinearLayout>
 
 
-                    <android.support.v7.widget.RecyclerView
+                    <androidx.recyclerview.widget.RecyclerView
                         android:background="@drawable/background_layout"
                         android:id="@+id/rv_barang"
                         android:layout_width="wrap_content"
@@ -112,5 +112,5 @@
             </RelativeLayout>
 
         </ScrollView>
-    </android.support.v4.widget.SwipeRefreshLayout>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 </FrameLayout>

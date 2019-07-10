@@ -1,11 +1,11 @@
 package com.example.iventorypurilupin.Gudang;
 
 import android.os.Bundle;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.appcompat.widget.Toolbar;
 import android.util.Log;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -39,7 +39,7 @@ public class TampilPermintaan extends AppCompatActivity {
         rvTampilPermintaan.setHasFixedSize(true);
 
         judul = (TextView) findViewById(R.id.tv_judul_event);
-        judul.setText("Entri Whole");
+        judul.setText("List Permintaan");
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle(String.valueOf(judul));

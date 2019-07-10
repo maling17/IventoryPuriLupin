@@ -1,8 +1,8 @@
 package com.example.iventorypurilupin.Laporan;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,7 +35,6 @@ public class AdapterSplitRekap extends RecyclerView.Adapter<AdapterSplitRekap.My
     public void onBindViewHolder(@NonNull MyViewHolder myViewHolder, int i) {
 
         myViewHolder.tvMitra.setText(splitRekaps.get(i).getDaerahMitra());
-        myViewHolder.tvTanggal.setText(splitRekaps.get(i).getTglPermintaan());
         myViewHolder.tvSplit.setText(splitRekaps.get(i).getSplit());
     }
 
@@ -47,14 +46,12 @@ public class AdapterSplitRekap extends RecyclerView.Adapter<AdapterSplitRekap.My
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
         private final TextView tvMitra;
-        private final TextView tvTanggal;
         private final TextView tvSplit;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
 
             tvMitra = itemView.findViewById(R.id.tv_mitra_rekap);
-            tvTanggal = itemView.findViewById(R.id.tv_tgl_rekap);
             tvSplit = itemView.findViewById(R.id.tv_split_rekap);
         }
     }

@@ -19,19 +19,19 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <android.support.design.widget.TextInputLayout
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp">
 
-                <android.support.design.widget.TextInputEditText
+                <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/et_split_entri"
                     android:layout_width="200dp"
                     android:layout_height="wrap_content"
                     android:hint="@string/split"
                     android:inputType="number" />
 
-            </android.support.design.widget.TextInputLayout>
+            </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -47,19 +47,19 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <android.support.design.widget.TextInputLayout
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp">
 
-                <android.support.design.widget.TextInputEditText
+                <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/et_flake_entri"
                     android:layout_width="200dp"
                     android:layout_height="wrap_content"
                     android:hint="@string/flake"
                     android:inputType="number" />
 
-            </android.support.design.widget.TextInputLayout>
+            </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
                 android:layout_width="wrap_content"

@@ -2,8 +2,8 @@ package com.example.iventorypurilupin.Laporan;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,7 +11,6 @@ import android.widget.TextView;
 
 import com.example.iventorypurilupin.R;
 import com.example.iventorypurilupin.response.response_lap_stok.LaporanStokItem;
-import com.example.iventorypurilupin.response.response_lap_stok.Response_lap_stok;
 
 import java.util.List;
 

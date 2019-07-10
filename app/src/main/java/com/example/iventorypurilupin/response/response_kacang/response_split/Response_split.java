@@ -1,23 +1,23 @@
-package com.example.iventorypurilupin.response.response_permintaan;
+package com.example.iventorypurilupin.response.response_kacang.response_split;
 
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
 
-public class ResponsePermintaan {
+public class Response_split {
 
     @SerializedName("barang")
-    private List<AntrianItem> barang;
+    private List<BarangSplitItem> barang;
 
     @SerializedName("status")
     private boolean status;
 
-    public List<AntrianItem> getBarang() {
+    public List<BarangSplitItem> getBarang() {
         return barang;
     }
 
-    public void setBarang(List<AntrianItem> barang) {
+    public void setBarang(List<BarangSplitItem> barang) {
         this.barang = barang;
     }
 
@@ -32,7 +32,7 @@ public class ResponsePermintaan {
     @Override
     public String toString() {
         return
-                "ResponsePermintaan{" +
+                "Response_split{" +
                         "barang = '" + barang + '\'' +
                         ",status = '" + status + '\'' +
                         "}";
