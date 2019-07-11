@@ -2,7 +2,7 @@
 
 require 'koneksi.php';
 
-$sql="SELECT id_permintaan,tgl_permintaan,tujuan FROM permintaan order by id_permintaan";
+$sql="SELECT id_permintaan,tgl_permintaan,tujuan FROM permintaan where id_permintaan not In(select id_permintaan from surat_jalan) and id_permintaan not in (select id_permintaan from permintaan where id_permintaan='1') order by id_permintaan";
 $query= $con->query ($sql)or die($con->error);
 $response_data=null;
 while ($data = $query->fetch_assoc()) {
