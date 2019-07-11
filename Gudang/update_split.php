@@ -11,7 +11,7 @@ if($_SERVER['REQUEST_METHOD']=='POST') {
 
    require_once('koneksi.php');
 
-   $sql= "update barang set stok= stok + $split ,stok_awal=stok-$split where id_brg='2'";
+   $sql= "update barang set stok= stok + $split where id_brg='2'";
  
 	if(mysqli_query($con,$sql)) {
     $response["value"] = 1;
