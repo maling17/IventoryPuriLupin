@@ -112,7 +112,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="@string/laporan_rekap"
+                        android:text="@string/laporan_barang"
                         android:textSize="12sp"
                         android:textStyle="bold" />
                 </LinearLayout>

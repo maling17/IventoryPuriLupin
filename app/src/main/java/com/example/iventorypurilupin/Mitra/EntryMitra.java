@@ -75,6 +75,7 @@ public class EntryMitra extends AppCompatActivity {
         String noTelp = etNoTelp.getText().toString();
         String alamat = etAlamat.getText().toString();
 
+
         ApiServiceMitra api = InitRetrofit.getInstanceEntri();
         Call<Value> EntriCall = api.insert_mitra(id_mitra, daerah_mitra, PIC, noTelp, alamat);
         EntriCall.enqueue(new Callback<Value>() {

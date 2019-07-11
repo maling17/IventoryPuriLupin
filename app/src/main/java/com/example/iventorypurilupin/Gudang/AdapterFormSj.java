@@ -5,6 +5,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Handler;
 import androidx.annotation.NonNull;
+
+import com.example.iventorypurilupin.MainActivity;
 import com.google.android.material.textfield.TextInputEditText;
 import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -67,7 +69,7 @@ public class AdapterFormSj extends RecyclerView.Adapter<AdapterFormSj.MyViewHold
                     @Override
                     public void run() {
                         myViewHolder.progress.cancel();
-                        Intent intent=new Intent(context, TampilPermintaan.class);
+                        Intent intent=new Intent(context, MainActivity.class);
                         context.startActivity(intent);
                     }
                 };
