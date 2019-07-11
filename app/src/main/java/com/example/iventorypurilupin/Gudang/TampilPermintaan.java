@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.appcompat.widget.Toolbar;
+
+import android.os.Handler;
 import android.util.Log;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -27,7 +29,8 @@ public class TampilPermintaan extends AppCompatActivity {
     private RecyclerView rvTampilPermintaan;
     private SwipeRefreshLayout srlPermintaan;
     private TextView judul;
-
+    private SwipeRefreshLayout srlList;
+private TampilPermintaan context=this;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,16 +41,28 @@ public class TampilPermintaan extends AppCompatActivity {
         rvTampilPermintaan.setLayoutManager(new LinearLayoutManager(this));
         rvTampilPermintaan.setHasFixedSize(true);
 
+
         judul = (TextView) findViewById(R.id.tv_judul_event);
         judul.setText("List Permintaan");
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle(String.valueOf(judul));
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         tampilSj();
 
-
-
+        /*Refresh*/
+        srlPermintaan.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        tampilSj();
+                        // Berhenti berputar/refreshing
+                        srlPermintaan.setRefreshing(false);
+                    }
+                }, 5000);
+            }
+        });
     }
 
     private void tampilSj() {

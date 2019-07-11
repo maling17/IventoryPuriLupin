@@ -77,7 +77,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:fontFamily="@font/javatext"
-                android:text="@string/laporan_rekap"
+                android:text="@string/laporan_barang"
                 android:textAlignment="center"
                 android:textColor="#000"
                 android:textSize="15sp"
@@ -139,7 +139,7 @@
 
 
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:layout_width="100dp"
                         android:layout_height="wrap_content"
                         android:background="@drawable/borderline"
                         android:fontFamily="@font/javatext"
@@ -151,27 +151,28 @@
                         android:textStyle="bold" />
 
 
-
                     <TextView
 
-                        android:layout_width="wrap_content"
+                        android:layout_width="100dp"
                         android:layout_height="wrap_content"
                         android:background="@drawable/borderline"
                         android:fontFamily="@font/javatext"
                         android:paddingHorizontal="19.5dp"
                         android:paddingVertical="10dp"
                         android:text="Split"
+                        android:textAlignment="center"
                         android:textSize="10sp"
                         android:textStyle="bold" />
 
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:layout_width="100dp"
                         android:layout_height="wrap_content"
                         android:background="@drawable/borderline"
                         android:fontFamily="@font/javatext"
                         android:paddingHorizontal="18dp"
                         android:paddingVertical="10dp"
                         android:text="Flake"
+                        android:textAlignment="center"
                         android:textSize="10sp"
                         android:textStyle="bold" />
                 </TableRow>
@@ -197,14 +198,17 @@
                     android:layout_gravity="center"></androidx.recyclerview.widget.RecyclerView>
 
             </LinearLayout>
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-    <androidx.recyclerview.widget.RecyclerView
 
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"></androidx.recyclerview.widget.RecyclerView>
-</LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.recyclerview.widget.RecyclerView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"></androidx.recyclerview.widget.RecyclerView>
+            </LinearLayout>
+
             <Button
                 android:id="@+id/btn_cetak_rekap"
                 android:layout_width="wrap_content"

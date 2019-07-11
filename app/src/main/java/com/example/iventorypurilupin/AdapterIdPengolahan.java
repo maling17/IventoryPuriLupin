@@ -3,6 +3,7 @@ package com.example.iventorypurilupin;
 import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -120,7 +121,8 @@ public class AdapterIdPengolahan extends RecyclerView.Adapter<AdapterIdPengolaha
                 myViewHolder.progress.dismiss();
                 if (value.equals("1")) {
                     Toast.makeText(context, message, Toast.LENGTH_LONG).show();
-
+                    Intent intent=new Intent(context,MainActivity.class);
+                    context.startActivity(intent);
                 } else {
                     Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
                 }
@@ -353,6 +355,7 @@ public class AdapterIdPengolahan extends RecyclerView.Adapter<AdapterIdPengolaha
             super(itemView);
             rvStok = itemView.findViewById(R.id.rv_stok);
             etId = itemView.findViewById(R.id.et_id_pengolahan);
+            etId.setEnabled(false);
             etTgl = itemView.findViewById(R.id.et_tanggal_olah);
             btnTanggal = itemView.findViewById(R.id.btn_tanggal);
             etWhole = itemView.findViewById(R.id.etWhole);

@@ -5,7 +5,9 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".Gudang.EntrySplitFlake">
-<include layout="@layout/actionbar"/>
+
+    <include layout="@layout/actionbar" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -29,7 +31,8 @@
                     android:layout_width="200dp"
                     android:layout_height="wrap_content"
                     android:hint="@string/split"
-                    android:inputType="number" />
+                    android:inputType="number"
+                    android:maxLength="4" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -38,6 +41,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
                 android:fontFamily="@font/javatext"
+                android:maxLength="4"
                 android:text="@string/karung"
                 android:textSize="20sp" />
         </LinearLayout>
@@ -72,11 +76,11 @@
 
         <Button
             android:id="@+id/btn_simpan_entri"
-            android:background="@drawable/buttonshape"
-            android:textColor="#fff"
-            android:text="@string/simpan"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:background="@drawable/buttonshape"
+            android:text="@string/simpan"
+            android:textColor="#fff" />
     </LinearLayout>
 
 </LinearLayout>

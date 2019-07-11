@@ -181,7 +181,8 @@ public class AdapterFormSj extends RecyclerView.Adapter<AdapterFormSj.MyViewHold
                 assert response.body() != null;
                 String value = response.body().getValue();
                 String message = response.body().getMessage();
-
+                Intent intent=new Intent(context,TampilPermintaan.class);
+                context.startActivity(intent);
                 if (value.equals("1")) {
                     Toast.makeText(context, message, Toast.LENGTH_LONG).show();
                     myViewHolder.progress.dismiss();

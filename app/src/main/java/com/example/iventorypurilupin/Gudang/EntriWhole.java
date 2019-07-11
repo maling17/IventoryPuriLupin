@@ -49,12 +49,14 @@ public class EntriWhole extends AppCompatActivity {
         Button btnSimpanPenerimaan = findViewById(R.id.btn_simpan_whole);
         Button btnTanggal = findViewById(R.id.btn_tgl_whole);
 
+
+
         judul = (TextView) findViewById(R.id.tv_judul_event);
         judul.setText("Entri Whole");
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle(String.valueOf(judul));
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         btnSimpanPenerimaan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -16,7 +16,7 @@
 
             <TextView
                 android:id="@+id/tv_flake_rekap"
-                android:layout_width="wrap_content"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:background="@drawable/borderline"
                 android:fontFamily="@font/javatext"

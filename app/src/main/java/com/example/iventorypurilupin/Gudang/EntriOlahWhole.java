@@ -45,7 +45,7 @@ public class EntriOlahWhole extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle(String.valueOf(judul));
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         TampilPengolahan();
 
     }

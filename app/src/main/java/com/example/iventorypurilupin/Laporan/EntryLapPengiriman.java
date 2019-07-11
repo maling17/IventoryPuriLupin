@@ -1,10 +1,7 @@
 package com.example.iventorypurilupin.Laporan;
 
+import android.content.Intent;
 import android.os.Bundle;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-import androidx.appcompat.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -13,6 +10,11 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.iventorypurilupin.Network.ApiServiceLaporan;
 import com.example.iventorypurilupin.Network.ApiServiceTahun;
@@ -37,6 +39,9 @@ public class EntryLapPengiriman extends AppCompatActivity {
     private Spinner spBulan;
     private Spinner spTahun;
     private TextView judul;
+    private TextView tvTanggal;
+    private TextView tvBulan;
+    private TextView tv_tahun;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +51,7 @@ public class EntryLapPengiriman extends AppCompatActivity {
         rvLp.setLayoutManager(new LinearLayoutManager(this));
         rvLp.setHasFixedSize(true);
         judul = (TextView) findViewById(R.id.tv_judul_event);
+        tvTanggal = findViewById(R.id.tvTgl);
 
 
         judul.setText("Laporan Pengiriman");
@@ -53,7 +59,6 @@ public class EntryLapPengiriman extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle(String.valueOf(judul));
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         spBulan = findViewById(R.id.sp_bulan);
         spTahun = findViewById(R.id.sp_tahun);
@@ -106,7 +111,15 @@ public class EntryLapPengiriman extends AppCompatActivity {
         btnCari.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                CariLaporan();
+//                CariLaporan();
+                String bulan = spBulan.getSelectedItem().toString();
+                String tahun = spTahun.getSelectedItem().toString();
+                tvTanggal.setText(tahun + "-" + bulan);
+                String tanggal = tvTanggal.getText().toString();
+                Intent intent = new Intent(EntryLapPengiriman.this,LaporanPengiriman.class);
+                intent.putExtra("tanggal",tanggal);
+                startActivity(intent);
+
             }
         });
     }

@@ -43,7 +43,7 @@ public class KacangSplit extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle(String.valueOf(judul));
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         tampilSplit();
     }
 

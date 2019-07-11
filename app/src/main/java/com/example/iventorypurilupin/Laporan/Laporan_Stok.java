@@ -1,10 +1,7 @@
 package com.example.iventorypurilupin.Laporan;
 
+import android.content.Intent;
 import android.os.Bundle;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-import androidx.appcompat.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -13,6 +10,11 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.iventorypurilupin.Network.ApiServiceLaporan;
 import com.example.iventorypurilupin.Network.ApiServiceTahun;
@@ -36,6 +38,7 @@ public class Laporan_Stok extends AppCompatActivity {
     private Spinner spTahun;
     private RecyclerView rvStok;
     private TextView judul;
+    private TextView tvTanggal;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +51,7 @@ public class Laporan_Stok extends AppCompatActivity {
         rvStok.setLayoutManager(new LinearLayoutManager(this));
         rvStok.setHasFixedSize(true);
         judul = (TextView) findViewById(R.id.tv_judul_event);
+        tvTanggal = findViewById(R.id.tanggal);
 
 
         judul.setText("Laporan Stok");
@@ -55,7 +59,7 @@ public class Laporan_Stok extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle(String.valueOf(judul));
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         Button btnCari = findViewById(R.id.btn_cari);
 
         final Laporan_Stok context = this;
@@ -104,7 +108,14 @@ public class Laporan_Stok extends AppCompatActivity {
         btnCari.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                CariStok();
+//                CariStok();
+                String bulan = spBulan.getSelectedItem().toString();
+                String tahun = spTahun.getSelectedItem().toString();
+                tvTanggal.setText(tahun + "-" + bulan);
+                String tanggal = tvTanggal.getText().toString();
+                Intent intent = new Intent(Laporan_Stok.this, DetailLapStok.class);
+                intent.putExtra("tgl", tanggal);
+                startActivity(intent);
             }
         });
     }

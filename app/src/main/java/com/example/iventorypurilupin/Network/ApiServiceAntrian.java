@@ -9,4 +9,7 @@ public interface ApiServiceAntrian {
 
     @GET("tampil_antrian.php")
     Call<Response_antrian>getAntrian();
+
+    @GET("tampil_antrian2.php")
+    Call<Response_antrian>getAntrian2();
 }

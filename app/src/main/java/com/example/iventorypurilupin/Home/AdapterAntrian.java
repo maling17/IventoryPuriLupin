@@ -3,6 +3,8 @@ package com.example.iventorypurilupin.Home;
 import android.content.Context;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,10 +12,12 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.iventorypurilupin.Network.ApiServiceAntrian;
 import com.example.iventorypurilupin.Network.ApiServicePermintaan;
 import com.example.iventorypurilupin.Network.InitRetrofit;
 import com.example.iventorypurilupin.R;
 import com.example.iventorypurilupin.response.response_antrian.AntrianItem;
+import com.example.iventorypurilupin.response.response_antrian.Response_antrian;
 import com.example.iventorypurilupin.response.response_mitra.Value;
 
 import java.util.List;
@@ -50,7 +54,8 @@ public class AdapterAntrian extends RecyclerView.Adapter<AdapterAntrian.MyViewHo
         Holder.btnKirim.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(context, "Barang dikirim  " + Holder.tvId.getText().toString(), Toast.LENGTH_LONG).show();
+                Toast.makeText(context, "Barang dikirim  " , Toast.LENGTH_LONG).show();
+                hapusAntrian(Holder);
             }
         });
 
@@ -93,6 +98,30 @@ public class AdapterAntrian extends RecyclerView.Adapter<AdapterAntrian.MyViewHo
         });
 
     }
+    private void hapusAntrian( final MyViewHolder myViewHolder){
+        ApiServiceAntrian api = InitRetrofit.getAntrian();
+        Call<Response_antrian> antrianCall = api.getAntrian2();
+        antrianCall.enqueue(new Callback<Response_antrian>() {
+            @Override
+            public void onResponse(Call<Response_antrian> call, Response<Response_antrian> response) {
+                Log.d("response api", response.body().toString());
+                List<AntrianItem> data_antrian = response.body().getLaporan();
+                boolean status = response.body().isStatus();
+                if (status) {
+                    AdapterAntrian adapter = new AdapterAntrian(context, data_antrian);
+                    myViewHolder.rvAntrian.setAdapter(adapter);
+                } else {
+                    Toast.makeText(context, "Antrian tidak ada", Toast.LENGTH_LONG).show();
+                }
+
+            }
+
+            @Override
+            public void onFailure(Call<Response_antrian> call, Throwable t) {
+                t.printStackTrace();
+            }
+        });
+    }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
@@ -101,6 +130,7 @@ public class AdapterAntrian extends RecyclerView.Adapter<AdapterAntrian.MyViewHo
         private final TextView tvTujuanAntrian;
         private final TextView tvId;
         private final Button btnKirim;
+        private final RecyclerView rvAntrian;
 
         public MyViewHolder(@NonNull View View) {
             super(View);
@@ -110,6 +140,9 @@ public class AdapterAntrian extends RecyclerView.Adapter<AdapterAntrian.MyViewHo
             btnKirim = View.findViewById(R.id.btn_kirim_antrian);
             tvId = View.findViewById(R.id.tv_id);
 
+            rvAntrian = View.findViewById(R.id.rv_antrian);
+
         }
     }
+
 }

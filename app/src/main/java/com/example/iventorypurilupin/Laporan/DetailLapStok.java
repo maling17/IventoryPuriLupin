@@ -158,7 +158,7 @@ public class DetailLapStok extends AppCompatActivity {
     }
 
     private void tampilLaporan() {
-        String Tanggal = getIntent().getStringExtra("tgl_pengolahan");
+        String Tanggal = getIntent().getStringExtra("tgl");
         tvTanggal.setText(Tanggal);
         String tgl_pengolahan = tvTanggal.getText().toString();
 
@@ -191,7 +191,7 @@ public class DetailLapStok extends AppCompatActivity {
     }
 
     private void tampilSplit() {
-        String Tanggal = getIntent().getStringExtra("tgl_pengolahan");
+        String Tanggal = getIntent().getStringExtra("tgl");
         tvTanggal.setText(Tanggal);
         String tgl_pengolahan = tvTanggal.getText().toString();
         ApiServiceDetailLaporanStok api2 = InitRetrofit.getDetailStok();
@@ -220,7 +220,7 @@ public class DetailLapStok extends AppCompatActivity {
     }
 
     private void tampilFlake() {
-        String Tanggal = getIntent().getStringExtra("tgl_pengolahan");
+        String Tanggal = getIntent().getStringExtra("tgl");
         tvTanggal.setText(Tanggal);
         String tgl_pengolahan = tvTanggal.getText().toString();
         ApiServiceDetailLaporanStok api3 = InitRetrofit.getDetailStok();

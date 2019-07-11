@@ -8,7 +8,8 @@
 
     <TextView
         android:id="@+id/tv_tgl_ks"
-        android:layout_width="wrap_content"
+        android:layout_width="60dp"
+        android:textAlignment="center"
         android:layout_height="wrap_content"
         android:background="@drawable/borderline"
         android:paddingHorizontal="3dp"
@@ -19,7 +20,8 @@
 
     <TextView
         android:id="@+id/tv_whole_awal"
-        android:layout_width="wrap_content"
+
+        android:layout_width="60dp"
         android:layout_height="wrap_content"
         android:background="@drawable/borderline"
         android:paddingVertical="10dp"
@@ -31,7 +33,8 @@
 
     <TextView
         android:id="@+id/tv_whole_olah"
-        android:layout_width="wrap_content"
+        android:layout_width="90dp"
+        android:textAlignment="center"
         android:layout_height="wrap_content"
         android:background="@drawable/borderline"
         android:paddingVertical="10dp"
@@ -42,7 +45,8 @@
 
     <TextView
         android:id="@+id/tv_whole_akhir"
-        android:layout_width="wrap_content"
+        android:layout_width="70dp"
+        android:textAlignment="center"
         android:layout_height="wrap_content"
         android:background="@drawable/borderline"
         android:paddingVertical="10dp"

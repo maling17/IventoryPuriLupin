@@ -3,8 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginHorizontal="@dimen/activity_horizontal_margin"
-    android:layout_marginVertical="@dimen/activity_vertical_margin"
+
     android:orientation="vertical"
     tools:targetApi="o">
 
@@ -17,36 +16,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <TableRow
-
-                android:gravity="center">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/borderline"
-                    android:fontFamily="@font/javatext"
-                    android:paddingHorizontal="20dp"
-                    android:text="@string/Produk"
-                    android:textAlignment="center"
-                    android:textSize="20sp"
-                    tools:targetApi="o" />
-
-                <LinearLayout android:background="@drawable/borderline">
-
-                    <TextView
-
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/javatext"
-                        android:gravity="center"
-                        android:paddingHorizontal="20dp"
-                        android:text="Kuantitas"
-                        android:textAlignment="center"
-                        android:textSize="20sp"
-                        tools:targetApi="o" />
-                </LinearLayout>
-            </TableRow>
 
             <!--Panggil Data-->
             <TableRow
@@ -54,11 +23,11 @@
 
                 <TextView
                     android:id="@+id/tv_produk"
-                    android:layout_width="wrap_content"
+                    android:layout_width="175dp"
                     android:layout_height="wrap_content"
                     android:background="@drawable/borderline"
                     android:fontFamily="@font/javatext"
-                    android:paddingHorizontal="20dp"
+                    android:paddingHorizontal="18dp"
                     android:text="@string/Produk"
                     android:textAlignment="center"
                     android:textSize="20sp"
@@ -68,7 +37,7 @@
 
                     <TextView
                         android:id="@+id/tv_qty"
-                        android:layout_width="wrap_content"
+                        android:layout_width="80dp"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/javatext"
                         android:paddingStart="20dp"
@@ -78,7 +47,7 @@
                         tools:targetApi="o" />
 
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:layout_width="95dp"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/javatext"
                         android:paddingStart="10dp"

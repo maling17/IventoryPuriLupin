@@ -60,7 +60,6 @@ public class FormPermintaan extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle(String.valueOf(judul));
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         TampilPermintaan();
     }
 
@@ -78,7 +77,7 @@ public class FormPermintaan extends AppCompatActivity {
                         AdapterIdPermintaan adapter = new AdapterIdPermintaan(FormPermintaan.this, data_split);
                         rvPermintaan.setAdapter(adapter);
                     } else {
-                        Toast.makeText(FormPermintaan.this, "Permintaan tidak ada", Toast.LENGTH_LONG).show();
+
                     }
                 }
             }

@@ -1,5 +1,6 @@
 package com.example.iventorypurilupin.Laporan;
 
+import android.content.Intent;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -36,6 +37,7 @@ public class LaporanRekap extends AppCompatActivity {
     private Spinner spTahun;
     private RecyclerView rvRekap;
     private TextView judul;
+    private TextView tvtanggal;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,22 +49,32 @@ public class LaporanRekap extends AppCompatActivity {
         rvRekap = findViewById(R.id.rv_rekap);
         rvRekap.setLayoutManager(new LinearLayoutManager(this));
         rvRekap.setHasFixedSize(true);
+
+        tvtanggal = findViewById(R.id.tgl);
+
         Button btnCari=findViewById(R.id.btn_cari_rekap);
         btnCari.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                CariLaporan();
+//                CariLaporan();
+                String bulan = spBulan.getSelectedItem().toString();
+                String tahun = spTahun.getSelectedItem().toString();
+                tvtanggal.setText(tahun + "-" + bulan);
+                String tanggal=tvtanggal.getText().toString();
+                Intent intent=new Intent(LaporanRekap.this,DetailLapRekap.class);
+                intent.putExtra("tanggal",tanggal);
+                startActivity(intent);
             }
         });
         judul = (TextView) findViewById(R.id.tv_judul_event);
 
 
-        judul.setText("Laporan Rekap Mitra");
+        judul.setText("Laporan Rekap Barang");
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle(String.valueOf(judul));
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
 
 
         final LaporanRekap context = this;

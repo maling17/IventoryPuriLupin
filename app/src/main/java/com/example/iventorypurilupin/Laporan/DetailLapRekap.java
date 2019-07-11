@@ -87,7 +87,7 @@ public class DetailLapRekap extends AppCompatActivity {
     }
 
     private void cetakSplit() {
-        String tgl = getIntent().getStringExtra("tgl");
+        String tgl = getIntent().getStringExtra("tanggal");
         tvTanggal.setText(tgl);
         String tgl_permintaan = tvTanggal.getText().toString();
 
@@ -118,7 +118,7 @@ public class DetailLapRekap extends AppCompatActivity {
     }
 
     private void cetakFlake() {
-        String tgl = getIntent().getStringExtra("tgl");
+        String tgl = getIntent().getStringExtra("tanggal");
         tvTanggal.setText(tgl);
         String tgl_permintaan = tvTanggal.getText().toString();
 

@@ -8,31 +8,31 @@
 
     <TextView
         android:id="@+id/tv_tgl_detail_stok"
-        android:layout_width="wrap_content"
+        android:layout_width="60dp"
         android:layout_height="wrap_content"
         android:background="@drawable/borderline"
-        android:paddingVertical="11.5dp"
+        android:paddingVertical="10dp"
         android:paddingStart="10dp"
         android:paddingEnd="10dp"
         android:text="Bulan"
         android:textAlignment="center"
-        android:textSize="8sp" />
+        android:textSize="6sp" />
 
     <TextView
         android:id="@+id/tv_whole_awal_stok"
-        android:layout_width="wrap_content"
+        android:layout_width="50dp"
         android:layout_height="wrap_content"
         android:background="@drawable/borderline"
         android:paddingVertical="10dp"
         android:paddingHorizontal="15dp"
         android:text="W.Awal"
         android:textAlignment="center"
-        android:textSize="10sp" />
+        android:textSize="6sp" />
 
 
     <TextView
         android:id="@+id/tv_whole_akhir_stok"
-        android:layout_width="wrap_content"
+        android:layout_width="50dp"
         android:layout_height="wrap_content"
         android:background="@drawable/borderline"
         android:paddingVertical="10dp"
@@ -40,7 +40,7 @@
         android:paddingEnd="15dp"
         android:text="W.Akhir"
         android:textAlignment="center"
-        android:textSize="10sp" />
+        android:textSize="6sp" />
 
 
 </LinearLayout>

@@ -90,7 +90,7 @@ public class LaporanPengiriman extends AppCompatActivity {
 
     private void TampilLaporan() {
 
-        String tglSj2 = getIntent().getStringExtra("tgl");
+        String tglSj2 = getIntent().getStringExtra("tanggal");
 
         tvTanggal.setText(tglSj2);
 
