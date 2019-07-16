@@ -84,7 +84,15 @@ public class MainActivity extends AppCompatActivity {
                         fragment = new GudangFragment();
                         break;
                     case R.id.Laporan:
+                        String nama2 = tvnama.getText().toString();
+                        Bundle data2 = new Bundle();
+                        data2.putString(LaporanFragment.KEY_ACTIVITY, nama2);
                         fragment = new LaporanFragment();
+                        fragment.setArguments(data2);
+                        getSupportFragmentManager()
+                                .beginTransaction()
+                                .replace(R.id.main_container, fragment)
+                                .commit();
                         break;
                     case R.id.Profil:// in this line i try to passing the data
                         String nama = tvnama.getText().toString();

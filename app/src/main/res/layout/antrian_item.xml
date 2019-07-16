@@ -22,6 +22,17 @@
             android:padding="10dp">
 
             <TextView
+                android:id="@+id/tv_no_tlp_mitra"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/javatext"
+                android:padding="5dp"
+                android:text="0"
+                android:textSize="10sp"
+                android:textStyle="bold"
+                android:visibility="gone" />
+
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/javatext"

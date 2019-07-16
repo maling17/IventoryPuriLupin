@@ -22,6 +22,9 @@ public class AntrianItem {
     @SerializedName("tujuan")
     private String tujuan;
 
+    @SerializedName("tlp_mitra")
+    private String tlp_mitra;
+
     public String getIdPermintaan() {
         return idPermintaan;
     }
@@ -70,6 +73,14 @@ public class AntrianItem {
         this.tujuan = tujuan;
     }
 
+    public String getTlp_mitra() {
+        return tlp_mitra;
+    }
+
+    public void setTlp_mitra(String tlp_mitra) {
+        this.tlp_mitra = tlp_mitra;
+    }
+
     @Override
     public String toString() {
         return
@@ -80,6 +91,9 @@ public class AntrianItem {
                         ",id_sj = '" + idSj + '\'' +
                         ",tgl_sj = '" + tglSj + '\'' +
                         ",tujuan = '" + tujuan + '\'' +
+                        ",tlp_mitra='" + tlp_mitra + '\'' +
                         "}";
     }
+
+
 }

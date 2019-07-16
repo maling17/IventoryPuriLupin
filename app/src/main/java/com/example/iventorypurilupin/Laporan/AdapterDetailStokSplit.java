@@ -35,7 +35,7 @@ public class AdapterDetailStokSplit extends RecyclerView.Adapter<AdapterDetailSt
     public void onBindViewHolder(@NonNull MyViewHolder myViewHolder, int i) {
         myViewHolder.tvsplitAkhir.setText(splitItems.get(i).getSplitAkhir());
         myViewHolder.tvsplitAwal.setText(splitItems.get(i).getSplitAwal());
-
+        myViewHolder.tvSplitOlah.setText(splitItems.get(i).getSplitMasuk());
     }
 
     @Override
@@ -47,12 +47,14 @@ public class AdapterDetailStokSplit extends RecyclerView.Adapter<AdapterDetailSt
 
         private final TextView tvsplitAwal;
         private final TextView tvsplitAkhir;
+        private final TextView tvSplitOlah;
 
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
 
             tvsplitAwal = itemView.findViewById(R.id.tv_split_awal_stok);
+            tvSplitOlah = itemView.findViewById(R.id.tv_split_olah_stok);
             tvsplitAkhir = itemView.findViewById(R.id.tv_split_akhir_stok);
         }
     }

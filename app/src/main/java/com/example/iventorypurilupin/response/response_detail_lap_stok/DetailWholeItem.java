@@ -12,6 +12,9 @@ public class DetailWholeItem {
     @SerializedName("Whole_Awal")
     private String wholeAwal;
 
+    @SerializedName("Whole_Olah")
+    private String wholeOlah;
+
     @SerializedName("Whole_akhir")
     private String wholeAkhir;
 
@@ -21,6 +24,15 @@ public class DetailWholeItem {
 
     public void setWholeAwal(String wholeAwal) {
         this.wholeAwal = wholeAwal;
+    }
+
+
+    public String getWholeOlah() {
+        return wholeOlah;
+    }
+
+    public void setWholeOlah(String wholeOlah) {
+        this.wholeOlah = wholeOlah;
     }
 
     public String getTglPengolahan() {
@@ -43,11 +55,11 @@ public class DetailWholeItem {
     public String toString() {
         return
                 "DetailWholeItem{" +
-                        "tgl_pengolahan='"+tglPengolahan+'\''+
-                        "whole_Awal = '" + wholeAwal + '\'' +
+                        "tgl_pengolahan='" + tglPengolahan + '\'' +
+                        ",whole_Awal = '" + wholeAwal + '\'' +
+                        ",whole_Olah='" + wholeOlah + '\'' +
                         ",whole_akhir = '" + wholeAkhir + '\'' +
                         "}";
     }
-
 
 }

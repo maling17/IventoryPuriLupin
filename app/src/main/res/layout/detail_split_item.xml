@@ -6,11 +6,22 @@
 
     tools:targetApi="o">
 
-   
 
     <TextView
         android:id="@+id/tv_split_awal_stok"
         android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/borderline"
+        android:paddingVertical="10dp"
+        android:paddingStart="15dp"
+        android:paddingEnd="12.5dp"
+        android:text="S.Awal"
+        android:textAlignment="center"
+        android:textSize="6sp" />
+
+    <TextView
+        android:id="@+id/tv_split_olah_stok"
+        android:layout_width="55dp"
         android:layout_height="wrap_content"
         android:background="@drawable/borderline"
         android:paddingVertical="10dp"
@@ -28,8 +39,8 @@
         android:paddingVertical="10dp"
         android:paddingStart="15dp"
         android:paddingEnd="17.2dp"
-        android:textAlignment="center"
         android:text="S.akhir"
+        android:textAlignment="center"
         android:textSize="6sp" />
 
 

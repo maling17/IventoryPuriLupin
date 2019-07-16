@@ -39,6 +39,7 @@ public class Laporan_Stok extends AppCompatActivity {
     private RecyclerView rvStok;
     private TextView judul;
     private TextView tvTanggal;
+    private TextView tvPic;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +53,10 @@ public class Laporan_Stok extends AppCompatActivity {
         rvStok.setHasFixedSize(true);
         judul = (TextView) findViewById(R.id.tv_judul_event);
         tvTanggal = findViewById(R.id.tanggal);
+        tvPic = findViewById(R.id.tv_pic_stok);
+
+        String pic=getIntent().getStringExtra("text");
+        tvPic.setText(pic);
 
 
         judul.setText("Laporan Stok");
@@ -109,12 +114,14 @@ public class Laporan_Stok extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 //                CariStok();
+                String PIC =tvPic.getText().toString();
                 String bulan = spBulan.getSelectedItem().toString();
                 String tahun = spTahun.getSelectedItem().toString();
                 tvTanggal.setText(tahun + "-" + bulan);
                 String tanggal = tvTanggal.getText().toString();
                 Intent intent = new Intent(Laporan_Stok.this, DetailLapStok.class);
                 intent.putExtra("tgl", tanggal);
+                intent.putExtra("text",PIC);
                 startActivity(intent);
             }
         });

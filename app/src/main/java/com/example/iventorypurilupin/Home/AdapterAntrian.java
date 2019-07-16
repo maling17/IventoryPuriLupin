@@ -4,6 +4,7 @@ import android.content.Context;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -51,11 +52,22 @@ public class AdapterAntrian extends RecyclerView.Adapter<AdapterAntrian.MyViewHo
         Holder.tvTujuanAntrian.setText(permintaan.get(i).getTujuan());
         Holder.tvQtySplit.setText(permintaan.get(i).getSplitSj());
         Holder.tvQtyFlake.setText(permintaan.get(i).getFlakeSj());
+        Holder.tvTlp.setText(permintaan.get(i).getTlp_mitra());
+        final String tlp=Holder.tvTlp.getText().toString();
+        final String split=Holder.tvQtySplit.getText().toString();
+        final String flake=Holder.tvQtyFlake.getText().toString();
         Holder.btnKirim.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast.makeText(context, "Barang dikirim  " , Toast.LENGTH_LONG).show();
-                hapusAntrian(Holder);
+                String Pesan = "Barang sudah dikirim Silahkan ditunggu dengan Split dan Flake";
+                String pesan=Pesan+split+flake;
+                Intent intent = new Intent(Intent.ACTION_SEND);
+                intent.setType("text/plain");
+                intent.putExtra(Intent.EXTRA_TEXT, pesan);
+                intent.putExtra("jid", tlp + "@s.whatsapp.net");
+                intent.setPackage("com.whatsapp");
+                context.startActivity(intent);
             }
         });
 
@@ -67,37 +79,7 @@ public class AdapterAntrian extends RecyclerView.Adapter<AdapterAntrian.MyViewHo
         return permintaan.size();
     }
 
-    private void hapus_permintaan(AdapterAntrian.MyViewHolder holder) {
-        String id_permintaan = holder.tvId.getText().toString();
-        ApiServicePermintaan apiServicePermintaan = InitRetrofit.getPermintaan();
-        Call<Value> call = apiServicePermintaan.hapus(id_permintaan);
-        call.enqueue(new Callback<Value>() {
-            @Override
-            public void onResponse(Call<Value> call, Response<Value> response) {
-                String value = null;
-                if (response.body() != null) {
-                    value = response.body().getValue();
-                }
-                String message = null;
-                if (response.body() != null) {
-                    message = response.body().getMessage();
-                }
-                if (value != null) {
-                    if (value.equals("1")) {
-                        Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
-                    } else {
-                        Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
-                    }
-                }
-            }
 
-            @Override
-            public void onFailure(Call<Value> call, Throwable t) {
-                t.printStackTrace();
-            }
-        });
-
-    }
     private void hapusAntrian( final MyViewHolder myViewHolder){
         ApiServiceAntrian api = InitRetrofit.getAntrian();
         Call<Response_antrian> antrianCall = api.getAntrian2();
@@ -131,6 +113,7 @@ public class AdapterAntrian extends RecyclerView.Adapter<AdapterAntrian.MyViewHo
         private final TextView tvId;
         private final Button btnKirim;
         private final RecyclerView rvAntrian;
+        private final TextView tvTlp;
 
         public MyViewHolder(@NonNull View View) {
             super(View);
@@ -139,6 +122,7 @@ public class AdapterAntrian extends RecyclerView.Adapter<AdapterAntrian.MyViewHo
             tvTujuanAntrian = View.findViewById(R.id.tv_tujuan_antrian);
             btnKirim = View.findViewById(R.id.btn_kirim_antrian);
             tvId = View.findViewById(R.id.tv_id);
+            tvTlp = View.findViewById(R.id.tv_no_tlp_mitra);
 
             rvAntrian = View.findViewById(R.id.rv_antrian);
 

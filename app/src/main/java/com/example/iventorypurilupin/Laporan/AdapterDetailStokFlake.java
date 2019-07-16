@@ -1,12 +1,13 @@
 package com.example.iventorypurilupin.Laporan;
 
 import android.content.Context;
-import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.iventorypurilupin.R;
 import com.example.iventorypurilupin.response.response_detail_lap_stok_flake.DetailFlakeItem;
@@ -35,7 +36,7 @@ public class AdapterDetailStokFlake extends RecyclerView.Adapter<AdapterDetailSt
     public void onBindViewHolder(@NonNull MyViewHolder myViewHolder, int i) {
         myViewHolder.tvflakeAkhir.setText(flakeItems.get(i).getFlakeAkhir());
         myViewHolder.tvflakeAwal.setText(flakeItems.get(i).getFlakeAwal());
-
+        myViewHolder.tvFlakeOlah.setText(flakeItems.get(i).getFlakeMasuk());
     }
 
     @Override
@@ -47,11 +48,12 @@ public class AdapterDetailStokFlake extends RecyclerView.Adapter<AdapterDetailSt
 
         private final TextView tvflakeAwal;
         private final TextView tvflakeAkhir;
+        private final TextView tvFlakeOlah;
 
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-
+            tvFlakeOlah = itemView.findViewById(R.id.tv_flake_olah_stok);
             tvflakeAwal = itemView.findViewById(R.id.tv_flake_awal_stok);
             tvflakeAkhir = itemView.findViewById(R.id.tv_flake_akhir_stok);
         }

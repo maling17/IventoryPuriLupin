@@ -90,7 +90,7 @@
     <string name="flake_awal">Flake Awal</string>
     <string name="tampil_permintaan">Tampil Permintaan</string>
     <string name="notifikasi">notifikasi</string>
-    <string name="laporan_barang">Laporan Rekap Barang</string>
+    <string name="laporan_barang">Laporan Rekap \nPermintaan Barang</string>
 
 
     <string-array name="tujuanmitra">

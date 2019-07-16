@@ -7,6 +7,9 @@ public class DetailSplitItem {
     @SerializedName("Split_akhir")
     private String splitAkhir;
 
+    @SerializedName("Split_Masuk")
+    private String splitMasuk;
+
     @SerializedName("Split_Awal")
     private String splitAwal;
 
@@ -16,6 +19,15 @@ public class DetailSplitItem {
 
     public void setSplitAkhir(String splitAkhir) {
         this.splitAkhir = splitAkhir;
+    }
+
+
+    public String getSplitMasuk() {
+        return splitMasuk;
+    }
+
+    public void setSplitMasuk(String splitMasuk) {
+        this.splitMasuk = splitMasuk;
     }
 
     public String getSplitAwal() {
@@ -31,7 +43,9 @@ public class DetailSplitItem {
         return
                 "DetailSplitItem{" +
                         "split_akhir = '" + splitAkhir + '\'' +
+                        ",split_masuk='"+splitMasuk+'\''+
                         ",split_Awal = '" + splitAwal + '\'' +
                         "}";
     }
+
 }

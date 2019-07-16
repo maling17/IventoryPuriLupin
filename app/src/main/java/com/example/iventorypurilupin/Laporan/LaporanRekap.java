@@ -2,10 +2,6 @@ package com.example.iventorypurilupin.Laporan;
 
 import android.content.Intent;
 import android.os.Bundle;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-import androidx.appcompat.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -14,6 +10,11 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.iventorypurilupin.Network.ApiServiceLaporan;
 import com.example.iventorypurilupin.Network.ApiServiceTahun;
@@ -38,6 +39,7 @@ public class LaporanRekap extends AppCompatActivity {
     private RecyclerView rvRekap;
     private TextView judul;
     private TextView tvtanggal;
+    private TextView tvpic;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,19 +52,26 @@ public class LaporanRekap extends AppCompatActivity {
         rvRekap.setLayoutManager(new LinearLayoutManager(this));
         rvRekap.setHasFixedSize(true);
 
+        tvpic = findViewById(R.id.tv_pic_rekap);
+
+        String pic = getIntent().getStringExtra("text");
+        tvpic.setText(pic);
+
         tvtanggal = findViewById(R.id.tgl);
 
-        Button btnCari=findViewById(R.id.btn_cari_rekap);
+        Button btnCari = findViewById(R.id.btn_cari_rekap);
         btnCari.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 //                CariLaporan();
+                String PIC = tvpic.getText().toString();
                 String bulan = spBulan.getSelectedItem().toString();
                 String tahun = spTahun.getSelectedItem().toString();
                 tvtanggal.setText(tahun + "-" + bulan);
-                String tanggal=tvtanggal.getText().toString();
-                Intent intent=new Intent(LaporanRekap.this,DetailLapRekap.class);
-                intent.putExtra("tanggal",tanggal);
+                String tanggal = tvtanggal.getText().toString();
+                Intent intent = new Intent(LaporanRekap.this, DetailLapRekap.class);
+                intent.putExtra("tanggal", tanggal);
+                intent.putExtra("text", PIC);
                 startActivity(intent);
             }
         });
@@ -74,7 +83,6 @@ public class LaporanRekap extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle(String.valueOf(judul));
-
 
 
         final LaporanRekap context = this;
@@ -122,35 +130,35 @@ public class LaporanRekap extends AppCompatActivity {
     }
 
 
-        private void CariLaporan () {
-            String bulan = spBulan.getSelectedItem().toString();
-            String tahun = spTahun.getSelectedItem().toString();
-            ApiServiceLaporan api = InitRetrofit.getLaporan();
-            final Call<Response_rekap> lapCall = api.getLaporanRekap(bulan, tahun);
-            lapCall.enqueue(new Callback<Response_rekap>() {
-                @Override
-                public void onResponse(Call<Response_rekap> call, Response<Response_rekap> response) {
-                    if (response.isSuccessful()) {
-                        Log.d("response api", response.body().toString());
-                        List<LaporanRekap2Item> data_split = response.body().getLaporan();
-                        boolean status = response.body().isStatus();
-                        if (status) {
-                            AdapterLapRekap adapter = new AdapterLapRekap(LaporanRekap.this, data_split);
-                            rvRekap.setAdapter(adapter);
-                        } else {
-                            Toast.makeText(LaporanRekap.this, "Laporan tidak ada", Toast.LENGTH_LONG).show();
-                        }
+    private void CariLaporan() {
+        String bulan = spBulan.getSelectedItem().toString();
+        String tahun = spTahun.getSelectedItem().toString();
+        ApiServiceLaporan api = InitRetrofit.getLaporan();
+        final Call<Response_rekap> lapCall = api.getLaporanRekap(bulan, tahun);
+        lapCall.enqueue(new Callback<Response_rekap>() {
+            @Override
+            public void onResponse(Call<Response_rekap> call, Response<Response_rekap> response) {
+                if (response.isSuccessful()) {
+                    Log.d("response api", response.body().toString());
+                    List<LaporanRekap2Item> data_split = response.body().getLaporan();
+                    boolean status = response.body().isStatus();
+                    if (status) {
+                        AdapterLapRekap adapter = new AdapterLapRekap(LaporanRekap.this, data_split);
+                        rvRekap.setAdapter(adapter);
+                    } else {
+                        Toast.makeText(LaporanRekap.this, "Laporan tidak ada", Toast.LENGTH_LONG).show();
                     }
-
-
                 }
 
-                @Override
-                public void onFailure(Call<Response_rekap> call, Throwable t) {
-                    t.printStackTrace();
-                }
 
-            });
-        }
+            }
+
+            @Override
+            public void onFailure(Call<Response_rekap> call, Throwable t) {
+                t.printStackTrace();
+            }
+
+        });
     }
+}
 

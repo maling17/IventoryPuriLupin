@@ -2,20 +2,24 @@ package com.example.iventorypurilupin.Fragment;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
-import androidx.fragment.app.Fragment;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
+import android.support.v4.app.INotificationSideChannel;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.Fragment;
+
 import com.example.iventorypurilupin.Laporan.EntryLapPengiriman;
 import com.example.iventorypurilupin.Laporan.LaporanRekap;
 import com.example.iventorypurilupin.Laporan.Laporan_Stok;
+import com.example.iventorypurilupin.Login;
 import com.example.iventorypurilupin.R;
 
 
@@ -30,8 +34,10 @@ import com.example.iventorypurilupin.R;
 public class LaporanFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+    public static final String KEY_ACTIVITY = "msg_activity";
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+    private SharedPreferences sharedPreferences;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -41,6 +47,7 @@ public class LaporanFragment extends Fragment {
     private ImageButton ibLapStok;
     private ImageButton ibLapPengiriman;
     private ImageButton ibLapRekap;
+    private TextView tvProfil;
 
     public LaporanFragment() {
         // Required empty public constructor
@@ -74,40 +81,63 @@ public class LaporanFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(final LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         TextView judul = getActivity().findViewById(R.id.tv_judul_event);
         judul.setText("Laporan");
 
-
+        sharedPreferences = getActivity().getSharedPreferences(Login.my_shared_preferences, Context.MODE_PRIVATE);
         View v = inflater.inflate(R.layout.fragment_laporan, container, false);
         Toolbar toolbar = getActivity().findViewById(R.id.toolbar);
         ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
         ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(String.valueOf(judul));
 
 
+        tvProfil = v.findViewById(R.id.tv_pic_laporan);
         ibLapStok = v.findViewById(R.id.ib_lap_stok);
         ibLapPengiriman = v.findViewById(R.id.ib_lap_pengiriman);
         ibLapRekap = v.findViewById(R.id.ib_lap_rekap);
 
+
+        try {
+            String nama = null;
+            if (getArguments() != null) {
+                nama = getArguments().getString(KEY_ACTIVITY);
+
+            }
+            tvProfil.setText(nama);
+
+
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+
+
         ibLapPengiriman.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String text=tvProfil.getText().toString();
                 Intent intent = new Intent(getActivity(), EntryLapPengiriman.class);
+                intent.putExtra("text",text);
                 startActivity(intent);
             }
         });
         ibLapStok.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String text=tvProfil.getText().toString();
                 Intent i = new Intent(getActivity(), Laporan_Stok.class);
+                i.putExtra("text",text);
                 startActivity(i);
             }
         });
         ibLapRekap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent2=new Intent(getActivity(), LaporanRekap.class);
+                String text=tvProfil.getText().toString();
+                Intent intent2 = new Intent(getActivity(), LaporanRekap.class);
+                intent2.putExtra("text",text);
                 startActivity(intent2);
             }
         });

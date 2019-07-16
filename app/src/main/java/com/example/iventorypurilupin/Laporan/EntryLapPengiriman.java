@@ -42,6 +42,7 @@ public class EntryLapPengiriman extends AppCompatActivity {
     private TextView tvTanggal;
     private TextView tvBulan;
     private TextView tv_tahun;
+    private TextView tvPic;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +51,7 @@ public class EntryLapPengiriman extends AppCompatActivity {
         rvLp = findViewById(R.id.rv_lp);
         rvLp.setLayoutManager(new LinearLayoutManager(this));
         rvLp.setHasFixedSize(true);
+        tvPic = findViewById(R.id.tv_pic_lp);
         judul = (TextView) findViewById(R.id.tv_judul_event);
         tvTanggal = findViewById(R.id.tvTgl);
 
@@ -64,6 +66,10 @@ public class EntryLapPengiriman extends AppCompatActivity {
         spTahun = findViewById(R.id.sp_tahun);
         Button btnCari = findViewById(R.id.btn_cari);
 
+
+        final String pic=getIntent().getStringExtra("text");
+        tvPic.setText(pic);
+        String PIC=tvPic.getText().toString();
 
         final EntryLapPengiriman context = this;
 
@@ -112,12 +118,15 @@ public class EntryLapPengiriman extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 //                CariLaporan();
+                String PIC=tvPic.getText().toString();
+
                 String bulan = spBulan.getSelectedItem().toString();
                 String tahun = spTahun.getSelectedItem().toString();
                 tvTanggal.setText(tahun + "-" + bulan);
                 String tanggal = tvTanggal.getText().toString();
                 Intent intent = new Intent(EntryLapPengiriman.this,LaporanPengiriman.class);
                 intent.putExtra("tanggal",tanggal);
+                intent.putExtra("text",PIC);
                 startActivity(intent);
 
             }

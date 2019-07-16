@@ -10,9 +10,6 @@ import android.graphics.Paint;
 import android.graphics.pdf.PdfDocument;
 import android.net.Uri;
 import android.os.Bundle;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
@@ -21,6 +18,10 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.iventorypurilupin.Network.ApiServiceDetailLaporanStok;
 import com.example.iventorypurilupin.Network.InitRetrofit;
@@ -52,6 +53,7 @@ public class DetailLapStok extends AppCompatActivity {
     private RecyclerView rvFlake;
     private Bitmap bitmap;
     private LinearLayout pdf;
+    private TextView tvPic;
 
     public static Bitmap loadBitmapFromView(View v, int width, int height) {
         Bitmap b = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
@@ -60,6 +62,7 @@ public class DetailLapStok extends AppCompatActivity {
 
         return b;
     }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -71,6 +74,11 @@ public class DetailLapStok extends AppCompatActivity {
         rvSplit = findViewById(R.id.rv_detail_split);
         rvSplit.setLayoutManager(new LinearLayoutManager(this));
         rvSplit.setHasFixedSize(true);
+
+        tvPic = findViewById(R.id.tv_profil_stok);
+
+        String pic=getIntent().getStringExtra("text");
+        tvPic.setText(pic);
 
         rvFlake = findViewById(R.id.rv_detail_flake);
         rvFlake.setLayoutManager(new LinearLayoutManager(this));

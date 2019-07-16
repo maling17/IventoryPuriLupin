@@ -50,6 +50,7 @@ public class LaporanPengiriman extends AppCompatActivity {
     private Bitmap bitmap;
     private LinearLayout pdf;
     private RecyclerView rvDetail;
+    private TextView tvPic;
 
     public static Bitmap loadBitmapFromView(View v, int width, int height) {
         Bitmap b = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
@@ -67,12 +68,18 @@ public class LaporanPengiriman extends AppCompatActivity {
 
 
         pdf = findViewById(R.id.pdf);
+
+        tvPic = findViewById(R.id.tv_profil_pengiriman);
         tvTanggal = findViewById(R.id.tv_tanggal);
         rvDetail = findViewById(R.id.rv_detail);
         rvDetail.setLayoutManager(new LinearLayoutManager(this));
         rvDetail.setHasFixedSize(true);
 
         final Button btnCetak = findViewById(R.id.btn_cetak);
+
+
+        String pic=getIntent().getStringExtra("text");
+        tvPic.setText(pic);
 
 
         btnCetak.setOnClickListener(new View.OnClickListener() {

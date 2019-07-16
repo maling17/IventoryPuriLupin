@@ -36,6 +36,7 @@ public class AdapterDetailStokWhole extends RecyclerView.Adapter<AdapterDetailSt
         myViewHolder.tvWholeAkhir.setText(wholeItems.get(i).getWholeAkhir());
         myViewHolder.tvWholeAwal.setText(wholeItems.get(i).getWholeAwal());
         myViewHolder.tvTglStok.setText(wholeItems.get(i).getTglPengolahan());
+        myViewHolder.tvWholaOlah.setText(wholeItems.get(i).getWholeOlah());
     }
 
     @Override
@@ -48,12 +49,14 @@ public class AdapterDetailStokWhole extends RecyclerView.Adapter<AdapterDetailSt
         private final TextView tvWholeAwal;
         private final TextView tvWholeAkhir;
         private final TextView tvTglStok;
+        private final TextView tvWholaOlah;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             tvTglStok = itemView.findViewById(R.id.tv_tgl_detail_stok);
             tvWholeAwal = itemView.findViewById(R.id.tv_whole_awal_stok);
             tvWholeAkhir = itemView.findViewById(R.id.tv_whole_akhir_stok);
+            tvWholaOlah = itemView.findViewById(R.id.tv_whole_olah_stok);
         }
     }
 }
