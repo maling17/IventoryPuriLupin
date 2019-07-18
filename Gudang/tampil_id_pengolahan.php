@@ -12,6 +12,17 @@ while ($data = $query->fetch_assoc()) {
 // Cek apakah datanya null ?
 if (is_null($response_data)) {
  // jika ya, buat status untuk response jadi false
+  $sql= "INSERT INTO pengolahan(id_pengolahan) VALUES (0);";
+	if(mysqli_query($con,$sql)) {
+       $response["value"] = 1;
+       $response["message"] = "Sukses Menambahkan Permintaan";
+		echo json_encode($response);
+     } else {
+       $response["value"] = 0;
+       $response["message"] = "oops! Coba lagi!";
+       echo json_encode($response);
+	   
+     }
  $status = false;
 } else {
  // jika tidak, buat status untuk response jadi true

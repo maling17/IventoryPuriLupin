@@ -2,7 +2,7 @@
 
 require 'koneksi.php';
 
-$sql="SELECT year(tgl_pengolahan)as tahun FROM pengolahan group BY year(tgl_pengolahan)";
+$sql="SELECT year(tgl_pengolahan)as tahun FROM pengolahan where year(tgl_pengolahan) not in(select year(tgl_pengolahan) from pengolahan where year(tgl_pengolahan)=0) group BY year(tgl_pengolahan)";
 $query= $con->query ($sql);
 $tahun=null;
 while($data = $query->fetch_assoc()){

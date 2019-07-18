@@ -4,7 +4,7 @@ require 'koneksi.php';
 
 
 
-$sql="SELECT *from surat_jalan order by id_sj";
+$sql="SELECT sj.id_sj,p.tujuan,sj.split_sj,sj.flake_sj,m.tlp_mitra from surat_jalan sj,permintaan p,mitra m where sj.id_permintaan=p.id_permintaan and p.id_mitra=m.id_mitra order by id_sj";
 $query= $con->query ($sql)or die($con->error);
 $response_data=null;
 while ($data = $query->fetch_assoc()) {
