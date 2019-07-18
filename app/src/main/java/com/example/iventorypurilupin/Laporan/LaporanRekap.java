@@ -2,6 +2,7 @@ package com.example.iventorypurilupin.Laporan;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -25,7 +26,9 @@ import com.example.iventorypurilupin.response.response_lap_rekap2.Response_rekap
 import com.example.iventorypurilupin.response.response_tahun.Response_tahun;
 import com.example.iventorypurilupin.response.response_tahun.TahunItem;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import retrofit2.Call;
@@ -40,6 +43,8 @@ public class LaporanRekap extends AppCompatActivity {
     private TextView judul;
     private TextView tvtanggal;
     private TextView tvpic;
+    private Handler handler=new Handler();
+    private TextView tvTanggalCetak;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +56,7 @@ public class LaporanRekap extends AppCompatActivity {
         rvRekap = findViewById(R.id.rv_rekap);
         rvRekap.setLayoutManager(new LinearLayoutManager(this));
         rvRekap.setHasFixedSize(true);
+
 
         tvpic = findViewById(R.id.tv_pic_rekap);
 
@@ -128,6 +134,8 @@ public class LaporanRekap extends AppCompatActivity {
             }
         });
     }
+
+
 
 
     private void CariLaporan() {

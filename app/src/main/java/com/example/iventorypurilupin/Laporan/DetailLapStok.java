@@ -10,6 +10,7 @@ import android.graphics.Paint;
 import android.graphics.pdf.PdfDocument;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
@@ -36,6 +37,8 @@ import com.example.iventorypurilupin.response.response_detail_lap_stok_split.Res
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.List;
 
 import retrofit2.Call;
@@ -54,6 +57,17 @@ public class DetailLapStok extends AppCompatActivity {
     private Bitmap bitmap;
     private LinearLayout pdf;
     private TextView tvPic;
+    private Handler handler = new Handler();
+    private TextView tvTanggalCetak;
+    private Runnable runnable = new Runnable() {
+        @Override
+        public void run() {
+            Calendar c1 = Calendar.getInstance();
+            SimpleDateFormat sdf1 = new SimpleDateFormat("d/M/yyyy");
+            String strdate = sdf1.format(c1.getTime());
+            tvTanggalCetak.setText(strdate);
+        }
+    };
 
     public static Bitmap loadBitmapFromView(View v, int width, int height) {
         Bitmap b = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
@@ -74,10 +88,10 @@ public class DetailLapStok extends AppCompatActivity {
         rvSplit = findViewById(R.id.rv_detail_split);
         rvSplit.setLayoutManager(new LinearLayoutManager(this));
         rvSplit.setHasFixedSize(true);
-
+        tvTanggalCetak = findViewById(R.id.tv_Tanggal_cetak_stok);
         tvPic = findViewById(R.id.tv_profil_stok);
 
-        String pic=getIntent().getStringExtra("text");
+        String pic = getIntent().getStringExtra("text");
         tvPic.setText(pic);
 
         rvFlake = findViewById(R.id.rv_detail_flake);
@@ -98,6 +112,8 @@ public class DetailLapStok extends AppCompatActivity {
                 createPdf();
             }
         });
+
+        handler.postDelayed(runnable, 1000);
 
     }
 

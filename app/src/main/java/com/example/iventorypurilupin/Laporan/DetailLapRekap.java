@@ -11,6 +11,7 @@ import android.graphics.Paint;
 import android.graphics.pdf.PdfDocument;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
@@ -40,6 +41,8 @@ import com.example.iventorypurilupin.response.response_total_rekap_split.Respons
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.List;
 
 import retrofit2.Call;
@@ -58,6 +61,9 @@ public class DetailLapRekap extends AppCompatActivity {
     private RecyclerView rvTotalSplit;
     private RecyclerView rvTotalFlake;
     private TextView tvOlehRekap;
+    private Handler handler=new Handler();
+    private TextView tvTanggalCetak;
+
 
     public static Bitmap loadBitmapFromView(View v, int width, int height) {
         Bitmap b = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
@@ -76,7 +82,7 @@ public class DetailLapRekap extends AppCompatActivity {
         rvSplit.setLayoutManager(new LinearLayoutManager(this));
         rvSplit.setHasFixedSize(true);
 
-
+        tvTanggalCetak = findViewById(R.id.tv_Tanggal_cetak);
         tvOlehRekap = findViewById(R.id.tv_profil_rekap);
         rvFlake = findViewById(R.id.rv_rekap_flake);
         rvFlake.setHasFixedSize(true);
@@ -110,9 +116,20 @@ public class DetailLapRekap extends AppCompatActivity {
                 createPdf();
             }
         });
-
+        handler.postDelayed(runnable,1000);
 
     }
+
+    private Runnable runnable = new Runnable() {
+        @Override
+        public void run() {
+            Calendar c1 = Calendar.getInstance();
+            SimpleDateFormat sdf1 = new SimpleDateFormat("d/M/yyyy");
+            String strdate = sdf1.format(c1.getTime());
+            tvTanggalCetak.setText(strdate);
+        }
+    };
+
 
     private void cetakSplit() {
         String tgl = getIntent().getStringExtra("tanggal");
